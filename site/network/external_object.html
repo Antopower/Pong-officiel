@@ -1,0 +1,110 @@
+<HTML>
+<HEAD>
+<META NAME="generator" CONTENT="ISE EiffelStudio version 7.1.8.8986 GPL Edition - windows">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<TITLE>external_object Text</TITLE>
+<LINK REL="stylesheet" HREF="../../stylesheets/styles.css" TYPE="text/css">
+<SCRIPT TYPE="text/javascript" SRC="../goto.html"></SCRIPT>
+</HEAD>
+<BODY>
+<P ALIGN="CENTER">Automatic generation produced by ISE Eiffel</P>
+<header>
+<h1>Pong-officiel</h1>
+<p>Pong - Officiel</p>
+</header>
+<div id="banner">
+<span id="logo"></span>
+<a href="https://github.com/Hetrick/Pong-officiel" class="button fork"><strong>View On GitHub</strong></a>
+<div class="downloads">
+<span>Downloads:</span>
+<ul>
+<li><a href="https://github.com/Hetrick/Pong-officiel/zipball/master" class="button">ZIP</a></li>
+<li><a href="https://github.com/Hetrick/Pong-officiel/tarball/master" class="button">TAR</a></li>
+</ul>
+</div>
+</div>
+<div class="wrapper">
+<nav>
+<ul></ul>
+</nav>
+<section>
+<pre><FORM ONSUBMIT="go_to('../',this.c.value);return false;">
+<TABLE CELLSPACING="5" CELLPADDING="4"><TR>
+<TD CLASS="link1"><A CLASS="link1" HREF="../class_list.html">Classes</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_list.html">Clusters</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_hierarchy.html">Cluster hierarchy</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="external_object_chart.html">Chart</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="external_object_links.html">Relations</A></TD>
+<TD CLASS="nolink2">Text</TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="external_object_flat.html">Flat</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="external_object_short.html">Contracts</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="external_object_flatshort.html">Flat contracts</A></TD>
+<TD CLASS="link2">Go to: <INPUT NAME="c" VALUE="external_object"></TD>
+</TR></TABLE></FORM><SPAN CLASS="ekeyword">deferred</SPAN> <SPAN CLASS="ekeyword">class</SPAN> 
+	<A CLASS="eclass" HREF="../network/external_object.html">EXTERNAL_OBJECT</A>
+
+<SPAN CLASS="ekeyword">inherit</SPAN>
+	<A CLASS="eclass" HREF="../elks/disposable.html">DISPOSABLE</A>
+		<SPAN CLASS="ekeyword">redefine</SPAN>
+			<A CLASS="efeature" HREF="../network/external_object.html#f_dispose">dispose</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Initialization</SPAN>
+
+	<A NAME="f_make_from_external"></A><A CLASS="efeature" HREF="../network/external_object.html#f_make_from_external">make_from_external</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">an_object_ptr</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer.html">POINTER</A><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">an_object_ptr_not_null</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="elocal">an_object_ptr</SPAN> <SPAN CLASS="esymbol">/=</SPAN> <A CLASS="efeature" HREF="../elks/any.html#f_default_pointer">default_pointer</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../network/external_object.html#f_object_ptr">object_ptr</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">an_object_ptr</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Removal</SPAN>
+
+	<A NAME="f_dispose"></A><A CLASS="efeature" HREF="../network/external_object.html#f_dispose">dispose</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> free external C object.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="efeature" HREF="../network/external_object.html#f_object_ptr">object_ptr</A> <SPAN CLASS="esymbol">/=</SPAN> <A CLASS="efeature" HREF="../elks/any.html#f_default_pointer">default_pointer</A> <SPAN CLASS="ekeyword">then</SPAN>
+				<A CLASS="efeature" HREF="../network/external_object.html#f_c_free">c_free</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../network/external_object.html#f_object_ptr">object_ptr</A><SPAN CLASS="esymbol">)</SPAN>
+				<A CLASS="efeature" HREF="../network/external_object.html#f_object_ptr">object_ptr</A> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../elks/any.html#f_default_pointer">default_pointer</A>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> 
+
+	<A NAME="f_object_ptr"></A><A CLASS="efeature" HREF="../network/external_object.html#f_object_ptr">object_ptr</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer.html">POINTER</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Pointer to the corresponding C object</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="esymbol">{</SPAN>NONE<SPAN CLASS="esymbol">}</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> externals</SPAN>
+
+	<A NAME="f_c_free"></A><A CLASS="efeature" HREF="../network/external_object.html#f_c_free">c_free</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">obj_ptr</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer.html">POINTER</A><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">obj_ptr_not_null</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="elocal">obj_ptr</SPAN> <SPAN CLASS="esymbol">/=</SPAN> <A CLASS="efeature" HREF="../elks/any.html#f_default_pointer">default_pointer</A>
+		<SPAN CLASS="ekeyword">deferred</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+	
+<SPAN CLASS="ekeyword">end</SPAN> <SPAN CLASS="ecomment">--</SPAN> <SPAN CLASS="ecomment">class </SPAN><A CLASS="eclass" HREF="../network/external_object.html">EXTERNAL_OBJECT</A><FORM ONSUBMIT="go_to('../',this.c.value);return false;">
+<TABLE CELLSPACING="5" CELLPADDING="4"><TR>
+<TD CLASS="link1"><A CLASS="link1" HREF="../class_list.html">Classes</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_list.html">Clusters</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_hierarchy.html">Cluster hierarchy</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="external_object_chart.html">Chart</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="external_object_links.html">Relations</A></TD>
+<TD CLASS="nolink2">Text</TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="external_object_flat.html">Flat</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="external_object_short.html">Contracts</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="external_object_flatshort.html">Flat contracts</A></TD>
+<TD CLASS="link2">Go to: <INPUT NAME="c" VALUE="external_object"></TD>
+</TR></TABLE></FORM></pre>
+</section>
+<footer>
+<p>Project maintained by <a href="https://github.com/Hetrick">Hetrick</a></p>
+<p><small>Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></small></p>
+</footer>
+</div>
+<BR>For more details: <A HREF="http://www.eiffel.com">www.eiffel.com</A></P>
+</BODY>
+</HTML>
+

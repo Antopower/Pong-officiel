@@ -1,0 +1,205 @@
+<HTML>
+<HEAD>
+<META NAME="generator" CONTENT="ISE EiffelStudio version 7.1.8.8986 GPL Edition - windows">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="description" content="Garbage collector statistics. This class may be used as ancestor by classes needing its facilities. Time accounting is relevant only if `enable_time_accounting'  (from MEMORY) has been called."/>
+<meta name="library" content="Free implementation of ELKS library"/>
+<meta name="legal" content="See notice at end of class."/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="copyright" content="Copyright (c) 1984-2012, Eiffel Software and others"/>
+<meta name="license" content="Eiffel Forum License v2 (see http://www.eiffel.com/licensing/forum.txt)"/>
+<meta name="source" content="Eiffel Software 5949 Hollister Ave., Goleta, CA 93117 USA Telephone 805-685-1006, Fax 805-685-6869 Website http://www.eiffel.com Customer support http://support.eiffel.com"/>
+<meta name="keywords" content="Eiffel class"/>
+<TITLE>gc_info Contracts</TITLE>
+<LINK REL="stylesheet" HREF="../../stylesheets/styles.css" TYPE="text/css">
+<SCRIPT TYPE="text/javascript" SRC="../goto.html"></SCRIPT>
+</HEAD>
+<BODY>
+<P ALIGN="CENTER">Automatic generation produced by ISE Eiffel</P>
+<header>
+<h1>Pong-officiel</h1>
+<p>Pong - Officiel</p>
+</header>
+<div id="banner">
+<span id="logo"></span>
+<a href="https://github.com/Hetrick/Pong-officiel" class="button fork"><strong>View On GitHub</strong></a>
+<div class="downloads">
+<span>Downloads:</span>
+<ul>
+<li><a href="https://github.com/Hetrick/Pong-officiel/zipball/master" class="button">ZIP</a></li>
+<li><a href="https://github.com/Hetrick/Pong-officiel/tarball/master" class="button">TAR</a></li>
+</ul>
+</div>
+</div>
+<div class="wrapper">
+<nav>
+<ul></ul>
+</nav>
+<section>
+<pre><FORM ONSUBMIT="go_to('../',this.c.value);return false;">
+<TABLE CELLSPACING="5" CELLPADDING="4"><TR>
+<TD CLASS="link1"><A CLASS="link1" HREF="../class_list.html">Classes</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_list.html">Clusters</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_hierarchy.html">Cluster hierarchy</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="gc_info_chart.html">Chart</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="gc_info_links.html">Relations</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="gc_info.html">Text</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="gc_info_flat.html">Flat</A></TD>
+<TD CLASS="nolink2">Contracts</TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="gc_info_flatshort.html">Flat contracts</A></TD>
+<TD CLASS="link2">Go to: <INPUT NAME="c" VALUE="gc_info"></TD>
+</TR></TABLE></FORM><SPAN CLASS="ekeyword">note</SPAN>
+	<SPAN CLASS="eitag">description</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;</SPAN><SPAN CLASS="estring">[</SPAN>
+		<SPAN CLASS="estring">Garbage collector statistics.</SPAN>
+		<SPAN CLASS="estring">This class may be used as ancestor by classes needing its facilities.</SPAN>
+		<SPAN CLASS="estring">Time accounting is relevant only if </SPAN><SPAN CLASS="estring">`enable_time_accounting'</SPAN><SPAN CLASS="estring"> </SPAN>
+		<SPAN CLASS="estring">(from MEMORY) has been called.</SPAN>
+	<SPAN CLASS="estring">]</SPAN><SPAN CLASS="estring">&quot;</SPAN>
+	<SPAN CLASS="eitag">library</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;Free implementation of ELKS library&quot;</SPAN>
+	<SPAN CLASS="eitag">status</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;See notice at end of class.&quot;</SPAN>
+	<SPAN CLASS="eitag">legal</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;See notice at end of class.&quot;</SPAN>
+	<SPAN CLASS="eitag">date</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;$Date: 2012-05-23 21:13:10 -0700 (Wed, 23 May 2012) $&quot;</SPAN>
+	<SPAN CLASS="eitag">revision</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;$Revision: 559 $&quot;</SPAN>
+
+<SPAN CLASS="ekeyword">class</SPAN> <SPAN CLASS="ekeyword">interface</SPAN>
+	<A CLASS="eclass" HREF="../elks/gc_info_short.html">GC_INFO</A>
+
+<SPAN CLASS="ekeyword">create</SPAN> 
+	<A CLASS="efeature" HREF="../elks/gc_info_short.html#f_make">make</A>
+
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Initialization</SPAN>
+
+	<A NAME="f_make"></A><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_make">make</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">memory</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32_short.html">INTEGER_32</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Fill in statistics for </SPAN>`memory'<SPAN CLASS="ecomment"> type</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">memory_valid</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="elocal">memory</SPAN> <SPAN CLASS="esymbol">=</SPAN> <A CLASS="efeature" HREF="../elks/mem_const_short.html#f_incremental_collector">Incremental_collector</A> <A CLASS="ekeyword" HREF="../elks/boolean_short.html#f_disjuncted">or</A> <SPAN CLASS="elocal">memory</SPAN> <SPAN CLASS="esymbol">=</SPAN> <A CLASS="efeature" HREF="../elks/mem_const_short.html#f_full_collector">Full_collector</A>
+		<SPAN CLASS="ekeyword">ensure</SPAN>
+			<SPAN CLASS="etag">type_set</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../elks/gc_info_short.html#f_type">type</A> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="elocal">memory</SPAN>
+
+	<A NAME="f_update"></A><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_update">update</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">memory</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32_short.html">INTEGER_32</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Fill in statistics for </SPAN>`memory'<SPAN CLASS="ecomment"> type</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">memory_valid</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="elocal">memory</SPAN> <SPAN CLASS="esymbol">=</SPAN> <A CLASS="efeature" HREF="../elks/mem_const_short.html#f_incremental_collector">Incremental_collector</A> <A CLASS="ekeyword" HREF="../elks/boolean_short.html#f_disjuncted">or</A> <SPAN CLASS="elocal">memory</SPAN> <SPAN CLASS="esymbol">=</SPAN> <A CLASS="efeature" HREF="../elks/mem_const_short.html#f_full_collector">Full_collector</A>
+		<SPAN CLASS="ekeyword">ensure</SPAN>
+			<SPAN CLASS="etag">type_set</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../elks/gc_info_short.html#f_type">type</A> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="elocal">memory</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Access</SPAN>
+
+	<A NAME="f_type"></A><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_type">type</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32_short.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Collector type (Full, Collect),</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> for </SPAN><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_type">type</A><SPAN CLASS="ecomment"> before last call to </SPAN><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_update">update</A>
+
+	<A NAME="f_cycle_count"></A><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_cycle_count">cycle_count</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32_short.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Number of collection cycles for </SPAN><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_type">type</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> before last call to </SPAN><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_update">update</A>
+
+	<A NAME="f_memory_used"></A><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_memory_used">memory_used</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32_short.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Total number of bytes used (counting overhead)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> after last cycle for </SPAN><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_type">type</A><SPAN CLASS="ecomment"> before last</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> call to </SPAN><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_update">update</A>
+
+	<A NAME="f_collected"></A><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_collected">collected</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32_short.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Number of bytes collected by the last cycle,</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> for </SPAN><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_type">type</A><SPAN CLASS="ecomment"> before last call to </SPAN><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_update">update</A>
+
+	<A NAME="f_collected_average"></A><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_collected_average">collected_average</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32_short.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Average number of bytes collected by a cycle,</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> for </SPAN><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_type">type</A><SPAN CLASS="ecomment"> before last call to </SPAN><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_update">update</A>
+
+	<A NAME="f_real_time"></A><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_real_time">real_time</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32_short.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Real time in centi-seconds used by last cycle</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> for </SPAN><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_type">type</A><SPAN CLASS="ecomment">, before last call to </SPAN><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_update">update</A><SPAN CLASS="ecomment">;</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> this may not be accurate on systems which do not</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> provide a sub-second accuracy clock (typically</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> provided on BSD).</SPAN>
+
+	<A NAME="f_real_time_average"></A><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_real_time_average">real_time_average</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32_short.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Average amount of real time, in centi-seconds,</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> spent in collection cycle,</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> for </SPAN><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_type">type</A><SPAN CLASS="ecomment"> before last call to </SPAN><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_update">update</A>
+
+	<A NAME="f_real_interval_time"></A><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_real_interval_time">real_interval_time</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32_short.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Real interval time (as opposed to CPU time) between</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> two automatically raised cycles, in centi-seconds,</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> for </SPAN><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_type">type</A><SPAN CLASS="ecomment"> before last call to </SPAN><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_update">update</A>
+
+	<A NAME="f_real_interval_time_average"></A><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_real_interval_time_average">real_interval_time_average</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32_short.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Average real interval time between two automatic</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> cycles, in centi-seconds,</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> for </SPAN><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_type">type</A><SPAN CLASS="ecomment"> before last call to </SPAN><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_update">update</A>
+
+	<A NAME="f_cpu_total_time"></A><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_cpu_total_time">cpu_total_time</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/real_64_short.html">REAL_64</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Amount of application CPU time, in seconds, for </SPAN><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_type">type</A><SPAN CLASS="ecomment"> before last call to </SPAN><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_update">update</A>
+
+	<A NAME="f_cpu_time"></A><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_cpu_time">cpu_time</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/real_64_short.html">REAL_64</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Amount of CPU time, in seconds, spent in cycle,</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> for </SPAN><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_type">type</A><SPAN CLASS="ecomment"> before last call to </SPAN><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_update">update</A>
+
+	<A NAME="f_cpu_time_average"></A><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_cpu_time_average">cpu_time_average</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/real_64_short.html">REAL_64</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Average amount of CPU time spent in cycle,</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> in seconds, for </SPAN><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_type">type</A><SPAN CLASS="ecomment"> before last call to </SPAN><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_update">update</A>
+
+	<A NAME="f_cpu_interval_time"></A><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_cpu_interval_time">cpu_interval_time</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/real_64_short.html">REAL_64</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Amount of CPU time elapsed since between last</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> and penultimate cycles for </SPAN><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_type">type</A><SPAN CLASS="ecomment"> before</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> last call to </SPAN><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_update">update</A>
+
+	<A NAME="f_cpu_interval_time_average"></A><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_cpu_interval_time_average">cpu_interval_time_average</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/real_64_short.html">REAL_64</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Average amount of CPU time between two cycles,</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> for </SPAN><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_type">type</A><SPAN CLASS="ecomment"> before last call to </SPAN><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_update">update</A>
+
+	<A NAME="f_sys_total_time"></A><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_sys_total_time">sys_total_time</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/real_64_short.html">REAL_64</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Amount of application kernel time, in seconds, for </SPAN><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_type">type</A><SPAN CLASS="ecomment"> before last call to </SPAN><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_update">update</A>
+
+	<A NAME="f_sys_time"></A><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_sys_time">sys_time</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/real_64_short.html">REAL_64</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Amount of kernel time, in seconds, spent in cycle,</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> for </SPAN><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_type">type</A><SPAN CLASS="ecomment"> before last call to </SPAN><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_update">update</A>
+
+	<A NAME="f_sys_time_average"></A><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_sys_time_average">sys_time_average</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/real_64_short.html">REAL_64</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Average amount of kernel time spent in cycle,</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> for </SPAN><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_type">type</A><SPAN CLASS="ecomment"> before last call to </SPAN><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_update">update</A>
+
+	<A NAME="f_sys_interval_time"></A><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_sys_interval_time">sys_interval_time</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/real_64_short.html">REAL_64</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Amount of kernel time elapsed since between</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> the last and the penultimate cycle,</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> for </SPAN><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_type">type</A><SPAN CLASS="ecomment"> before last call to </SPAN><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_update">update</A>
+
+	<A NAME="f_sys_interval_time_average"></A><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_sys_interval_time_average">sys_interval_time_average</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/real_64_short.html">REAL_64</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Average amount of kernel time between two cycles,</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> for </SPAN><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_type">type</A><SPAN CLASS="ecomment"> before last call to </SPAN><A CLASS="efeature" HREF="../elks/gc_info_short.html#f_update">update</A>
+	
+<SPAN CLASS="ekeyword">note</SPAN>
+	<SPAN CLASS="eitag">copyright</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;Copyright (c) 1984-2012, Eiffel Software and others&quot;</SPAN>
+	<SPAN CLASS="eitag">license</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;Eiffel Forum License v2 (see </SPAN><A CLASS="estring" HREF="http://www.eiffel.com/licensing/forum.txt">http://www.eiffel.com/licensing/forum.txt</A><SPAN CLASS="estring">)&quot;</SPAN>
+	<SPAN CLASS="eitag">source</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;</SPAN><SPAN CLASS="estring">[</SPAN>
+		<SPAN CLASS="estring">Eiffel Software</SPAN>
+		<SPAN CLASS="estring">5949 Hollister Ave., Goleta, CA 93117 USA</SPAN>
+		<SPAN CLASS="estring">Telephone 805-685-1006, Fax 805-685-6869</SPAN>
+		<SPAN CLASS="estring">Website </SPAN><A CLASS="estring" HREF="http://www.eiffel.com">http://www.eiffel.com</A>
+		<SPAN CLASS="estring">Customer support </SPAN><A CLASS="estring" HREF="http://support.eiffel.com">http://support.eiffel.com</A>
+	<SPAN CLASS="estring">]</SPAN><SPAN CLASS="estring">&quot;</SPAN>
+
+<SPAN CLASS="ekeyword">end</SPAN> <SPAN CLASS="ecomment">--</SPAN> <SPAN CLASS="ecomment">class </SPAN><A CLASS="eclass" HREF="../elks/gc_info_short.html">GC_INFO</A><FORM ONSUBMIT="go_to('../',this.c.value);return false;">
+<TABLE CELLSPACING="5" CELLPADDING="4"><TR>
+<TD CLASS="link1"><A CLASS="link1" HREF="../class_list.html">Classes</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_list.html">Clusters</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_hierarchy.html">Cluster hierarchy</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="gc_info_chart.html">Chart</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="gc_info_links.html">Relations</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="gc_info.html">Text</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="gc_info_flat.html">Flat</A></TD>
+<TD CLASS="nolink2">Contracts</TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="gc_info_flatshort.html">Flat contracts</A></TD>
+<TD CLASS="link2">Go to: <INPUT NAME="c" VALUE="gc_info"></TD>
+</TR></TABLE></FORM></pre>
+</section>
+<footer>
+<p>Project maintained by <a href="https://github.com/Hetrick">Hetrick</a></p>
+<p><small>Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></small></p>
+</footer>
+</div>
+<BR>For more details: <A HREF="http://www.eiffel.com">www.eiffel.com</A></P>
+</BODY>
+</HTML>
+

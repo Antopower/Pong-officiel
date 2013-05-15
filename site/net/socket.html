@@ -1,0 +1,1432 @@
+<HTML>
+<HEAD>
+<META NAME="generator" CONTENT="ISE EiffelStudio version 7.1.8.8986 GPL Edition - windows">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="description" content="Generic sockets"/>
+<meta name="legal" content="See notice at end of class."/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="copyright" content="Copyright (c) 1984-2006, Eiffel Software and others"/>
+<meta name="license" content="Eiffel Forum License v2 (see http://www.eiffel.com/licensing/forum.txt)"/>
+<meta name="source" content="Eiffel Software 356 Storke Road, Goleta, CA 93117 USA Telephone 805-685-1006, Fax 805-685-6869 Website http://www.eiffel.com Customer support http://support.eiffel.com"/>
+<meta name="keywords" content="Eiffel class"/>
+<TITLE>socket Text</TITLE>
+<LINK REL="stylesheet" HREF="../../stylesheets/styles.css" TYPE="text/css">
+<SCRIPT TYPE="text/javascript" SRC="../goto.html"></SCRIPT>
+</HEAD>
+<BODY>
+<P ALIGN="CENTER">Automatic generation produced by ISE Eiffel</P>
+<header>
+<h1>Pong-officiel</h1>
+<p>Pong - Officiel</p>
+</header>
+<div id="banner">
+<span id="logo"></span>
+<a href="https://github.com/Hetrick/Pong-officiel" class="button fork"><strong>View On GitHub</strong></a>
+<div class="downloads">
+<span>Downloads:</span>
+<ul>
+<li><a href="https://github.com/Hetrick/Pong-officiel/zipball/master" class="button">ZIP</a></li>
+<li><a href="https://github.com/Hetrick/Pong-officiel/tarball/master" class="button">TAR</a></li>
+</ul>
+</div>
+</div>
+<div class="wrapper">
+<nav>
+<ul></ul>
+</nav>
+<section>
+<pre><FORM ONSUBMIT="go_to('../',this.c.value);return false;">
+<TABLE CELLSPACING="5" CELLPADDING="4"><TR>
+<TD CLASS="link1"><A CLASS="link1" HREF="../class_list.html">Classes</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_list.html">Clusters</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_hierarchy.html">Cluster hierarchy</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="socket_chart.html">Chart</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="socket_links.html">Relations</A></TD>
+<TD CLASS="nolink2">Text</TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="socket_flat.html">Flat</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="socket_short.html">Contracts</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="socket_flatshort.html">Flat contracts</A></TD>
+<TD CLASS="link2">Go to: <INPUT NAME="c" VALUE="socket"></TD>
+</TR></TABLE></FORM><SPAN CLASS="ekeyword">note</SPAN>
+	<SPAN CLASS="eitag">description</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;Generic sockets&quot;</SPAN>
+	<SPAN CLASS="eitag">legal</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;See notice at end of class.&quot;</SPAN>
+	<SPAN CLASS="eitag">status</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;See notice at end of class.&quot;</SPAN>
+	<SPAN CLASS="eitag">date</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;$Date: 2011-10-24 16:43:56 -0700 (Mon, 24 Oct 2011) $&quot;</SPAN>
+	<SPAN CLASS="eitag">revision</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;$Revision: 87601 $&quot;</SPAN>
+
+<SPAN CLASS="ekeyword">deferred</SPAN> <SPAN CLASS="ekeyword">class</SPAN> 
+	<A CLASS="eclass" HREF="../abstract/socket.html">SOCKET</A>
+
+<SPAN CLASS="ekeyword">inherit</SPAN>
+	<A CLASS="eclass" HREF="../abstract/socket_resources.html">SOCKET_RESOURCES</A>
+		<SPAN CLASS="ekeyword">redefine</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_socket_ok">socket_ok</A><SPAN CLASS="esymbol">,</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_error">error</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A CLASS="eclass" HREF="../elks/io_medium.html">IO_MEDIUM</A>
+		<SPAN CLASS="ekeyword">rename</SPAN>
+			<A CLASS="efeature" HREF="../elks/io_medium.html#f_handle">handle</A> <SPAN CLASS="ekeyword">as</SPAN> <A CLASS="efeature" HREF="../elks/io_medium.html#f_handle">descriptor</A><SPAN CLASS="esymbol">,</SPAN>
+			<A CLASS="efeature" HREF="../elks/io_medium.html#f_handle_available">handle_available</A> <SPAN CLASS="ekeyword">as</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_descriptor_available">descriptor_available</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A CLASS="eclass" HREF="../elks/exceptions.html">EXCEPTIONS</A>
+		<SPAN CLASS="ekeyword">export</SPAN>
+			<SPAN CLASS="esymbol">{</SPAN>NONE<SPAN CLASS="esymbol">}</SPAN> <SPAN CLASS="ekeyword">all</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A CLASS="eclass" HREF="../elks/platform.html">PLATFORM</A>
+		<SPAN CLASS="ekeyword">export</SPAN>
+			<SPAN CLASS="esymbol">{</SPAN>NONE<SPAN CLASS="esymbol">}</SPAN> <SPAN CLASS="ekeyword">all</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Access</SPAN>
+
+	<A NAME="f_retrieved"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_retrieved">retrieved</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/any.html">ANY</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Retrieved object structure</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> To access resulting object under correct type,</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> use assignment attempt.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Will raise an exception (code </SPAN><A CLASS="efeature" HREF="../elks/excep_const.html#f_retrieve_exception">Retrieve_exception</A><SPAN CLASS="ecomment">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> if content is not a stored Eiffel structure.</SPAN>
+		<SPAN CLASS="ekeyword">local</SPAN>
+			<SPAN CLASS="elocal">was_not_blocking</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="ekeyword">create</SPAN><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">{</SPAN><A CLASS="eclass" HREF="../elks/mismatch_corrector.html">MISMATCH_CORRECTOR</A><SPAN CLASS="esymbol">}</SPAN><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/mismatch_corrector.html#f_mismatch_information">Mismatch_information</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/any.html#f_do_nothing">do_nothing</A>
+			<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="ekeyword" HREF="../elks/boolean.html#f_negated">not</A> <A CLASS="efeature" HREF="../abstract/socket.html#f_is_blocking">is_blocking</A> <SPAN CLASS="ekeyword">then</SPAN>
+				<SPAN CLASS="elocal">was_not_blocking</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">True</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_set_blocking">set_blocking</A>
+			<SPAN CLASS="ekeyword">end</SPAN>
+			<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_eif_net_retrieved">eif_net_retrieved</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_handle">descriptor</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <SPAN CLASS="elocal">was_not_blocking</SPAN> <SPAN CLASS="ekeyword">then</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_set_non_blocking">set_non_blocking</A>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Status report</SPAN>
+
+	<A NAME="f_was_error"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Indicates that there was an error during the last operation</SPAN>
+
+	<A NAME="f_socket_ok"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_socket_ok">socket_ok</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> No error</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="ekeyword" HREF="../abstract/socket_resources.html#f_socket_ok">Precursor</A> <A CLASS="ekeyword" HREF="../elks/boolean.html#f_conjuncted_semistrict">and then</A> <A CLASS="ekeyword" HREF="../elks/boolean.html#f_negated">not</A> <A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_error"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_error">error</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/string_8.html">STRING_8</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Output a related error message.</SPAN>
+		<SPAN CLASS="ekeyword">local</SPAN>
+			<SPAN CLASS="elocal">l_error</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/string_8.html">STRING_8</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <SPAN CLASS="ekeyword">then</SPAN>
+				<SPAN CLASS="elocal">l_error</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_socket_error">socket_error</A>
+				<SPAN CLASS="ekeyword">check</SPAN>
+					<SPAN CLASS="etag">l_error_attached</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="elocal">l_error</SPAN> <SPAN CLASS="esymbol">/=</SPAN> <SPAN CLASS="ekeyword">Void</SPAN>
+				<SPAN CLASS="ekeyword">end</SPAN>
+				<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">l_error</SPAN>
+			<SPAN CLASS="ekeyword">else</SPAN>
+				<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="ekeyword" HREF="../abstract/socket_resources.html#f_error">Precursor</A>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_support_storable"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_support_storable">support_storable</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Can medium be used to store an Eiffel structure?</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">False</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_is_valid_peer_address"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_is_valid_peer_address">is_valid_peer_address</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">addr</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="ekeyword">like</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_address">address</A><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Is </SPAN>`addr'<SPAN CLASS="ecomment"> a valid peer address?</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">address_exists</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="elocal">addr</SPAN> <SPAN CLASS="esymbol">/=</SPAN> <SPAN CLASS="ekeyword">Void</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">True</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_is_valid_family"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_is_valid_family">is_valid_family</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">addr</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="ekeyword">like</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_address">address</A><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Is </SPAN>`addr'<SPAN CLASS="ecomment"> the same family as Current?</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">address_exists</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="elocal">addr</SPAN> <SPAN CLASS="esymbol">/=</SPAN> <SPAN CLASS="ekeyword">Void</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">addr</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../abstract/socket_address.html#f_family">family</A> <SPAN CLASS="esymbol">=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_family">family</A><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Element change</SPAN>
+
+	<A NAME="f_basic_store"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_basic_store">basic_store</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">object</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/any.html">ANY</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Produce an external representation of the</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> entire object structure reachable from </SPAN>`object'<SPAN CLASS="ecomment">.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Retrievable within current system only.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_eif_net_basic_store">eif_net_basic_store</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_handle">descriptor</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="esymbol">$</SPAN><SPAN CLASS="elocal">object</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/pointer_ref.html#f_item">to_pointer</A><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_general_store"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_general_store">general_store</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">object</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/any.html">ANY</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Produce an external representation of the</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> entire object structure reachable from </SPAN>`object'<SPAN CLASS="ecomment">.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Retrievable from other systems for same platform</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> (machine architecture).</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_eif_net_general_store">eif_net_general_store</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_handle">descriptor</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="esymbol">$</SPAN><SPAN CLASS="elocal">object</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/pointer_ref.html#f_item">to_pointer</A><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_independent_store"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_independent_store">independent_store</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">object</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/any.html">ANY</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Produce an external representation of the</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> entire object structure reachable from </SPAN>`object'<SPAN CLASS="ecomment">.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Retrievable from other systems for the same or other</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> platform (machine architecture).</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_eif_net_independent_store">eif_net_independent_store</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_handle">descriptor</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="esymbol">$</SPAN><SPAN CLASS="elocal">object</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/pointer_ref.html#f_item">to_pointer</A><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Basic commands</SPAN>
+
+	<A NAME="f_bind"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_bind">bind</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Bind socket to local address in </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_address">address</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">socket_exists</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_exists">exists</A>
+			<SPAN CLASS="etag">valid_local_address</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_address">address</A> <SPAN CLASS="esymbol">/=</SPAN> <SPAN CLASS="ekeyword">Void</SPAN>
+		<SPAN CLASS="ekeyword">deferred</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_connect"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_connect">connect</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Connect socket to peer address.</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">socket_exists</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_exists">exists</A>
+			<SPAN CLASS="etag">valid_peer_address</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_peer_address">peer_address</A> <SPAN CLASS="esymbol">/=</SPAN> <SPAN CLASS="ekeyword">Void</SPAN>
+		<SPAN CLASS="ekeyword">deferred</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_make_socket"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_make_socket">make_socket</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Create socket descriptor.</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">valid_family</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_family">family</A> <A CLASS="esymbol" HREF="../elks/comparable.html#f_is_greater_equal">&gt;=</A> <SPAN CLASS="enumber">0</SPAN>
+			<SPAN CLASS="etag">valid_type</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_type">type</A> <A CLASS="esymbol" HREF="../elks/comparable.html#f_is_greater_equal">&gt;=</A> <SPAN CLASS="enumber">0</SPAN>
+			<SPAN CLASS="etag">valid_protocol</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_protocol">protocol</A> <A CLASS="esymbol" HREF="../elks/comparable.html#f_is_greater_equal">&gt;=</A> <SPAN CLASS="enumber">0</SPAN>
+		<SPAN CLASS="ekeyword">deferred</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_cleanup"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_cleanup">cleanup</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Cleanup socket.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_exists">exists</A> <SPAN CLASS="ekeyword">then</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_close">close</A>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_close"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_close">close</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Close socket for all context.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_is_open_read">is_open_read</A> <A CLASS="ekeyword" HREF="../elks/boolean.html#f_disjuncted">or</A> <A CLASS="efeature" HREF="../abstract/socket.html#f_is_open_write">is_open_write</A> <SPAN CLASS="ekeyword">then</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_shutdown">shutdown</A>
+			<SPAN CLASS="ekeyword">end</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_exists">exists</A> <SPAN CLASS="ekeyword">then</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_close_socket">close_socket</A>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_close_socket"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_close_socket">close_socket</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Close socket for current context.</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">socket_exists</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_exists">exists</A>
+		<SPAN CLASS="ekeyword">deferred</SPAN>
+		<SPAN CLASS="ekeyword">ensure</SPAN>
+			<SPAN CLASS="etag">is_closed</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_is_closed">is_closed</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_is_closed"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_is_closed">is_closed</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Is socket closed?</SPAN>
+		<SPAN CLASS="ekeyword">deferred</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_descriptor_available"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_descriptor_available">descriptor_available</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Is descriptor available?</SPAN>
+
+	<A NAME="f_family"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_family">family</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Socket family eg. af_inet, af_unix</SPAN>
+
+	<A NAME="f_protocol"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_protocol">protocol</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Protocol of the socket. default 0</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> means for the system to chose the default</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> protocol for the family chosen. eg. </SPAN>`udp'<SPAN CLASS="ecomment">, </SPAN>`tcp'<SPAN CLASS="ecomment">.</SPAN>
+
+	<A NAME="f_type"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_type">type</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Type of socket. eg stream, datagram</SPAN>
+
+	<A NAME="f_address"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_address">address</A><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="ekeyword">like</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_address_type">address_type</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Local address of socket</SPAN>
+
+	<A NAME="f_peer_address"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_peer_address">peer_address</A><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="ekeyword">like</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_address">address</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Peer address of socket</SPAN>
+
+	<A NAME="f_address_type"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_address_type">address_type</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../abstract/socket_address.html">SOCKET_ADDRESS</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Type of </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_address">address</A><SPAN CLASS="ecomment"> and </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_peer_address">peer_address</A>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">not_callable</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="ekeyword">False</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">check</SPAN>
+				<SPAN CLASS="ekeyword">False</SPAN>
+			<SPAN CLASS="ekeyword">then</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">ensure</SPAN>
+			<SPAN CLASS="etag">for_typing_only</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="ekeyword">False</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_set_peer_address"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_set_peer_address">set_peer_address</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">addr</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="ekeyword">like</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_address">address</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Set peer address to </SPAN>`addr'<SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">address_exists</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="elocal">addr</SPAN> <SPAN CLASS="esymbol">/=</SPAN> <SPAN CLASS="ekeyword">Void</SPAN>
+			<SPAN CLASS="etag">address_valid</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_is_valid_peer_address">is_valid_peer_address</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">addr</SPAN><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_peer_address">peer_address</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">addr</SPAN>
+		<SPAN CLASS="ekeyword">ensure</SPAN>
+			<SPAN CLASS="etag">address_set</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_peer_address">peer_address</A> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="elocal">addr</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_set_address"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_set_address">set_address</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">addr</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="ekeyword">like</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_address">address</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Set local address to </SPAN>`addr'<SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">add_non_void</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="elocal">addr</SPAN> <SPAN CLASS="esymbol">/=</SPAN> <SPAN CLASS="ekeyword">Void</SPAN>
+			<SPAN CLASS="etag">same_type</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_is_valid_family">is_valid_family</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">addr</SPAN><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_address">address</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">addr</SPAN>
+		<SPAN CLASS="ekeyword">ensure</SPAN>
+			<SPAN CLASS="etag">address_set</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_address">address</A> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="elocal">addr</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Miscellaneous</SPAN>
+
+	<A NAME="f_name"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_name">name</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/string_8.html">STRING_8</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Socket name</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">create</SPAN> <SPAN CLASS="ekeyword">Result</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/readable_string_8.html#f_make">make</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Output</SPAN>
+
+	<A NAME="f_put_new_line"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_put_new_line">put_new_line</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Write a &quot;new_line&quot; character to socket.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Was declared in </SPAN><A CLASS="eclass" HREF="../abstract/socket.html">SOCKET</A><SPAN CLASS="ecomment"> as synonym of </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_new_line">new_line</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_put_character">put_character</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="echar">'%N'</SPAN><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_new_line"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_new_line">new_line</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Write a &quot;new_line&quot; character to socket.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Was declared in </SPAN><A CLASS="eclass" HREF="../abstract/socket.html">SOCKET</A><SPAN CLASS="ecomment"> as synonym of </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_put_new_line">put_new_line</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_put_character">put_character</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="echar">'%N'</SPAN><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_put_string"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_put_string">put_string</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">s</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/string_8.html">STRING_8</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Write string </SPAN>`s'<SPAN CLASS="ecomment"> to socket.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Was declared in </SPAN><A CLASS="eclass" HREF="../abstract/socket.html">SOCKET</A><SPAN CLASS="ecomment"> as synonym of </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_putstring">putstring</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">local</SPAN>
+			<SPAN CLASS="elocal">ext</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/c_string.html">C_STRING</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">create</SPAN> <SPAN CLASS="elocal">ext</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/c_string.html#f_make">make</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">s</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_put_managed_pointer">put_managed_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">ext</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/c_string.html#f_managed_data">managed_data</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">s</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/readable_string_8.html#f_count">count</A><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_putstring"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_putstring">putstring</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">s</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/string_8.html">STRING_8</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Write string </SPAN>`s'<SPAN CLASS="ecomment"> to socket.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Was declared in </SPAN><A CLASS="eclass" HREF="../abstract/socket.html">SOCKET</A><SPAN CLASS="ecomment"> as synonym of </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_put_string">put_string</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">local</SPAN>
+			<SPAN CLASS="elocal">ext</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/c_string.html">C_STRING</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">create</SPAN> <SPAN CLASS="elocal">ext</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/c_string.html#f_make">make</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">s</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_put_managed_pointer">put_managed_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">ext</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/c_string.html#f_managed_data">managed_data</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">s</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/readable_string_8.html#f_count">count</A><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_put_managed_pointer"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_put_managed_pointer">put_managed_pointer</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">p</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/managed_pointer.html">MANAGED_POINTER</A><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">start_pos</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">nb_bytes</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Put data of length </SPAN>`nb_bytes'<SPAN CLASS="ecomment"> pointed by </SPAN>`start_pos'<SPAN CLASS="ecomment"> index in </SPAN>`p'<SPAN CLASS="ecomment"> at</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> current position.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_c_put_stream">c_put_stream</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_handle">descriptor</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">p</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_item">item</A> <A CLASS="esymbol" HREF="../elks/pointer.html#f_plus">+</A> <SPAN CLASS="elocal">start_pos</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">nb_bytes</SPAN><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_put_character"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_put_character">put_character</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">c</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/character_8.html">CHARACTER_8</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Write character </SPAN>`c'<SPAN CLASS="ecomment"> to socket.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Was declared in </SPAN><A CLASS="eclass" HREF="../abstract/socket.html">SOCKET</A><SPAN CLASS="ecomment"> as synonym of </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_putchar">putchar</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_put_character">put_character</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">c</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_put_managed_pointer">put_managed_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_character_8_bytes">Character_8_bytes</A><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_putchar"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_putchar">putchar</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">c</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/character_8.html">CHARACTER_8</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Write character </SPAN>`c'<SPAN CLASS="ecomment"> to socket.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Was declared in </SPAN><A CLASS="eclass" HREF="../abstract/socket.html">SOCKET</A><SPAN CLASS="ecomment"> as synonym of </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_put_character">put_character</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_put_character">put_character</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">c</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_put_managed_pointer">put_managed_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_character_8_bytes">Character_8_bytes</A><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_put_real"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_put_real">put_real</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">r</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/real_32.html">REAL_32</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Write real </SPAN>`r'<SPAN CLASS="ecomment"> to socket.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Was declared in </SPAN><A CLASS="eclass" HREF="../abstract/socket.html">SOCKET</A><SPAN CLASS="ecomment"> as synonym of </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_putreal">putreal</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_put_real_32">put_real_32</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">r</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_put_managed_pointer">put_managed_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_real_32_bytes">Real_32_bytes</A><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_putreal"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_putreal">putreal</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">r</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/real_32.html">REAL_32</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Write real </SPAN>`r'<SPAN CLASS="ecomment"> to socket.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Was declared in </SPAN><A CLASS="eclass" HREF="../abstract/socket.html">SOCKET</A><SPAN CLASS="ecomment"> as synonym of </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_put_real">put_real</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_put_real_32">put_real_32</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">r</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_put_managed_pointer">put_managed_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_real_32_bytes">Real_32_bytes</A><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_put_double"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_put_double">put_double</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">d</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/real_64.html">REAL_64</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Write double </SPAN>`d'<SPAN CLASS="ecomment"> to socket.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Was declared in </SPAN><A CLASS="eclass" HREF="../abstract/socket.html">SOCKET</A><SPAN CLASS="ecomment"> as synonym of </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_putdouble">putdouble</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_put_real_64_be">put_real_64_be</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">d</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_put_managed_pointer">put_managed_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_real_64_bytes">Real_64_bytes</A><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_putdouble"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_putdouble">putdouble</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">d</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/real_64.html">REAL_64</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Write double </SPAN>`d'<SPAN CLASS="ecomment"> to socket.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Was declared in </SPAN><A CLASS="eclass" HREF="../abstract/socket.html">SOCKET</A><SPAN CLASS="ecomment"> as synonym of </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_put_double">put_double</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_put_real_64_be">put_real_64_be</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">d</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_put_managed_pointer">put_managed_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_real_64_bytes">Real_64_bytes</A><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_put_integer"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_put_integer">put_integer</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">i</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Write integer </SPAN>`i'<SPAN CLASS="ecomment"> to socket.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Was declared in </SPAN><A CLASS="eclass" HREF="../abstract/socket.html">SOCKET</A><SPAN CLASS="ecomment"> as synonym of </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_putint">putint</A><SPAN CLASS="ecomment"> and </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_put_integer_32">put_integer_32</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_put_integer_32_be">put_integer_32_be</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">i</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_put_managed_pointer">put_managed_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_integer_32_bytes">Integer_32_bytes</A><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_putint"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_putint">putint</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">i</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Write integer </SPAN>`i'<SPAN CLASS="ecomment"> to socket.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Was declared in </SPAN><A CLASS="eclass" HREF="../abstract/socket.html">SOCKET</A><SPAN CLASS="ecomment"> as synonym of </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_put_integer">put_integer</A><SPAN CLASS="ecomment"> and </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_put_integer_32">put_integer_32</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_put_integer_32_be">put_integer_32_be</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">i</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_put_managed_pointer">put_managed_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_integer_32_bytes">Integer_32_bytes</A><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_put_integer_32"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_put_integer_32">put_integer_32</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">i</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Write integer </SPAN>`i'<SPAN CLASS="ecomment"> to socket.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Was declared in </SPAN><A CLASS="eclass" HREF="../abstract/socket.html">SOCKET</A><SPAN CLASS="ecomment"> as synonym of </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_put_integer">put_integer</A><SPAN CLASS="ecomment"> and </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_putint">putint</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_put_integer_32_be">put_integer_32_be</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">i</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_put_managed_pointer">put_managed_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_integer_32_bytes">Integer_32_bytes</A><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_put_integer_8"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_put_integer_8">put_integer_8</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">i</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_8.html">INTEGER_8</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Write integer </SPAN>`i'<SPAN CLASS="ecomment"> to socket.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_put_integer_8_be">put_integer_8_be</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">i</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_put_managed_pointer">put_managed_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_integer_8_bytes">Integer_8_bytes</A><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_put_integer_16"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_put_integer_16">put_integer_16</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">i</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_16.html">INTEGER_16</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Write integer </SPAN>`i'<SPAN CLASS="ecomment"> to socket.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_put_integer_16_be">put_integer_16_be</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">i</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_put_managed_pointer">put_managed_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_integer_16_bytes">Integer_16_bytes</A><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_put_integer_64"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_put_integer_64">put_integer_64</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">i</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_64.html">INTEGER_64</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Write integer </SPAN>`i'<SPAN CLASS="ecomment"> to socket.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_put_integer_64_be">put_integer_64_be</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">i</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_put_managed_pointer">put_managed_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_integer_64_bytes">Integer_64_bytes</A><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_put_natural_8"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_put_natural_8">put_natural_8</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">i</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/natural_8.html">NATURAL_8</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Write natural </SPAN>`i'<SPAN CLASS="ecomment"> to socket.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_put_natural_8_be">put_natural_8_be</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">i</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_put_managed_pointer">put_managed_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_natural_8_bytes">Natural_8_bytes</A><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_put_natural_16"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_put_natural_16">put_natural_16</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">i</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/natural_16.html">NATURAL_16</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Write natural </SPAN>`i'<SPAN CLASS="ecomment"> to socket.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_put_natural_16_be">put_natural_16_be</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">i</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_put_managed_pointer">put_managed_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_natural_16_bytes">Natural_16_bytes</A><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_put_natural"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_put_natural">put_natural</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">i</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/natural_32.html">NATURAL_32</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Write natural </SPAN>`i'<SPAN CLASS="ecomment"> to socket.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Was declared in </SPAN><A CLASS="eclass" HREF="../abstract/socket.html">SOCKET</A><SPAN CLASS="ecomment"> as synonym of </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_put_natural_32">put_natural_32</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_put_natural_32_be">put_natural_32_be</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">i</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_put_managed_pointer">put_managed_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_natural_32_bytes">Natural_32_bytes</A><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_put_natural_32"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_put_natural_32">put_natural_32</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">i</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/natural_32.html">NATURAL_32</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Write natural </SPAN>`i'<SPAN CLASS="ecomment"> to socket.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Was declared in </SPAN><A CLASS="eclass" HREF="../abstract/socket.html">SOCKET</A><SPAN CLASS="ecomment"> as synonym of </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_put_natural">put_natural</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_put_natural_32_be">put_natural_32_be</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">i</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_put_managed_pointer">put_managed_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_natural_32_bytes">Natural_32_bytes</A><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_put_natural_64"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_put_natural_64">put_natural_64</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">i</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/natural_64.html">NATURAL_64</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Write natural </SPAN>`i'<SPAN CLASS="ecomment"> to socket.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_put_natural_64_be">put_natural_64_be</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">i</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_put_managed_pointer">put_managed_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_natural_64_bytes">Natural_64_bytes</A><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_put_boolean"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_put_boolean">put_boolean</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">b</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Write boolean </SPAN>`b'<SPAN CLASS="ecomment"> to socket.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Was declared in </SPAN><A CLASS="eclass" HREF="../abstract/socket.html">SOCKET</A><SPAN CLASS="ecomment"> as synonym of </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_putbool">putbool</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <SPAN CLASS="elocal">b</SPAN> <SPAN CLASS="ekeyword">then</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_put_character">put_character</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="echar">'T'</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">else</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_put_character">put_character</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="echar">'F'</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_putbool"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_putbool">putbool</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">b</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Write boolean </SPAN>`b'<SPAN CLASS="ecomment"> to socket.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Was declared in </SPAN><A CLASS="eclass" HREF="../abstract/socket.html">SOCKET</A><SPAN CLASS="ecomment"> as synonym of </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_put_boolean">put_boolean</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <SPAN CLASS="elocal">b</SPAN> <SPAN CLASS="ekeyword">then</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_put_character">put_character</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="echar">'T'</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">else</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_put_character">put_character</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="echar">'F'</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_write"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_write">write</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">a_packet</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../abstract/packet.html">PACKET</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Write packet </SPAN>`a_packet'<SPAN CLASS="ecomment"> to socket.</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">a_packet_not_void</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="elocal">a_packet</SPAN> <SPAN CLASS="esymbol">/=</SPAN> <SPAN CLASS="ekeyword">Void</SPAN>
+			<SPAN CLASS="etag">socket_exists</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_exists">exists</A>
+		<SPAN CLASS="ekeyword">local</SPAN>
+			<SPAN CLASS="elocal">amount_sent</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+			<SPAN CLASS="elocal">ext_data</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer.html">POINTER</A>
+			<SPAN CLASS="elocal">return_val</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+			<SPAN CLASS="elocal">count</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">from</SPAN>
+				<SPAN CLASS="elocal">ext_data</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">a_packet</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../abstract/packet.html#f_data">data</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_item">item</A>
+				<SPAN CLASS="elocal">count</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">a_packet</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../abstract/packet.html#f_count">count</A>
+			<SPAN CLASS="ekeyword">until</SPAN>
+				<SPAN CLASS="elocal">count</SPAN> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="elocal">amount_sent</SPAN>
+			<SPAN CLASS="ekeyword">loop</SPAN>
+				<SPAN CLASS="elocal">return_val</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_c_write">c_write</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_handle">descriptor</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">ext_data</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">count</SPAN> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_minus">-</A> <SPAN CLASS="elocal">amount_sent</SPAN><SPAN CLASS="esymbol">)</SPAN>
+				<SPAN CLASS="ekeyword">if</SPAN> <SPAN CLASS="elocal">return_val</SPAN> <A CLASS="esymbol" HREF="../elks/comparable.html#f_is_greater">&gt;</A> <SPAN CLASS="enumber">0</SPAN> <SPAN CLASS="ekeyword">then</SPAN>
+					<SPAN CLASS="elocal">ext_data</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">ext_data</SPAN> <A CLASS="esymbol" HREF="../elks/pointer.html#f_plus">+</A> <SPAN CLASS="elocal">return_val</SPAN>
+					<SPAN CLASS="elocal">amount_sent</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">amount_sent</SPAN> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_plus">+</A> <SPAN CLASS="elocal">return_val</SPAN>
+				<SPAN CLASS="ekeyword">end</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_send"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_send">send</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">a_packet</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../abstract/packet.html">PACKET</A><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">flags</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Send a packet </SPAN>`a_packet'<SPAN CLASS="ecomment"> of data to socket.</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">socket_exists</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_exists">exists</A>
+			<SPAN CLASS="etag">opened_for_write</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_is_open_write">is_open_write</A>
+			<SPAN CLASS="etag">valid_packet</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="elocal">a_packet</SPAN> <SPAN CLASS="esymbol">/=</SPAN> <SPAN CLASS="ekeyword">Void</SPAN>
+		<SPAN CLASS="ekeyword">local</SPAN>
+			<SPAN CLASS="elocal">amount_sent</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+			<SPAN CLASS="elocal">ext_data</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer.html">POINTER</A>
+			<SPAN CLASS="elocal">return_val</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+			<SPAN CLASS="elocal">count</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">from</SPAN>
+				<SPAN CLASS="elocal">ext_data</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">a_packet</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../abstract/packet.html#f_data">data</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_item">item</A>
+				<SPAN CLASS="elocal">count</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">a_packet</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../abstract/packet.html#f_count">count</A>
+			<SPAN CLASS="ekeyword">until</SPAN>
+				<SPAN CLASS="elocal">count</SPAN> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="elocal">amount_sent</SPAN>
+			<SPAN CLASS="ekeyword">loop</SPAN>
+				<SPAN CLASS="elocal">return_val</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_c_send">c_send</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_handle">descriptor</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">ext_data</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">count</SPAN> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_minus">-</A> <SPAN CLASS="elocal">amount_sent</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">flags</SPAN><SPAN CLASS="esymbol">)</SPAN>
+				<SPAN CLASS="ekeyword">if</SPAN> <SPAN CLASS="elocal">return_val</SPAN> <A CLASS="esymbol" HREF="../elks/comparable.html#f_is_greater">&gt;</A> <SPAN CLASS="enumber">0</SPAN> <SPAN CLASS="ekeyword">then</SPAN>
+					<SPAN CLASS="elocal">amount_sent</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">amount_sent</SPAN> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_plus">+</A> <SPAN CLASS="elocal">return_val</SPAN>
+					<SPAN CLASS="elocal">ext_data</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">ext_data</SPAN> <A CLASS="esymbol" HREF="../elks/pointer.html#f_plus">+</A> <SPAN CLASS="elocal">return_val</SPAN>
+				<SPAN CLASS="ekeyword">end</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_exists"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_exists">exists</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Does socket exist?</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_descriptor_available">descriptor_available</A> <A CLASS="ekeyword" HREF="../elks/boolean.html#f_conjuncted_semistrict">and then</A> <A CLASS="efeature" HREF="../elks/io_medium.html#f_handle">descriptor</A> <A CLASS="esymbol" HREF="../elks/comparable.html#f_is_greater_equal">&gt;=</A> <SPAN CLASS="enumber">0</SPAN>
+		<SPAN CLASS="ekeyword">ensure then</SPAN>
+			<SPAN CLASS="etag">definition</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="ekeyword">Result</SPAN> <A CLASS="ekeyword" HREF="../elks/boolean.html#f_implication">implies</A> <A CLASS="efeature" HREF="../abstract/socket.html#f_descriptor_available">descriptor_available</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_is_open_write"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_is_open_write">is_open_write</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Is socket opened for writing?</SPAN>
+
+	<A NAME="f_is_open_read"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_is_open_read">is_open_read</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Is socket opened for reading?</SPAN>
+
+	<A NAME="f_is_executable"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_is_executable">is_executable</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Is socket an executable?</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">False</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_is_writable"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_is_writable">is_writable</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Is socket a writable medium?</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">True</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_is_readable"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_is_readable">is_readable</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Is there currently any data available on socket?</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_readable">readable</A> <A CLASS="ekeyword" HREF="../elks/boolean.html#f_conjuncted_semistrict">and then</A> <A CLASS="efeature" HREF="../abstract/socket.html#f_c_select_poll">c_select_poll</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_handle">descriptor</A><SPAN CLASS="esymbol">)</SPAN> <SPAN CLASS="esymbol">/=</SPAN> <SPAN CLASS="enumber">0</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_readable"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_readable">readable</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Is there a current item that may be read?</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_exists">exists</A> <A CLASS="ekeyword" HREF="../elks/boolean.html#f_conjuncted_semistrict">and then</A> <A CLASS="efeature" HREF="../abstract/socket.html#f_is_open_read">is_open_read</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_extendible"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_extendible">extendible</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> May new items be added?</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_exists">exists</A> <A CLASS="ekeyword" HREF="../elks/boolean.html#f_conjuncted_semistrict">and then</A> <A CLASS="efeature" HREF="../abstract/socket.html#f_is_open_write">is_open_write</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Input</SPAN>
+
+	<A NAME="f_read_real"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_read_real">read_real</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Read a new real.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Make result available in </SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_last_real">last_real</A><SPAN CLASS="ecomment">.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Was declared in </SPAN><A CLASS="eclass" HREF="../abstract/socket.html">SOCKET</A><SPAN CLASS="ecomment"> as synonym of </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_readreal">readreal</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_read_to_managed_pointer">read_to_managed_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_real_32_bytes">Real_32_bytes</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="efeature" HREF="../elks/io_medium.html#f_bytes_read">bytes_read</A> <SPAN CLASS="esymbol">/=</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_real_32_bytes">Real_32_bytes</A> <SPAN CLASS="ekeyword">then</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_socket_error">socket_error</A> <SPAN CLASS="esymbol">:=</SPAN> &quot;Peer closed connection&quot;
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">True</SPAN>
+			<SPAN CLASS="ekeyword">else</SPAN>
+				<A CLASS="efeature" HREF="../elks/io_medium.html#f_last_real">last_real</A> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_read_real_32_be">read_real_32_be</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">False</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_readreal"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_readreal">readreal</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Read a new real.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Make result available in </SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_last_real">last_real</A><SPAN CLASS="ecomment">.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Was declared in </SPAN><A CLASS="eclass" HREF="../abstract/socket.html">SOCKET</A><SPAN CLASS="ecomment"> as synonym of </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_read_real">read_real</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_read_to_managed_pointer">read_to_managed_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_real_32_bytes">Real_32_bytes</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="efeature" HREF="../elks/io_medium.html#f_bytes_read">bytes_read</A> <SPAN CLASS="esymbol">/=</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_real_32_bytes">Real_32_bytes</A> <SPAN CLASS="ekeyword">then</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_socket_error">socket_error</A> <SPAN CLASS="esymbol">:=</SPAN> &quot;Peer closed connection&quot;
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">True</SPAN>
+			<SPAN CLASS="ekeyword">else</SPAN>
+				<A CLASS="efeature" HREF="../elks/io_medium.html#f_last_real">last_real</A> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_read_real_32_be">read_real_32_be</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">False</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_read_double"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_read_double">read_double</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Read a new double.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Make result available in </SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_last_double">last_double</A><SPAN CLASS="ecomment">.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Was declared in </SPAN><A CLASS="eclass" HREF="../abstract/socket.html">SOCKET</A><SPAN CLASS="ecomment"> as synonym of </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_readdouble">readdouble</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_read_to_managed_pointer">read_to_managed_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_real_64_bytes">Real_64_bytes</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="efeature" HREF="../elks/io_medium.html#f_bytes_read">bytes_read</A> <SPAN CLASS="esymbol">/=</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_real_64_bytes">Real_64_bytes</A> <SPAN CLASS="ekeyword">then</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_socket_error">socket_error</A> <SPAN CLASS="esymbol">:=</SPAN> &quot;Peer closed connection&quot;
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">True</SPAN>
+			<SPAN CLASS="ekeyword">else</SPAN>
+				<A CLASS="efeature" HREF="../elks/io_medium.html#f_last_double">last_double</A> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_read_real_64_be">read_real_64_be</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">False</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_readdouble"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_readdouble">readdouble</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Read a new double.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Make result available in </SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_last_double">last_double</A><SPAN CLASS="ecomment">.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Was declared in </SPAN><A CLASS="eclass" HREF="../abstract/socket.html">SOCKET</A><SPAN CLASS="ecomment"> as synonym of </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_read_double">read_double</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_read_to_managed_pointer">read_to_managed_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_real_64_bytes">Real_64_bytes</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="efeature" HREF="../elks/io_medium.html#f_bytes_read">bytes_read</A> <SPAN CLASS="esymbol">/=</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_real_64_bytes">Real_64_bytes</A> <SPAN CLASS="ekeyword">then</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_socket_error">socket_error</A> <SPAN CLASS="esymbol">:=</SPAN> &quot;Peer closed connection&quot;
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">True</SPAN>
+			<SPAN CLASS="ekeyword">else</SPAN>
+				<A CLASS="efeature" HREF="../elks/io_medium.html#f_last_double">last_double</A> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_read_real_64_be">read_real_64_be</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">False</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_read_character"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_read_character">read_character</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Read a new character.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Make result available in </SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_last_character">last_character</A><SPAN CLASS="ecomment">.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Was declared in </SPAN><A CLASS="eclass" HREF="../abstract/socket.html">SOCKET</A><SPAN CLASS="ecomment"> as synonym of </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_readchar">readchar</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_read_to_managed_pointer">read_to_managed_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_character_8_bytes">Character_8_bytes</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="efeature" HREF="../elks/io_medium.html#f_bytes_read">bytes_read</A> <SPAN CLASS="esymbol">/=</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_character_8_bytes">Character_8_bytes</A> <SPAN CLASS="ekeyword">then</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_socket_error">socket_error</A> <SPAN CLASS="esymbol">:=</SPAN> &quot;Peer closed connection&quot;
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">True</SPAN>
+			<SPAN CLASS="ekeyword">else</SPAN>
+				<A CLASS="efeature" HREF="../elks/io_medium.html#f_last_character">last_character</A> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_read_character">read_character</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">False</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_readchar"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_readchar">readchar</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Read a new character.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Make result available in </SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_last_character">last_character</A><SPAN CLASS="ecomment">.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Was declared in </SPAN><A CLASS="eclass" HREF="../abstract/socket.html">SOCKET</A><SPAN CLASS="ecomment"> as synonym of </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_read_character">read_character</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_read_to_managed_pointer">read_to_managed_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_character_8_bytes">Character_8_bytes</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="efeature" HREF="../elks/io_medium.html#f_bytes_read">bytes_read</A> <SPAN CLASS="esymbol">/=</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_character_8_bytes">Character_8_bytes</A> <SPAN CLASS="ekeyword">then</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_socket_error">socket_error</A> <SPAN CLASS="esymbol">:=</SPAN> &quot;Peer closed connection&quot;
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">True</SPAN>
+			<SPAN CLASS="ekeyword">else</SPAN>
+				<A CLASS="efeature" HREF="../elks/io_medium.html#f_last_character">last_character</A> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_read_character">read_character</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">False</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_read_boolean"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_read_boolean">read_boolean</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Read a new boolean.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Maker result available in </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_last_boolean">last_boolean</A><SPAN CLASS="ecomment">.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Was declared in </SPAN><A CLASS="eclass" HREF="../abstract/socket.html">SOCKET</A><SPAN CLASS="ecomment"> as synonym of </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_readbool">readbool</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_read_character">read_character</A>
+			<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="ekeyword" HREF="../elks/boolean.html#f_negated">not</A> <A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <SPAN CLASS="ekeyword">then</SPAN>
+				<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="efeature" HREF="../elks/io_medium.html#f_last_character">last_character</A> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="echar">'T'</SPAN> <SPAN CLASS="ekeyword">then</SPAN>
+					<A CLASS="efeature" HREF="../abstract/socket.html#f_last_boolean">last_boolean</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">True</SPAN>
+				<SPAN CLASS="ekeyword">else</SPAN>
+					<A CLASS="efeature" HREF="../abstract/socket.html#f_last_boolean">last_boolean</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">False</SPAN>
+				<SPAN CLASS="ekeyword">end</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_readbool"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_readbool">readbool</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Read a new boolean.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Maker result available in </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_last_boolean">last_boolean</A><SPAN CLASS="ecomment">.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Was declared in </SPAN><A CLASS="eclass" HREF="../abstract/socket.html">SOCKET</A><SPAN CLASS="ecomment"> as synonym of </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_read_boolean">read_boolean</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_read_character">read_character</A>
+			<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="ekeyword" HREF="../elks/boolean.html#f_negated">not</A> <A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <SPAN CLASS="ekeyword">then</SPAN>
+				<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="efeature" HREF="../elks/io_medium.html#f_last_character">last_character</A> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="echar">'T'</SPAN> <SPAN CLASS="ekeyword">then</SPAN>
+					<A CLASS="efeature" HREF="../abstract/socket.html#f_last_boolean">last_boolean</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">True</SPAN>
+				<SPAN CLASS="ekeyword">else</SPAN>
+					<A CLASS="efeature" HREF="../abstract/socket.html#f_last_boolean">last_boolean</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">False</SPAN>
+				<SPAN CLASS="ekeyword">end</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_last_boolean"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_last_boolean">last_boolean</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Last boolean read by read_boolean</SPAN>
+
+	<A NAME="f_read_integer"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_read_integer">read_integer</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Read a new 32-bit integer.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Make result available in </SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_last_integer">last_integer</A><SPAN CLASS="ecomment">.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Was declared in </SPAN><A CLASS="eclass" HREF="../abstract/socket.html">SOCKET</A><SPAN CLASS="ecomment"> as synonym of </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_readint">readint</A><SPAN CLASS="ecomment"> and </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_read_integer_32">read_integer_32</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_read_to_managed_pointer">read_to_managed_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_integer_32_bytes">Integer_32_bytes</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="efeature" HREF="../elks/io_medium.html#f_bytes_read">bytes_read</A> <SPAN CLASS="esymbol">/=</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_integer_32_bytes">Integer_32_bytes</A> <SPAN CLASS="ekeyword">then</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_socket_error">socket_error</A> <SPAN CLASS="esymbol">:=</SPAN> &quot;Peer closed connection&quot;
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">True</SPAN>
+			<SPAN CLASS="ekeyword">else</SPAN>
+				<A CLASS="efeature" HREF="../elks/io_medium.html#f_last_integer">last_integer</A> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_read_integer_32_be">read_integer_32_be</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">False</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_readint"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_readint">readint</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Read a new 32-bit integer.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Make result available in </SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_last_integer">last_integer</A><SPAN CLASS="ecomment">.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Was declared in </SPAN><A CLASS="eclass" HREF="../abstract/socket.html">SOCKET</A><SPAN CLASS="ecomment"> as synonym of </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_read_integer">read_integer</A><SPAN CLASS="ecomment"> and </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_read_integer_32">read_integer_32</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_read_to_managed_pointer">read_to_managed_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_integer_32_bytes">Integer_32_bytes</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="efeature" HREF="../elks/io_medium.html#f_bytes_read">bytes_read</A> <SPAN CLASS="esymbol">/=</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_integer_32_bytes">Integer_32_bytes</A> <SPAN CLASS="ekeyword">then</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_socket_error">socket_error</A> <SPAN CLASS="esymbol">:=</SPAN> &quot;Peer closed connection&quot;
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">True</SPAN>
+			<SPAN CLASS="ekeyword">else</SPAN>
+				<A CLASS="efeature" HREF="../elks/io_medium.html#f_last_integer">last_integer</A> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_read_integer_32_be">read_integer_32_be</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">False</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_read_integer_32"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_read_integer_32">read_integer_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Read a new 32-bit integer.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Make result available in </SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_last_integer">last_integer</A><SPAN CLASS="ecomment">.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Was declared in </SPAN><A CLASS="eclass" HREF="../abstract/socket.html">SOCKET</A><SPAN CLASS="ecomment"> as synonym of </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_read_integer">read_integer</A><SPAN CLASS="ecomment"> and </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_readint">readint</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_read_to_managed_pointer">read_to_managed_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_integer_32_bytes">Integer_32_bytes</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="efeature" HREF="../elks/io_medium.html#f_bytes_read">bytes_read</A> <SPAN CLASS="esymbol">/=</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_integer_32_bytes">Integer_32_bytes</A> <SPAN CLASS="ekeyword">then</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_socket_error">socket_error</A> <SPAN CLASS="esymbol">:=</SPAN> &quot;Peer closed connection&quot;
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">True</SPAN>
+			<SPAN CLASS="ekeyword">else</SPAN>
+				<A CLASS="efeature" HREF="../elks/io_medium.html#f_last_integer">last_integer</A> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_read_integer_32_be">read_integer_32_be</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">False</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_read_integer_8"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_read_integer_8">read_integer_8</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Read a new 8-bit integer.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Make result available in </SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_last_integer_8">last_integer_8</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_read_to_managed_pointer">read_to_managed_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_integer_8_bytes">Integer_8_bytes</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="efeature" HREF="../elks/io_medium.html#f_bytes_read">bytes_read</A> <SPAN CLASS="esymbol">/=</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_integer_8_bytes">Integer_8_bytes</A> <SPAN CLASS="ekeyword">then</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_socket_error">socket_error</A> <SPAN CLASS="esymbol">:=</SPAN> &quot;Peer closed connection&quot;
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">True</SPAN>
+			<SPAN CLASS="ekeyword">else</SPAN>
+				<A CLASS="efeature" HREF="../elks/io_medium.html#f_last_integer_8">last_integer_8</A> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_read_integer_8_be">read_integer_8_be</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">False</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_read_integer_16"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_read_integer_16">read_integer_16</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Read a new 16-bit integer.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Make result available in </SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_last_integer_16">last_integer_16</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_read_to_managed_pointer">read_to_managed_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_integer_16_bytes">Integer_16_bytes</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="efeature" HREF="../elks/io_medium.html#f_bytes_read">bytes_read</A> <SPAN CLASS="esymbol">/=</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_integer_16_bytes">Integer_16_bytes</A> <SPAN CLASS="ekeyword">then</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_socket_error">socket_error</A> <SPAN CLASS="esymbol">:=</SPAN> &quot;Peer closed connection&quot;
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">True</SPAN>
+			<SPAN CLASS="ekeyword">else</SPAN>
+				<A CLASS="efeature" HREF="../elks/io_medium.html#f_last_integer_16">last_integer_16</A> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_read_integer_16_be">read_integer_16_be</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">False</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_read_integer_64"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_read_integer_64">read_integer_64</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Read a new 64-bit integer.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Make result available in </SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_last_integer_64">last_integer_64</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_read_to_managed_pointer">read_to_managed_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_integer_64_bytes">Integer_64_bytes</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="efeature" HREF="../elks/io_medium.html#f_bytes_read">bytes_read</A> <SPAN CLASS="esymbol">/=</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_integer_64_bytes">Integer_64_bytes</A> <SPAN CLASS="ekeyword">then</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_socket_error">socket_error</A> <SPAN CLASS="esymbol">:=</SPAN> &quot;Peer closed connection&quot;
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">True</SPAN>
+			<SPAN CLASS="ekeyword">else</SPAN>
+				<A CLASS="efeature" HREF="../elks/io_medium.html#f_last_integer_64">last_integer_64</A> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_read_integer_64_be">read_integer_64_be</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">False</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_read_natural_8"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_read_natural_8">read_natural_8</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Read a new 8-bit natural.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Make result available in </SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_last_natural_8">last_natural_8</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_read_to_managed_pointer">read_to_managed_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_natural_8_bytes">Natural_8_bytes</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="efeature" HREF="../elks/io_medium.html#f_bytes_read">bytes_read</A> <SPAN CLASS="esymbol">/=</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_natural_8_bytes">Natural_8_bytes</A> <SPAN CLASS="ekeyword">then</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_socket_error">socket_error</A> <SPAN CLASS="esymbol">:=</SPAN> &quot;Peer closed connection&quot;
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">True</SPAN>
+			<SPAN CLASS="ekeyword">else</SPAN>
+				<A CLASS="efeature" HREF="../elks/io_medium.html#f_last_natural_8">last_natural_8</A> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_read_natural_8_be">read_natural_8_be</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">False</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_read_natural_16"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_read_natural_16">read_natural_16</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Read a new 16-bit natural.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Make result available in </SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_last_natural_16">last_natural_16</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_read_to_managed_pointer">read_to_managed_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_natural_16_bytes">Natural_16_bytes</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="efeature" HREF="../elks/io_medium.html#f_bytes_read">bytes_read</A> <SPAN CLASS="esymbol">/=</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_natural_16_bytes">Natural_16_bytes</A> <SPAN CLASS="ekeyword">then</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_socket_error">socket_error</A> <SPAN CLASS="esymbol">:=</SPAN> &quot;Peer closed connection&quot;
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">True</SPAN>
+			<SPAN CLASS="ekeyword">else</SPAN>
+				<A CLASS="efeature" HREF="../elks/io_medium.html#f_last_natural_16">last_natural_16</A> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_read_natural_16_be">read_natural_16_be</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">False</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_read_natural"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_read_natural">read_natural</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Read a new 32-bit natural.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Make result available in </SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_last_natural">last_natural</A><SPAN CLASS="ecomment">.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Was declared in </SPAN><A CLASS="eclass" HREF="../abstract/socket.html">SOCKET</A><SPAN CLASS="ecomment"> as synonym of </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_read_natural_32">read_natural_32</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_read_to_managed_pointer">read_to_managed_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_natural_32_bytes">Natural_32_bytes</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="efeature" HREF="../elks/io_medium.html#f_bytes_read">bytes_read</A> <SPAN CLASS="esymbol">/=</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_natural_32_bytes">Natural_32_bytes</A> <SPAN CLASS="ekeyword">then</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_socket_error">socket_error</A> <SPAN CLASS="esymbol">:=</SPAN> &quot;Peer closed connection&quot;
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">True</SPAN>
+			<SPAN CLASS="ekeyword">else</SPAN>
+				<A CLASS="efeature" HREF="../elks/io_medium.html#f_last_natural">last_natural</A> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_read_natural_32_be">read_natural_32_be</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">False</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_read_natural_32"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_read_natural_32">read_natural_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Read a new 32-bit natural.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Make result available in </SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_last_natural">last_natural</A><SPAN CLASS="ecomment">.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Was declared in </SPAN><A CLASS="eclass" HREF="../abstract/socket.html">SOCKET</A><SPAN CLASS="ecomment"> as synonym of </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_read_natural">read_natural</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_read_to_managed_pointer">read_to_managed_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_natural_32_bytes">Natural_32_bytes</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="efeature" HREF="../elks/io_medium.html#f_bytes_read">bytes_read</A> <SPAN CLASS="esymbol">/=</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_natural_32_bytes">Natural_32_bytes</A> <SPAN CLASS="ekeyword">then</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_socket_error">socket_error</A> <SPAN CLASS="esymbol">:=</SPAN> &quot;Peer closed connection&quot;
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">True</SPAN>
+			<SPAN CLASS="ekeyword">else</SPAN>
+				<A CLASS="efeature" HREF="../elks/io_medium.html#f_last_natural">last_natural</A> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_read_natural_32_be">read_natural_32_be</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">False</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_read_natural_64"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_read_natural_64">read_natural_64</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Read a new 64-bit natural.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Make result available in </SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_last_natural_64">last_natural_64</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_read_to_managed_pointer">read_to_managed_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_natural_64_bytes">Natural_64_bytes</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="efeature" HREF="../elks/io_medium.html#f_bytes_read">bytes_read</A> <SPAN CLASS="esymbol">/=</SPAN> <A CLASS="efeature" HREF="../elks/platform.html#f_natural_64_bytes">Natural_64_bytes</A> <SPAN CLASS="ekeyword">then</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_socket_error">socket_error</A> <SPAN CLASS="esymbol">:=</SPAN> &quot;Peer closed connection&quot;
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">True</SPAN>
+			<SPAN CLASS="ekeyword">else</SPAN>
+				<A CLASS="efeature" HREF="../elks/io_medium.html#f_last_natural_64">last_natural_64</A> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_read_natural_64_be">read_natural_64_be</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">False</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_read_stream"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_read_stream">read_stream</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">nb_char</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Read a string of at most </SPAN>`nb_char'<SPAN CLASS="ecomment"> characters.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Make result available in </SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_last_string">last_string</A><SPAN CLASS="ecomment">.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Was declared in </SPAN><A CLASS="eclass" HREF="../abstract/socket.html">SOCKET</A><SPAN CLASS="ecomment"> as synonym of </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_readstream">readstream</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">local</SPAN>
+			<SPAN CLASS="elocal">ext</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/c_string.html">C_STRING</A>
+			<SPAN CLASS="elocal">return_val</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">create</SPAN> <SPAN CLASS="elocal">ext</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/c_string.html#f_make_empty">make_empty</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">nb_char</SPAN> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_plus">+</A> <SPAN CLASS="enumber">1</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="elocal">return_val</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_c_read_stream">c_read_stream</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_handle">descriptor</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">nb_char</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">ext</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/c_string.html#f_item">item</A><SPAN CLASS="esymbol">)</SPAN>
+			<A CLASS="efeature" HREF="../elks/io_medium.html#f_bytes_read">bytes_read</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">return_val</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <SPAN CLASS="elocal">return_val</SPAN> <A CLASS="esymbol" HREF="../elks/comparable.html#f_is_greater_equal">&gt;=</A> <SPAN CLASS="enumber">0</SPAN> <SPAN CLASS="ekeyword">then</SPAN>
+				<SPAN CLASS="elocal">ext</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/c_string.html#f_set_count">set_count</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">return_val</SPAN><SPAN CLASS="esymbol">)</SPAN>
+				<A CLASS="efeature" HREF="../elks/io_medium.html#f_last_string">last_string</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">ext</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/c_string.html#f_substring">substring</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="enumber">1</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">return_val</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">else</SPAN>
+				<A CLASS="efeature" HREF="../elks/io_medium.html#f_last_string">last_string</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/string_8.html#f_wipe_out">wipe_out</A>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_readstream"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_readstream">readstream</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">nb_char</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Read a string of at most </SPAN>`nb_char'<SPAN CLASS="ecomment"> characters.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Make result available in </SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_last_string">last_string</A><SPAN CLASS="ecomment">.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Was declared in </SPAN><A CLASS="eclass" HREF="../abstract/socket.html">SOCKET</A><SPAN CLASS="ecomment"> as synonym of </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_read_stream">read_stream</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">local</SPAN>
+			<SPAN CLASS="elocal">ext</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/c_string.html">C_STRING</A>
+			<SPAN CLASS="elocal">return_val</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">create</SPAN> <SPAN CLASS="elocal">ext</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/c_string.html#f_make_empty">make_empty</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">nb_char</SPAN> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_plus">+</A> <SPAN CLASS="enumber">1</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="elocal">return_val</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_c_read_stream">c_read_stream</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_handle">descriptor</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">nb_char</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">ext</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/c_string.html#f_item">item</A><SPAN CLASS="esymbol">)</SPAN>
+			<A CLASS="efeature" HREF="../elks/io_medium.html#f_bytes_read">bytes_read</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">return_val</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <SPAN CLASS="elocal">return_val</SPAN> <A CLASS="esymbol" HREF="../elks/comparable.html#f_is_greater_equal">&gt;=</A> <SPAN CLASS="enumber">0</SPAN> <SPAN CLASS="ekeyword">then</SPAN>
+				<SPAN CLASS="elocal">ext</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/c_string.html#f_set_count">set_count</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">return_val</SPAN><SPAN CLASS="esymbol">)</SPAN>
+				<A CLASS="efeature" HREF="../elks/io_medium.html#f_last_string">last_string</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">ext</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/c_string.html#f_substring">substring</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="enumber">1</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">return_val</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">else</SPAN>
+				<A CLASS="efeature" HREF="../elks/io_medium.html#f_last_string">last_string</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/string_8.html#f_wipe_out">wipe_out</A>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_read_to_managed_pointer"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_read_to_managed_pointer">read_to_managed_pointer</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">p</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/managed_pointer.html">MANAGED_POINTER</A><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">start_pos</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">nb_bytes</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Read at most </SPAN>`nb_bytes'<SPAN CLASS="ecomment"> bound bytes and make result</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> available in </SPAN>`p'<SPAN CLASS="ecomment"> at position </SPAN>`start_pos'<SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">local</SPAN>
+			<SPAN CLASS="elocal">l_read</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+			<SPAN CLASS="elocal">l_last_read</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">from</SPAN>
+				<SPAN CLASS="elocal">l_last_read</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="enumber">1</SPAN>
+			<SPAN CLASS="ekeyword">until</SPAN>
+				<SPAN CLASS="elocal">l_read</SPAN> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="elocal">nb_bytes</SPAN> <A CLASS="ekeyword" HREF="../elks/boolean.html#f_disjuncted">or</A> <SPAN CLASS="elocal">l_last_read</SPAN> <A CLASS="esymbol" HREF="../elks/comparable.html#f_is_less_equal">&lt;=</A> <SPAN CLASS="enumber">0</SPAN>
+			<SPAN CLASS="ekeyword">loop</SPAN>
+				<SPAN CLASS="elocal">l_last_read</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_c_read_stream">c_read_stream</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_handle">descriptor</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">nb_bytes</SPAN> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_minus">-</A> <SPAN CLASS="elocal">l_read</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">p</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_item">item</A> <A CLASS="esymbol" HREF="../elks/pointer.html#f_plus">+</A> <SPAN CLASS="elocal">start_pos</SPAN> <A CLASS="esymbol" HREF="../elks/pointer.html#f_plus">+</A> <SPAN CLASS="elocal">l_read</SPAN><SPAN CLASS="esymbol">)</SPAN>
+				<SPAN CLASS="ekeyword">if</SPAN> <SPAN CLASS="elocal">l_last_read</SPAN> <A CLASS="esymbol" HREF="../elks/comparable.html#f_is_greater_equal">&gt;=</A> <SPAN CLASS="enumber">0</SPAN> <SPAN CLASS="ekeyword">then</SPAN>
+					<SPAN CLASS="elocal">l_read</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">l_read</SPAN> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_plus">+</A> <SPAN CLASS="elocal">l_last_read</SPAN>
+				<SPAN CLASS="ekeyword">end</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+			<A CLASS="efeature" HREF="../elks/io_medium.html#f_bytes_read">bytes_read</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">l_read</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_read_line"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_read_line">read_line</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Read a line of characters (ended by a new_line).</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Was declared in </SPAN><A CLASS="eclass" HREF="../abstract/socket.html">SOCKET</A><SPAN CLASS="ecomment"> as synonym of </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_readline">readline</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">local</SPAN>
+			<SPAN CLASS="elocal">l_last_string</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="ekeyword">like</SPAN> <A CLASS="efeature" HREF="../elks/io_medium.html#f_last_string">last_string</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">create</SPAN> <SPAN CLASS="elocal">l_last_string</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/readable_string_8.html#f_make">make</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="enumber">512</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_read_character">read_character</A>
+			<SPAN CLASS="ekeyword">from</SPAN>
+			<SPAN CLASS="ekeyword">until</SPAN>
+				<A CLASS="efeature" HREF="../elks/io_medium.html#f_last_character">last_character</A> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="echar">'%N'</SPAN> <A CLASS="ekeyword" HREF="../elks/boolean.html#f_disjuncted_semistrict">or else</A> <A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A>
+			<SPAN CLASS="ekeyword">loop</SPAN>
+				<SPAN CLASS="elocal">l_last_string</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/string_8.html#f_extend">extend</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_last_character">last_character</A><SPAN CLASS="esymbol">)</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_read_character">read_character</A>
+			<SPAN CLASS="ekeyword">end</SPAN>
+			<A CLASS="efeature" HREF="../elks/io_medium.html#f_last_string">last_string</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">l_last_string</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_readline"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_readline">readline</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Read a line of characters (ended by a new_line).</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Was declared in </SPAN><A CLASS="eclass" HREF="../abstract/socket.html">SOCKET</A><SPAN CLASS="ecomment"> as synonym of </SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_read_line">read_line</A><SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">local</SPAN>
+			<SPAN CLASS="elocal">l_last_string</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="ekeyword">like</SPAN> <A CLASS="efeature" HREF="../elks/io_medium.html#f_last_string">last_string</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">create</SPAN> <SPAN CLASS="elocal">l_last_string</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/readable_string_8.html#f_make">make</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="enumber">512</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_read_character">read_character</A>
+			<SPAN CLASS="ekeyword">from</SPAN>
+			<SPAN CLASS="ekeyword">until</SPAN>
+				<A CLASS="efeature" HREF="../elks/io_medium.html#f_last_character">last_character</A> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="echar">'%N'</SPAN> <A CLASS="ekeyword" HREF="../elks/boolean.html#f_disjuncted_semistrict">or else</A> <A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A>
+			<SPAN CLASS="ekeyword">loop</SPAN>
+				<SPAN CLASS="elocal">l_last_string</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/string_8.html#f_extend">extend</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_last_character">last_character</A><SPAN CLASS="esymbol">)</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_read_character">read_character</A>
+			<SPAN CLASS="ekeyword">end</SPAN>
+			<A CLASS="efeature" HREF="../elks/io_medium.html#f_last_string">last_string</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">l_last_string</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_read_line_until"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_read_line_until">read_line_until</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">n</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Read a line of at most </SPAN>`n'<SPAN CLASS="ecomment"> characters (ended by a new_line).</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> If new line not read after </SPAN>`n'<SPAN CLASS="ecomment"> characters, set an error.</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">is_readable</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_readable">readable</A>
+		<SPAN CLASS="ekeyword">local</SPAN>
+			<SPAN CLASS="elocal">i</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+			<SPAN CLASS="elocal">l_last_string</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="ekeyword">like</SPAN> <A CLASS="efeature" HREF="../elks/io_medium.html#f_last_string">last_string</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">from</SPAN>
+				<SPAN CLASS="ekeyword">create</SPAN> <SPAN CLASS="elocal">l_last_string</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/readable_string_8.html#f_make">make</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="enumber">512</SPAN><SPAN CLASS="esymbol">)</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">False</SPAN>
+			<SPAN CLASS="ekeyword">until</SPAN>
+				<SPAN CLASS="elocal">i</SPAN> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="elocal">n</SPAN>
+			<SPAN CLASS="ekeyword">loop</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_read_character">read_character</A>
+				<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <A CLASS="ekeyword" HREF="../elks/boolean.html#f_disjuncted_semistrict">or else</A> <A CLASS="efeature" HREF="../elks/io_medium.html#f_last_character">last_character</A> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="echar">'%N'</SPAN> <SPAN CLASS="ekeyword">then</SPAN>
+					<SPAN CLASS="elocal">i</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">n</SPAN> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_minus">-</A> <SPAN CLASS="enumber">1</SPAN>
+				<SPAN CLASS="ekeyword">else</SPAN>
+					<SPAN CLASS="elocal">l_last_string</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/string_8.html#f_extend">extend</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_last_character">last_character</A><SPAN CLASS="esymbol">)</SPAN>
+				<SPAN CLASS="ekeyword">end</SPAN>
+				<SPAN CLASS="elocal">i</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">i</SPAN> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_plus">+</A> <SPAN CLASS="enumber">1</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="ekeyword" HREF="../elks/boolean.html#f_negated">not</A> <A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <A CLASS="ekeyword" HREF="../elks/boolean.html#f_conjuncted">and</A> <A CLASS="efeature" HREF="../elks/io_medium.html#f_last_character">last_character</A> <SPAN CLASS="esymbol">/=</SPAN> <SPAN CLASS="echar">'%N'</SPAN> <SPAN CLASS="ekeyword">then</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_socket_error">socket_error</A> <SPAN CLASS="esymbol">:=</SPAN> &quot;End of line not reached after &quot; <A CLASS="esymbol" HREF="../elks/string_8.html#f_plus">+</A> <SPAN CLASS="elocal">n</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/integer_32_ref.html#f_out">out</A> <A CLASS="esymbol" HREF="../elks/string_8.html#f_plus">+</A> &quot; read characters&quot;
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_was_error">was_error</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">True</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+			<A CLASS="efeature" HREF="../elks/io_medium.html#f_last_string">last_string</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">l_last_string</SPAN>
+		<SPAN CLASS="ekeyword">ensure</SPAN>
+			<SPAN CLASS="etag">last_string_not_void</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../elks/io_medium.html#f_last_string">last_string</A> <SPAN CLASS="esymbol">/=</SPAN> <SPAN CLASS="ekeyword">Void</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_read"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_read">read</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">size</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../abstract/packet.html">PACKET</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Read a packet of data of maximum size </SPAN>`size'<SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">socket_exists</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_exists">exists</A>
+			<SPAN CLASS="etag">opened_for_read</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_is_open_read">is_open_read</A>
+		<SPAN CLASS="ekeyword">local</SPAN>
+			<SPAN CLASS="elocal">l_data</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/managed_pointer.html">MANAGED_POINTER</A>
+			<SPAN CLASS="elocal">recv_packet</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/managed_pointer.html">MANAGED_POINTER</A>
+			<SPAN CLASS="elocal">amount_read</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+			<SPAN CLASS="elocal">return_val</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+			<SPAN CLASS="elocal">ext_data</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer.html">POINTER</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="elocal">ext_data</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">ext_data</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/pointer_ref.html#f_memory_alloc">memory_alloc</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">size</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">from</SPAN>
+				<SPAN CLASS="elocal">amount_read</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="enumber">0</SPAN>
+				<SPAN CLASS="elocal">return_val</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="enumber">-1</SPAN>
+			<SPAN CLASS="ekeyword">until</SPAN>
+				<SPAN CLASS="elocal">amount_read</SPAN> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="elocal">size</SPAN> <A CLASS="ekeyword" HREF="../elks/boolean.html#f_disjuncted">or</A> <SPAN CLASS="elocal">return_val</SPAN> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="enumber">0</SPAN>
+			<SPAN CLASS="ekeyword">loop</SPAN>
+				<SPAN CLASS="elocal">return_val</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_c_read_stream">c_read_stream</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_handle">descriptor</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">size</SPAN> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_minus">-</A> <SPAN CLASS="elocal">amount_read</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">ext_data</SPAN><SPAN CLASS="esymbol">)</SPAN>
+				<SPAN CLASS="ekeyword">if</SPAN> <SPAN CLASS="elocal">return_val</SPAN> <A CLASS="esymbol" HREF="../elks/comparable.html#f_is_greater">&gt;</A> <SPAN CLASS="enumber">0</SPAN> <SPAN CLASS="ekeyword">then</SPAN>
+					<SPAN CLASS="ekeyword">create</SPAN> <SPAN CLASS="elocal">recv_packet</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_make_from_pointer">make_from_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">ext_data</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">return_val</SPAN><SPAN CLASS="esymbol">)</SPAN>
+					<SPAN CLASS="ekeyword">if</SPAN> <SPAN CLASS="elocal">l_data</SPAN> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="ekeyword">Void</SPAN> <SPAN CLASS="ekeyword">then</SPAN>
+						<SPAN CLASS="elocal">l_data</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">recv_packet</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/any.html#f_twin">twin</A>
+					<SPAN CLASS="ekeyword">else</SPAN>
+						<SPAN CLASS="elocal">l_data</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_append">append</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">recv_packet</SPAN><SPAN CLASS="esymbol">)</SPAN>
+					<SPAN CLASS="ekeyword">end</SPAN>
+					<SPAN CLASS="elocal">amount_read</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">amount_read</SPAN> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_plus">+</A> <SPAN CLASS="elocal">return_val</SPAN>
+				<SPAN CLASS="ekeyword">end</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <SPAN CLASS="elocal">l_data</SPAN> <SPAN CLASS="esymbol">/=</SPAN> <SPAN CLASS="ekeyword">Void</SPAN> <SPAN CLASS="ekeyword">then</SPAN>
+				<SPAN CLASS="ekeyword">create</SPAN> <SPAN CLASS="ekeyword">Result</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../abstract/packet.html#f_make_from_managed_pointer">make_from_managed_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">l_data</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+			<A CLASS="efeature" HREF="../elks/io_medium.html#f_bytes_read">bytes_read</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">amount_read</SPAN>
+			<SPAN CLASS="elocal">ext_data</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/pointer_ref.html#f_memory_free">memory_free</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_receive"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_receive">receive</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">size</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">flags</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../abstract/packet.html">PACKET</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Receive a packet of maximum size </SPAN>`size'<SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">socket_exists</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_exists">exists</A>
+			<SPAN CLASS="etag">opened_for_read</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_is_open_read">is_open_read</A>
+		<SPAN CLASS="ekeyword">local</SPAN>
+			<SPAN CLASS="elocal">l_data</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/managed_pointer.html">MANAGED_POINTER</A>
+			<SPAN CLASS="elocal">recv_packet</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/managed_pointer.html">MANAGED_POINTER</A>
+			<SPAN CLASS="elocal">amount_read</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+			<SPAN CLASS="elocal">return_val</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+			<SPAN CLASS="elocal">ext_data</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer.html">POINTER</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="elocal">ext_data</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">ext_data</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/pointer_ref.html#f_memory_alloc">memory_alloc</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">size</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">from</SPAN>
+				<SPAN CLASS="elocal">amount_read</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="enumber">0</SPAN>
+			<SPAN CLASS="ekeyword">until</SPAN>
+				<SPAN CLASS="elocal">amount_read</SPAN> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="elocal">size</SPAN>
+			<SPAN CLASS="ekeyword">loop</SPAN>
+				<SPAN CLASS="elocal">return_val</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_c_receive">c_receive</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_handle">descriptor</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">ext_data</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">size</SPAN> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_minus">-</A> <SPAN CLASS="elocal">amount_read</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">flags</SPAN><SPAN CLASS="esymbol">)</SPAN>
+				<SPAN CLASS="ekeyword">if</SPAN> <SPAN CLASS="elocal">return_val</SPAN> <A CLASS="esymbol" HREF="../elks/comparable.html#f_is_greater">&gt;</A> <SPAN CLASS="enumber">0</SPAN> <SPAN CLASS="ekeyword">then</SPAN>
+					<SPAN CLASS="ekeyword">create</SPAN> <SPAN CLASS="elocal">recv_packet</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_make_from_pointer">make_from_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">ext_data</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">return_val</SPAN><SPAN CLASS="esymbol">)</SPAN>
+					<SPAN CLASS="ekeyword">if</SPAN> <SPAN CLASS="elocal">l_data</SPAN> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="ekeyword">Void</SPAN> <SPAN CLASS="ekeyword">then</SPAN>
+						<SPAN CLASS="elocal">l_data</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">recv_packet</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/any.html#f_twin">twin</A>
+					<SPAN CLASS="ekeyword">else</SPAN>
+						<SPAN CLASS="elocal">l_data</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_append">append</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">recv_packet</SPAN><SPAN CLASS="esymbol">)</SPAN>
+					<SPAN CLASS="ekeyword">end</SPAN>
+					<SPAN CLASS="elocal">amount_read</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">amount_read</SPAN> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_plus">+</A> <SPAN CLASS="elocal">return_val</SPAN>
+				<SPAN CLASS="ekeyword">else</SPAN>
+					<SPAN CLASS="ekeyword">if</SPAN> <SPAN CLASS="elocal">amount_read</SPAN> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="enumber">0</SPAN> <SPAN CLASS="ekeyword">then</SPAN>
+						<SPAN CLASS="elocal">l_data</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">Void</SPAN>
+					<SPAN CLASS="ekeyword">end</SPAN>
+				<SPAN CLASS="ekeyword">end</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <SPAN CLASS="elocal">l_data</SPAN> <SPAN CLASS="esymbol">/=</SPAN> <SPAN CLASS="ekeyword">Void</SPAN> <SPAN CLASS="ekeyword">then</SPAN>
+				<SPAN CLASS="ekeyword">create</SPAN> <SPAN CLASS="ekeyword">Result</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../abstract/packet.html#f_make_from_managed_pointer">make_from_managed_pointer</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">l_data</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+			<SPAN CLASS="elocal">ext_data</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/pointer_ref.html#f_memory_free">memory_free</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> socket options</SPAN>
+
+	<A NAME="f_enable_debug"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_enable_debug">enable_debug</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Enable socket system debugging.</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">socket_exists</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_exists">exists</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_c_set_sock_opt_int">c_set_sock_opt_int</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_handle">descriptor</A><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../abstract/socket_resources.html#f_level_sol_socket">level_sol_socket</A><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../abstract/socket_resources.html#f_sodebug">sodebug</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">1</SPAN><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_disable_debug"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_disable_debug">disable_debug</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Disable socket system debugging.</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">socket_exists</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_exists">exists</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_c_set_sock_opt_int">c_set_sock_opt_int</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_handle">descriptor</A><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../abstract/socket_resources.html#f_level_sol_socket">level_sol_socket</A><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../abstract/socket_resources.html#f_sodebug">sodebug</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_debug_enabled"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_debug_enabled">debug_enabled</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Is socket system debugging enabled?</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">socket_exists</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_exists">exists</A>
+		<SPAN CLASS="ekeyword">local</SPAN>
+			<SPAN CLASS="elocal">is_set</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="elocal">is_set</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_c_get_sock_opt_int">c_get_sock_opt_int</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_handle">descriptor</A><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../abstract/socket_resources.html#f_level_sol_socket">level_sol_socket</A><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../abstract/socket_resources.html#f_sodebug">sodebug</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">is_set</SPAN> <SPAN CLASS="esymbol">/=</SPAN> <SPAN CLASS="enumber">0</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_do_not_route"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_do_not_route">do_not_route</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Set socket to non-routing.</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">socket_exists</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_exists">exists</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_c_set_sock_opt_int">c_set_sock_opt_int</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_handle">descriptor</A><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../abstract/socket_resources.html#f_level_sol_socket">level_sol_socket</A><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../abstract/socket_resources.html#f_so_dont_route">so_dont_route</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">1</SPAN><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_route"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_route">route</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Set socket to routing.</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">socket_exists</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_exists">exists</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_c_set_sock_opt_int">c_set_sock_opt_int</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_handle">descriptor</A><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../abstract/socket_resources.html#f_level_sol_socket">level_sol_socket</A><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../abstract/socket_resources.html#f_so_dont_route">so_dont_route</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_route_enabled"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_route_enabled">route_enabled</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Is routing enabled?</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">socket_exists</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_exists">exists</A>
+		<SPAN CLASS="ekeyword">local</SPAN>
+			<SPAN CLASS="elocal">is_set</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="elocal">is_set</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_c_get_sock_opt_int">c_get_sock_opt_int</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_handle">descriptor</A><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../abstract/socket_resources.html#f_level_sol_socket">level_sol_socket</A><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../abstract/socket_resources.html#f_so_dont_route">so_dont_route</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">is_set</SPAN> <SPAN CLASS="esymbol">/=</SPAN> <SPAN CLASS="enumber">0</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_set_receive_buf_size"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_set_receive_buf_size">set_receive_buf_size</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">s</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Set receive buffer size.</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">socket_exists</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_exists">exists</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_c_set_sock_opt_int">c_set_sock_opt_int</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_handle">descriptor</A><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../abstract/socket_resources.html#f_level_sol_socket">level_sol_socket</A><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../abstract/socket_resources.html#f_so_rcv_buf">so_rcv_buf</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">s</SPAN><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">ensure</SPAN>
+			<SPAN CLASS="etag">size_set</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="elocal">s</SPAN> <SPAN CLASS="esymbol">=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_receive_buf_size">receive_buf_size</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_receive_buf_size"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_receive_buf_size">receive_buf_size</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Size of receive buffer.</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">socket_exists</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_exists">exists</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_c_get_sock_opt_int">c_get_sock_opt_int</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_handle">descriptor</A><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../abstract/socket_resources.html#f_level_sol_socket">level_sol_socket</A><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../abstract/socket_resources.html#f_so_rcv_buf">so_rcv_buf</A><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_set_send_buf_size"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_set_send_buf_size">set_send_buf_size</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">s</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Set the send buffer to size </SPAN>`s'<SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">socket_exists</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_exists">exists</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_c_set_sock_opt_int">c_set_sock_opt_int</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_handle">descriptor</A><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../abstract/socket_resources.html#f_level_sol_socket">level_sol_socket</A><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../abstract/socket_resources.html#f_so_snd_buf">so_snd_buf</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">s</SPAN><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">ensure</SPAN>
+			<SPAN CLASS="etag">size_set</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="elocal">s</SPAN> <SPAN CLASS="esymbol">=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_send_buf_size">send_buf_size</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_send_buf_size"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_send_buf_size">send_buf_size</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Size of send buffer.</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">socket_exists</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_exists">exists</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_c_get_sock_opt_int">c_get_sock_opt_int</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_handle">descriptor</A><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../abstract/socket_resources.html#f_level_sol_socket">level_sol_socket</A><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../abstract/socket_resources.html#f_so_snd_buf">so_snd_buf</A><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_is_socket_stream"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_is_socket_stream">is_socket_stream</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Is the socket a stream?</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">socket_exists</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_exists">exists</A>
+		<SPAN CLASS="ekeyword">local</SPAN>
+			<SPAN CLASS="elocal">is_soc_s</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="elocal">is_soc_s</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_c_get_sock_opt_int">c_get_sock_opt_int</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_handle">descriptor</A><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../abstract/socket_resources.html#f_level_sol_socket">level_sol_socket</A><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../abstract/socket_resources.html#f_sotype">sotype</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">is_soc_s</SPAN> <SPAN CLASS="esymbol">=</SPAN> <A CLASS="efeature" HREF="../abstract/socket_resources.html#f_sock_stream">sock_stream</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_set_non_blocking"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_set_non_blocking">set_non_blocking</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Set socket to non-blocking mode.</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">socket_exists</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_exists">exists</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_c_set_non_blocking">c_set_non_blocking</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_handle">descriptor</A><SPAN CLASS="esymbol">)</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_is_blocking">is_blocking</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">False</SPAN>
+		<SPAN CLASS="ekeyword">ensure</SPAN>
+			<A CLASS="ekeyword" HREF="../elks/boolean.html#f_negated">not</A> <A CLASS="efeature" HREF="../abstract/socket.html#f_is_blocking">is_blocking</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_set_blocking"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_set_blocking">set_blocking</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Set socket to blocking mode.</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">socket_exists</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_exists">exists</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_c_set_blocking">c_set_blocking</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_handle">descriptor</A><SPAN CLASS="esymbol">)</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_is_blocking">is_blocking</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">True</SPAN>
+		<SPAN CLASS="ekeyword">ensure</SPAN>
+			<A CLASS="efeature" HREF="../abstract/socket.html#f_is_blocking">is_blocking</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_is_blocking"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_is_blocking">is_blocking</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Is the socket blocking?</SPAN>
+
+	<A NAME="f_set_owner"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_set_owner">set_owner</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">own</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Negative value sets group process id.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> positive value sets process id.</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">socket_exists</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_exists">exists</A>
+			<SPAN CLASS="etag">valid_owner</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="elocal">own</SPAN> <SPAN CLASS="esymbol">/=</SPAN> <SPAN CLASS="enumber">0</SPAN> <A CLASS="ekeyword" HREF="../elks/boolean.html#f_conjuncted">and</A> <SPAN CLASS="elocal">own</SPAN> <SPAN CLASS="esymbol">/=</SPAN> <SPAN CLASS="enumber">-1</SPAN>
+		<SPAN CLASS="ekeyword">local</SPAN>
+			<SPAN CLASS="elocal">return_val</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="elocal">return_val</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_c_fcntl">c_fcntl</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_handle">descriptor</A><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../abstract/socket_resources.html#f_c_fsetown">c_fsetown</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">own</SPAN><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">ensure</SPAN>
+			<SPAN CLASS="etag">set_id</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="elocal">own</SPAN> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_is_less">&lt;</A> <SPAN CLASS="enumber">-1</SPAN> <A CLASS="ekeyword" HREF="../elks/boolean.html#f_implication">implies</A> <SPAN CLASS="elocal">own</SPAN> <SPAN CLASS="esymbol">=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_group_id">group_id</A> <A CLASS="ekeyword" HREF="../elks/boolean.html#f_disjuncted_semistrict">or else</A> <SPAN CLASS="elocal">own</SPAN> <A CLASS="esymbol" HREF="../elks/comparable.html#f_is_greater">&gt;</A> <SPAN CLASS="enumber">0</SPAN> <A CLASS="ekeyword" HREF="../elks/boolean.html#f_implication">implies</A> <SPAN CLASS="elocal">own</SPAN> <SPAN CLASS="esymbol">=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_process_id">process_id</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_is_group_id"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_is_group_id">is_group_id</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Is the owner id the socket group id?</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">socket_exists</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_exists">exists</A>
+		<SPAN CLASS="ekeyword">local</SPAN>
+			<SPAN CLASS="elocal">is_grp</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="elocal">is_grp</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_c_fcntl">c_fcntl</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_handle">descriptor</A><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../abstract/socket_resources.html#f_c_fgetown">c_fgetown</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">is_grp</SPAN> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_is_less">&lt;</A> <SPAN CLASS="enumber">-1</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_is_process_id"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_is_process_id">is_process_id</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Is the owner id the socket process id?</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">socket_exists</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_exists">exists</A>
+		<SPAN CLASS="ekeyword">local</SPAN>
+			<SPAN CLASS="elocal">is_proc</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="elocal">is_proc</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_c_fcntl">c_fcntl</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_handle">descriptor</A><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../abstract/socket_resources.html#f_c_fgetown">c_fgetown</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">is_proc</SPAN> <A CLASS="esymbol" HREF="../elks/comparable.html#f_is_greater">&gt;</A> <SPAN CLASS="enumber">0</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_group_id"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_group_id">group_id</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Group id of socket</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">socket_exists</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_exists">exists</A>
+			<SPAN CLASS="etag">group_set</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_is_group_id">is_group_id</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../abstract/socket.html#f_c_fcntl">c_fcntl</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_handle">descriptor</A><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../abstract/socket_resources.html#f_c_fgetown">c_fgetown</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_product">*</A> <SPAN CLASS="enumber">-1</SPAN><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_process_id"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_process_id">process_id</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Process id of socket</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">socket_exists</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_exists">exists</A>
+			<SPAN CLASS="etag">process_set</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_is_process_id">is_process_id</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_c_fcntl">c_fcntl</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/io_medium.html#f_handle">descriptor</A><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../abstract/socket_resources.html#f_c_fgetown">c_fgetown</A><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="esymbol">{</SPAN>NONE<SPAN CLASS="esymbol">}</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Implementation</SPAN>
+
+	<A NAME="f_socket_error"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_socket_error">socket_error</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/string_8.html">STRING_8</A>
+
+	<A NAME="f_shutdown"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_shutdown">shutdown</A>
+		<SPAN CLASS="ekeyword">deferred</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="esymbol">{</SPAN>NONE<SPAN CLASS="esymbol">}</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Externals</SPAN>
+
+	<A NAME="f_socket_buffer"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_socket_buffer">socket_buffer</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/managed_pointer.html">MANAGED_POINTER</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Buffer used to read/write basic types.</SPAN>
+		<SPAN CLASS="ekeyword">local</SPAN>
+			<SPAN CLASS="elocal">l_buffer</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="ekeyword">like</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_internal_socket_buffer">internal_socket_buffer</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="elocal">l_buffer</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../abstract/socket.html#f_internal_socket_buffer">internal_socket_buffer</A>
+			<SPAN CLASS="ekeyword">if</SPAN> <SPAN CLASS="elocal">l_buffer</SPAN> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="ekeyword">Void</SPAN> <SPAN CLASS="ekeyword">then</SPAN>
+				<SPAN CLASS="ekeyword">create</SPAN> <SPAN CLASS="elocal">l_buffer</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/managed_pointer.html#f_make">make</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="enumber">16</SPAN><SPAN CLASS="esymbol">)</SPAN>
+				<A CLASS="efeature" HREF="../abstract/socket.html#f_internal_socket_buffer">internal_socket_buffer</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">l_buffer</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+			<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">l_buffer</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_internal_socket_buffer"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_internal_socket_buffer">internal_socket_buffer</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/managed_pointer.html">MANAGED_POINTER</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Internal integer buffer</SPAN>
+
+	<A NAME="f_c_put_stream"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_c_put_stream">c_put_stream</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">fd</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">s</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer.html">POINTER</A><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">length</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> External routine to write stream pointed by </SPAN>`s'<SPAN CLASS="ecomment"> of</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> length </SPAN>`length'<SPAN CLASS="ecomment"> to socket </SPAN>`fd'
+		<SPAN CLASS="ekeyword">external</SPAN>
+			&quot;C blocking&quot;
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_c_read_stream"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_c_read_stream">c_read_stream</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">fd</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">l</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">buf</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer.html">POINTER</A><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> External routine to read a </SPAN>`l'<SPAN CLASS="ecomment"> number of characters</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> into buffer </SPAN>`buf'<SPAN CLASS="ecomment"> from socket </SPAN>`fd'
+		<SPAN CLASS="ekeyword">external</SPAN>
+			&quot;C blocking&quot;
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_c_write"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_c_write">c_write</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">fd</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">buf</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer.html">POINTER</A><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">l</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> External routine to write </SPAN>`l'<SPAN CLASS="ecomment"> length of data</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> on socket </SPAN>`fd'<SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">external</SPAN>
+			&quot;C blocking&quot;
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_c_receive"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_c_receive">c_receive</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">fd</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">buf</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer.html">POINTER</A><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">len</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">flags</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> External routine to receive at most </SPAN>`len'<SPAN CLASS="ecomment"> number of</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> bytes into buffer </SPAN>`buf'<SPAN CLASS="ecomment"> from socket </SPAN>`fd'<SPAN CLASS="ecomment"> with </SPAN>`flags'
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> options</SPAN>
+		<SPAN CLASS="ekeyword">external</SPAN>
+			&quot;C blocking&quot;
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_c_send"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_c_send">c_send</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">fd</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">buf</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer.html">POINTER</A><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">len</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">flags</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> External routine to send at most </SPAN>`len'<SPAN CLASS="ecomment"> number of</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> bytes from buffer </SPAN>`buf'<SPAN CLASS="ecomment"> on socket </SPAN>`fd'<SPAN CLASS="ecomment"> with </SPAN>`flags'
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> options</SPAN>
+		<SPAN CLASS="ekeyword">external</SPAN>
+			&quot;C blocking&quot;
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_c_set_sock_opt_int"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_c_set_sock_opt_int">c_set_sock_opt_int</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">fd</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">level</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">opt</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">val</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> C routine to set socket options of integer type</SPAN>
+		<SPAN CLASS="ekeyword">external</SPAN>
+			&quot;C&quot;
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_c_get_sock_opt_int"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_c_get_sock_opt_int">c_get_sock_opt_int</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">fd</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">level</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">opt</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> C routine to get socket options of integer type</SPAN>
+		<SPAN CLASS="ekeyword">external</SPAN>
+			&quot;C&quot;
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_c_fcntl"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_c_fcntl">c_fcntl</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">fd</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">cmd</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">arg</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> C wrapper to fcntl() routine</SPAN>
+		<SPAN CLASS="ekeyword">external</SPAN>
+			&quot;C&quot;
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_c_set_non_blocking"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_c_set_non_blocking">c_set_non_blocking</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">fd</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> C routine to set the socket as non-blocking</SPAN>
+		<SPAN CLASS="ekeyword">external</SPAN>
+			&quot;C&quot;
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_c_set_blocking"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_c_set_blocking">c_set_blocking</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">fd</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> C routine to set the socket as blocking</SPAN>
+		<SPAN CLASS="ekeyword">external</SPAN>
+			&quot;C&quot;
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_c_syncpoll"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_c_syncpoll">c_syncpoll</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">fd</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> C routine to synchonously poll socket</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> (using </SPAN>`msg_peek'<SPAN CLASS="ecomment"> flag)</SPAN>
+		<SPAN CLASS="ekeyword">external</SPAN>
+			&quot;C blocking&quot;
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_c_select_poll"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_c_select_poll">c_select_poll</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">fd</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> C routine to synchronously poll socket</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> (using </SPAN>`select'<SPAN CLASS="ecomment">)</SPAN>
+		<SPAN CLASS="ekeyword">external</SPAN>
+			&quot;C blocking&quot;
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_eif_net_retrieved"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_eif_net_retrieved">eif_net_retrieved</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">file_handle</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/any.html">ANY</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Object structured retrieved from file of pointer</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> </SPAN>`file_handle'
+		<SPAN CLASS="ekeyword">external</SPAN>
+			&quot;C&quot;
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_eif_net_basic_store"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_eif_net_basic_store">eif_net_basic_store</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">file_handle</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">object</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer.html">POINTER</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Store object structure reachable form current object</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> in file pointer </SPAN>`file_ptr'<SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">external</SPAN>
+			&quot;C&quot;
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_eif_net_general_store"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_eif_net_general_store">eif_net_general_store</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">file_handle</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">object</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer.html">POINTER</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Store object structure reachable form current object</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> in file pointer </SPAN>`file_ptr'<SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">external</SPAN>
+			&quot;C&quot;
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_eif_net_independent_store"></A><A CLASS="efeature" HREF="../abstract/socket.html#f_eif_net_independent_store">eif_net_independent_store</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">file_handle</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">object</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer.html">POINTER</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Store object structure reachable form current object</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> in file pointer </SPAN>`file_ptr'<SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">external</SPAN>
+			&quot;C&quot;
+		<SPAN CLASS="ekeyword">end</SPAN>
+	
+<SPAN CLASS="ekeyword">note</SPAN>
+	<SPAN CLASS="eitag">copyright</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;Copyright (c) 1984-2006, Eiffel Software and others&quot;</SPAN>
+	<SPAN CLASS="eitag">license</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;Eiffel Forum License v2 (see </SPAN><A CLASS="estring" HREF="http://www.eiffel.com/licensing/forum.txt">http://www.eiffel.com/licensing/forum.txt</A><SPAN CLASS="estring">)&quot;</SPAN>
+	<SPAN CLASS="eitag">source</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;</SPAN><SPAN CLASS="estring">[</SPAN>
+		<SPAN CLASS="estring">Eiffel Software</SPAN>
+		<SPAN CLASS="estring">356 Storke Road, Goleta, CA 93117 USA</SPAN>
+		<SPAN CLASS="estring">Telephone 805-685-1006, Fax 805-685-6869</SPAN>
+		<SPAN CLASS="estring">Website </SPAN><A CLASS="estring" HREF="http://www.eiffel.com">http://www.eiffel.com</A>
+		<SPAN CLASS="estring">Customer support </SPAN><A CLASS="estring" HREF="http://support.eiffel.com">http://support.eiffel.com</A>
+	<SPAN CLASS="estring">]</SPAN><SPAN CLASS="estring">&quot;</SPAN>
+
+<SPAN CLASS="ekeyword">end</SPAN> <SPAN CLASS="ecomment">--</SPAN> <SPAN CLASS="ecomment">class </SPAN><A CLASS="eclass" HREF="../abstract/socket.html">SOCKET</A><FORM ONSUBMIT="go_to('../',this.c.value);return false;">
+<TABLE CELLSPACING="5" CELLPADDING="4"><TR>
+<TD CLASS="link1"><A CLASS="link1" HREF="../class_list.html">Classes</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_list.html">Clusters</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_hierarchy.html">Cluster hierarchy</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="socket_chart.html">Chart</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="socket_links.html">Relations</A></TD>
+<TD CLASS="nolink2">Text</TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="socket_flat.html">Flat</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="socket_short.html">Contracts</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="socket_flatshort.html">Flat contracts</A></TD>
+<TD CLASS="link2">Go to: <INPUT NAME="c" VALUE="socket"></TD>
+</TR></TABLE></FORM></pre>
+</section>
+<footer>
+<p>Project maintained by <a href="https://github.com/Hetrick">Hetrick</a></p>
+<p><small>Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></small></p>
+</footer>
+</div>
+<BR>For more details: <A HREF="http://www.eiffel.com">www.eiffel.com</A></P>
+</BODY>
+</HTML>
+

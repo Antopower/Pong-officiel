@@ -1,0 +1,144 @@
+<HTML>
+<HEAD>
+<META NAME="generator" CONTENT="ISE EiffelStudio version 7.1.8.8986 GPL Edition - windows">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="description" content="An SQLite database source."/>
+<meta name="legal" content="See notice at end of class."/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="copyright" content="Copyright (c) 1984-2009, Eiffel Software"/>
+<meta name="license" content="GPL version 2 (see http://www.eiffel.com/licensing/gpl.txt)"/>
+<meta name="licensing_options" content="http://www.eiffel.com/licensing"/>
+<meta name="copying" content="This file is part of Eiffel Software's Eiffel Development Environment.  Eiffel Software's Eiffel Development Environment is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2 of the License (available at the URL listed under license above).  Eiffel Software's Eiffel Development Environment is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.  You should have received a copy of the GNU General Public License along with Eiffel Software's Eiffel Development Environment; if not, write to the Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA"/>
+<meta name="source" content="Eiffel Software 5949 Hollister Ave., Goleta, CA 93117 USA Telephone 805-685-1006, Fax 805-685-6869 Website http://www.eiffel.com Customer support http://support.eiffel.com"/>
+<meta name="keywords" content="Eiffel class"/>
+<TITLE>sqlite_source Text</TITLE>
+<LINK REL="stylesheet" HREF="../../stylesheets/styles.css" TYPE="text/css">
+<SCRIPT TYPE="text/javascript" SRC="../goto.html"></SCRIPT>
+</HEAD>
+<BODY>
+<P ALIGN="CENTER">Automatic generation produced by ISE Eiffel</P>
+<header>
+<h1>Pong-officiel</h1>
+<p>Pong - Officiel</p>
+</header>
+<div id="banner">
+<span id="logo"></span>
+<a href="https://github.com/Hetrick/Pong-officiel" class="button fork"><strong>View On GitHub</strong></a>
+<div class="downloads">
+<span>Downloads:</span>
+<ul>
+<li><a href="https://github.com/Hetrick/Pong-officiel/zipball/master" class="button">ZIP</a></li>
+<li><a href="https://github.com/Hetrick/Pong-officiel/tarball/master" class="button">TAR</a></li>
+</ul>
+</div>
+</div>
+<div class="wrapper">
+<nav>
+<ul></ul>
+</nav>
+<section>
+<pre><FORM ONSUBMIT="go_to('../',this.c.value);return false;">
+<TABLE CELLSPACING="5" CELLPADDING="4"><TR>
+<TD CLASS="link1"><A CLASS="link1" HREF="../class_list.html">Classes</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_list.html">Clusters</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_hierarchy.html">Cluster hierarchy</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="sqlite_source_chart.html">Chart</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="sqlite_source_links.html">Relations</A></TD>
+<TD CLASS="nolink2">Text</TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="sqlite_source_flat.html">Flat</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="sqlite_source_short.html">Contracts</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="sqlite_source_flatshort.html">Flat contracts</A></TD>
+<TD CLASS="link2">Go to: <INPUT NAME="c" VALUE="sqlite_source"></TD>
+</TR></TABLE></FORM><SPAN CLASS="ekeyword">note</SPAN>
+	<SPAN CLASS="eitag">description</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;</SPAN><SPAN CLASS="estring">[</SPAN>
+		<SPAN CLASS="estring">An SQLite database source.</SPAN>
+	<SPAN CLASS="estring">]</SPAN><SPAN CLASS="estring">&quot;</SPAN>
+	<SPAN CLASS="eitag">legal</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;See notice at end of class.&quot;</SPAN>
+	<SPAN CLASS="eitag">status</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;See notice at end of class.&quot;</SPAN>
+	<SPAN CLASS="eitag">date</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;$Date: 2009-08-21 16:30:05 -0700 (Fri, 21 Aug 2009) $&quot;</SPAN>
+	<SPAN CLASS="eitag">revision</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;$Revision: 80393 $&quot;</SPAN>
+
+<SPAN CLASS="ekeyword">deferred</SPAN> <SPAN CLASS="ekeyword">class</SPAN> 
+	<A CLASS="eclass" HREF="../sqlite/sqlite_source.html">SQLITE_SOURCE</A>
+
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Access</SPAN>
+
+	<A NAME="f_locator"></A><A CLASS="efeature" HREF="../sqlite/sqlite_source.html#f_locator">locator</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/immutable_string_8.html">IMMUTABLE_STRING_8</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Locator string for the SQLite database source.</SPAN>
+		<SPAN CLASS="ekeyword">deferred</SPAN>
+		<SPAN CLASS="ekeyword">ensure</SPAN>
+			<SPAN CLASS="etag">result_attached</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="ekeyword">attached</SPAN> <SPAN CLASS="ekeyword">Result</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Status report</SPAN>
+
+	<A NAME="f_exists"></A><A CLASS="efeature" HREF="../sqlite/sqlite_source.html#f_exists">exists</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Indicates if the source exists, where ever it is located.</SPAN>
+		<SPAN CLASS="ekeyword">deferred</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_is_special"></A><A CLASS="efeature" HREF="../sqlite/sqlite_source.html#f_is_special">is_special</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Indicates if the database source is special source.</SPAN>
+		<SPAN CLASS="ekeyword">local</SPAN>
+			<SPAN CLASS="elocal">l_locator</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="ekeyword">like</SPAN> <A CLASS="efeature" HREF="../sqlite/sqlite_source.html#f_locator">locator</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="elocal">l_locator</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../sqlite/sqlite_source.html#f_locator">locator</A>
+			<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">l_locator</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/immutable_string_8.html#f_item">item</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="enumber">1</SPAN><SPAN CLASS="esymbol">)</SPAN> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="echar">':'</SPAN> <A CLASS="ekeyword" HREF="../elks/boolean.html#f_conjuncted_semistrict">and then</A> <SPAN CLASS="elocal">l_locator</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/immutable_string_8.html#f_item">item</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">l_locator</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/readable_string_8.html#f_count">count</A><SPAN CLASS="esymbol">)</SPAN> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="echar">':'</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+	
+<SPAN CLASS="ekeyword">note</SPAN>
+	<SPAN CLASS="eitag">copyright</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;Copyright (c) 1984-2009, Eiffel Software&quot;</SPAN>
+	<SPAN CLASS="eitag">license</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;GPL version 2 (see </SPAN><A CLASS="estring" HREF="http://www.eiffel.com/licensing/gpl.txt">http://www.eiffel.com/licensing/gpl.txt</A><SPAN CLASS="estring">)&quot;</SPAN>
+	<SPAN CLASS="eitag">licensing_options</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;</SPAN><A CLASS="estring" HREF="http://www.eiffel.com/licensing">http://www.eiffel.com/licensing</A><SPAN CLASS="estring">&quot;</SPAN>
+	<SPAN CLASS="eitag">copying</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;</SPAN><SPAN CLASS="estring">[</SPAN>
+		<SPAN CLASS="estring">This file is part of Eiffel Software's Eiffel Development Environment.</SPAN>
+		
+		<SPAN CLASS="estring">Eiffel Software's Eiffel Development Environment is free</SPAN>
+		<SPAN CLASS="estring">software; you can redistribute it and/or modify it under</SPAN>
+		<SPAN CLASS="estring">the terms of the GNU General Public License as published</SPAN>
+		<SPAN CLASS="estring">by the Free Software Foundation, version 2 of the License</SPAN>
+		<SPAN CLASS="estring">(available at the URL listed under &quot;license&quot; above).</SPAN>
+		
+		<SPAN CLASS="estring">Eiffel Software's Eiffel Development Environment is</SPAN>
+		<SPAN CLASS="estring">distributed in the hope that it will be useful, but</SPAN>
+		<SPAN CLASS="estring">WITHOUT ANY WARRANTY; without even the implied warranty</SPAN>
+		<SPAN CLASS="estring">of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</SPAN>
+		<SPAN CLASS="estring">See the GNU General Public License for more details.</SPAN>
+		
+		<SPAN CLASS="estring">You should have received a copy of the GNU General Public</SPAN>
+		<SPAN CLASS="estring">License along with Eiffel Software's Eiffel Development</SPAN>
+		<SPAN CLASS="estring">Environment; if not, write to the Free Software Foundation,</SPAN>
+		<SPAN CLASS="estring">Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA</SPAN>
+	<SPAN CLASS="estring">]</SPAN><SPAN CLASS="estring">&quot;</SPAN>
+	<SPAN CLASS="eitag">source</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;</SPAN><SPAN CLASS="estring">[</SPAN>
+		<SPAN CLASS="estring">Eiffel Software</SPAN>
+		<SPAN CLASS="estring">5949 Hollister Ave., Goleta, CA 93117 USA</SPAN>
+		<SPAN CLASS="estring">Telephone 805-685-1006, Fax 805-685-6869</SPAN>
+		<SPAN CLASS="estring">Website </SPAN><A CLASS="estring" HREF="http://www.eiffel.com">http://www.eiffel.com</A>
+		<SPAN CLASS="estring">Customer support </SPAN><A CLASS="estring" HREF="http://support.eiffel.com">http://support.eiffel.com</A>
+	<SPAN CLASS="estring">]</SPAN><SPAN CLASS="estring">&quot;</SPAN>
+
+<SPAN CLASS="ekeyword">end</SPAN> <SPAN CLASS="ecomment">--</SPAN> <SPAN CLASS="ecomment">class </SPAN><A CLASS="eclass" HREF="../sqlite/sqlite_source.html">SQLITE_SOURCE</A><FORM ONSUBMIT="go_to('../',this.c.value);return false;">
+<TABLE CELLSPACING="5" CELLPADDING="4"><TR>
+<TD CLASS="link1"><A CLASS="link1" HREF="../class_list.html">Classes</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_list.html">Clusters</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_hierarchy.html">Cluster hierarchy</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="sqlite_source_chart.html">Chart</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="sqlite_source_links.html">Relations</A></TD>
+<TD CLASS="nolink2">Text</TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="sqlite_source_flat.html">Flat</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="sqlite_source_short.html">Contracts</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="sqlite_source_flatshort.html">Flat contracts</A></TD>
+<TD CLASS="link2">Go to: <INPUT NAME="c" VALUE="sqlite_source"></TD>
+</TR></TABLE></FORM></pre>
+</section>
+<footer>
+<p>Project maintained by <a href="https://github.com/Hetrick">Hetrick</a></p>
+<p><small>Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></small></p>
+</footer>
+</div>
+<BR>For more details: <A HREF="http://www.eiffel.com">www.eiffel.com</A></P>
+</BODY>
+</HTML>
+

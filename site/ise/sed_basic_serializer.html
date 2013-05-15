@@ -1,0 +1,169 @@
+<HTML>
+<HEAD>
+<META NAME="generator" CONTENT="ISE EiffelStudio version 7.1.8.8986 GPL Edition - windows">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="description" content="Encoding of arbitrary objects graphs between sessions of a same program."/>
+<meta name="legal" content="See notice at end of class."/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="library" content="EiffelBase: Library of reusable components for Eiffel."/>
+<meta name="copyright" content="Copyright (c) 1984-2008, Eiffel Software and others"/>
+<meta name="license" content="Eiffel Forum License v2 (see http://www.eiffel.com/licensing/forum.txt)"/>
+<meta name="source" content="Eiffel Software 356 Storke Road, Goleta, CA 93117 USA Telephone 805-685-1006, Fax 805-685-6869 Website http://www.eiffel.com Customer support http://support.eiffel.com"/>
+<meta name="keywords" content="Eiffel class"/>
+<TITLE>sed_basic_serializer Text</TITLE>
+<LINK REL="stylesheet" HREF="../../stylesheets/styles.css" TYPE="text/css">
+<SCRIPT TYPE="text/javascript" SRC="../goto.html"></SCRIPT>
+</HEAD>
+<BODY>
+<P ALIGN="CENTER">Automatic generation produced by ISE Eiffel</P>
+<header>
+<h1>Pong-officiel</h1>
+<p>Pong - Officiel</p>
+</header>
+<div id="banner">
+<span id="logo"></span>
+<a href="https://github.com/Hetrick/Pong-officiel" class="button fork"><strong>View On GitHub</strong></a>
+<div class="downloads">
+<span>Downloads:</span>
+<ul>
+<li><a href="https://github.com/Hetrick/Pong-officiel/zipball/master" class="button">ZIP</a></li>
+<li><a href="https://github.com/Hetrick/Pong-officiel/tarball/master" class="button">TAR</a></li>
+</ul>
+</div>
+</div>
+<div class="wrapper">
+<nav>
+<ul></ul>
+</nav>
+<section>
+<pre><FORM ONSUBMIT="go_to('../',this.c.value);return false;">
+<TABLE CELLSPACING="5" CELLPADDING="4"><TR>
+<TD CLASS="link1"><A CLASS="link1" HREF="../class_list.html">Classes</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_list.html">Clusters</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_hierarchy.html">Cluster hierarchy</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="sed_basic_serializer_chart.html">Chart</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="sed_basic_serializer_links.html">Relations</A></TD>
+<TD CLASS="nolink2">Text</TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="sed_basic_serializer_flat.html">Flat</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="sed_basic_serializer_short.html">Contracts</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="sed_basic_serializer_flatshort.html">Flat contracts</A></TD>
+<TD CLASS="link2">Go to: <INPUT NAME="c" VALUE="sed_basic_serializer"></TD>
+</TR></TABLE></FORM><SPAN CLASS="ekeyword">note</SPAN>
+	<SPAN CLASS="eitag">description</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;Encoding of arbitrary objects graphs between sessions of a same program.&quot;</SPAN>
+	<SPAN CLASS="eitag">legal</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;See notice at end of class.&quot;</SPAN>
+	<SPAN CLASS="eitag">status</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;See notice at end of class.&quot;</SPAN>
+	<SPAN CLASS="eitag">date</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;$Date: 2010-02-24 14:17:13 -0800 (Wed, 24 Feb 2010) $&quot;</SPAN>
+	<SPAN CLASS="eitag">revision</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;$Revision: 82421 $&quot;</SPAN>
+
+<SPAN CLASS="ekeyword">class</SPAN> 
+	<A CLASS="eclass" HREF="../ise/sed_basic_serializer.html">SED_BASIC_SERIALIZER</A>
+
+<SPAN CLASS="ekeyword">inherit</SPAN>
+	<A CLASS="eclass" HREF="../ise/sed_session_serializer.html">SED_SESSION_SERIALIZER</A>
+		<SPAN CLASS="ekeyword">redefine</SPAN>
+			<A CLASS="efeature" HREF="../ise/sed_basic_serializer.html#f_write_header">write_header</A><SPAN CLASS="esymbol">,</SPAN>
+			<A CLASS="efeature" HREF="../ise/sed_basic_serializer.html#f_setup_version">setup_version</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+<SPAN CLASS="ekeyword">create</SPAN> 
+	<A CLASS="efeature" HREF="../ise/sed_session_serializer.html#f_make">make</A>
+
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="esymbol">{</SPAN>NONE<SPAN CLASS="esymbol">}</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Implementation</SPAN>
+
+	<A NAME="f_setup_version"></A><A CLASS="efeature" HREF="../ise/sed_basic_serializer.html#f_setup_version">setup_version</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Set </SPAN><A CLASS="efeature" HREF="../ise/sed_session_serializer.html#f_version">version</A><SPAN CLASS="ecomment"> with the appropriate version number.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../ise/sed_session_serializer.html#f_version">version</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="esymbol">{</SPAN><A CLASS="eclass" HREF="../ise/sed_versions.html">SED_VERSIONS</A><SPAN CLASS="esymbol">}</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../ise/sed_versions.html#f_basic_version_6_6">basic_version_6_6</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_write_header"></A><A CLASS="efeature" HREF="../ise/sed_basic_serializer.html#f_write_header">write_header</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">a_list</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/arrayed_list.html">ARRAYED_LIST</A> <SPAN CLASS="esymbol">[</SPAN><A CLASS="eclass" HREF="../elks/any.html">ANY</A><SPAN CLASS="esymbol">]</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Write header of storable.</SPAN>
+		<SPAN CLASS="ekeyword">local</SPAN>
+			<SPAN CLASS="elocal">l_dtype_table</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="ekeyword">like</SPAN> <A CLASS="efeature" HREF="../ise/sed_basic_serializer.html#f_type_table">type_table</A>
+			<SPAN CLASS="elocal">l_ser</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="ekeyword">like</SPAN> <A CLASS="efeature" HREF="../ise/sed_session_serializer.html#f_serializer">serializer</A>
+			<SPAN CLASS="elocal">l_int</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="ekeyword">like</SPAN> <A CLASS="efeature" HREF="../ise/sed_session_serializer.html#f_internal">internal</A>
+			<SPAN CLASS="elocal">l_dtype</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="elocal">l_ser</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../ise/sed_session_serializer.html#f_serializer">serializer</A>
+			<SPAN CLASS="elocal">l_ser</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../ise/sed_reader_writer.html#f_write_compressed_natural_32">write_compressed_natural_32</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../ise/sed_session_serializer.html#f_version">version</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">from</SPAN>
+				<SPAN CLASS="elocal">l_int</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../ise/sed_session_serializer.html#f_internal">internal</A>
+				<SPAN CLASS="elocal">l_dtype_table</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../ise/sed_basic_serializer.html#f_type_table">type_table</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">a_list</SPAN><SPAN CLASS="esymbol">)</SPAN>
+				<SPAN CLASS="elocal">l_ser</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../ise/sed_reader_writer.html#f_write_compressed_natural_32">write_compressed_natural_32</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">l_dtype_table</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/hash_table.html#f_count">count</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/integer_32_ref.html#f_to_natural_32">to_natural_32</A><SPAN CLASS="esymbol">)</SPAN>
+				<SPAN CLASS="elocal">l_dtype_table</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/hash_table.html#f_start">start</A>
+			<SPAN CLASS="ekeyword">until</SPAN>
+				<SPAN CLASS="elocal">l_dtype_table</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/hash_table.html#f_after">after</A>
+			<SPAN CLASS="ekeyword">loop</SPAN>
+				<SPAN CLASS="elocal">l_dtype</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">l_dtype_table</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/hash_table.html#f_item_for_iteration">item_for_iteration</A>
+				<SPAN CLASS="elocal">l_ser</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../ise/sed_reader_writer.html#f_write_compressed_natural_32">write_compressed_natural_32</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">l_dtype</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/integer_32_ref.html#f_to_natural_32">to_natural_32</A><SPAN CLASS="esymbol">)</SPAN>
+				<SPAN CLASS="elocal">l_ser</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../ise/sed_reader_writer.html#f_write_string_8">write_string_8</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">l_int</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/internal.html#f_type_name_of_type">type_name_of_type</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">l_dtype</SPAN><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">)</SPAN>
+				<SPAN CLASS="elocal">l_dtype_table</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/hash_table.html#f_forth">forth</A>
+			<SPAN CLASS="ekeyword">end</SPAN>
+			<A CLASS="efeature" HREF="../ise/sed_session_serializer.html#f_write_object_table">write_object_table</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">a_list</SPAN><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_type_table"></A><A CLASS="efeature" HREF="../ise/sed_basic_serializer.html#f_type_table">type_table</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">a_list</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/arrayed_list.html">ARRAYED_LIST</A> <SPAN CLASS="esymbol">[</SPAN><A CLASS="eclass" HREF="../elks/any.html">ANY</A><SPAN CLASS="esymbol">]</SPAN><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/hash_table.html">HASH_TABLE</A> <SPAN CLASS="esymbol">[</SPAN><A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">,</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">]</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Given a list of objects </SPAN>`a_list'<SPAN CLASS="ecomment">, builds a compact table of the</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> dynamic type IDs present in </SPAN>`a_list'<SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">require</SPAN>
+			<SPAN CLASS="etag">a_list_not_void</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="elocal">a_list</SPAN> <SPAN CLASS="esymbol">/=</SPAN> <SPAN CLASS="ekeyword">Void</SPAN>
+			<SPAN CLASS="etag">a_list_not_empty</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="ekeyword" HREF="../elks/boolean.html#f_negated">not</A> <SPAN CLASS="elocal">a_list</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/finite.html#f_is_empty">is_empty</A>
+		<SPAN CLASS="ekeyword">local</SPAN>
+			<SPAN CLASS="elocal">l_dtype</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+			<SPAN CLASS="elocal">l_int</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="ekeyword">like</SPAN> <A CLASS="efeature" HREF="../ise/sed_session_serializer.html#f_internal">internal</A>
+			<SPAN CLASS="elocal">l_area</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/special.html">SPECIAL</A> <SPAN CLASS="esymbol">[</SPAN><A CLASS="eclass" HREF="../elks/any.html">ANY</A><SPAN CLASS="esymbol">]</SPAN>
+			<SPAN CLASS="elocal">i</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">nb</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="elocal">l_int</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../ise/sed_session_serializer.html#f_internal">internal</A>
+			<SPAN CLASS="ekeyword">from</SPAN>
+				<SPAN CLASS="ekeyword">create</SPAN> <SPAN CLASS="ekeyword">Result</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/hash_table.html#f_make">make</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="enumber">500</SPAN><SPAN CLASS="esymbol">)</SPAN>
+				<SPAN CLASS="elocal">l_area</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">a_list</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/arrayed_list.html#f_area">area</A>
+				<SPAN CLASS="elocal">i</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="enumber">0</SPAN>
+				<SPAN CLASS="elocal">nb</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">a_list</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/arrayed_list.html#f_count">count</A>
+			<SPAN CLASS="ekeyword">until</SPAN>
+				<SPAN CLASS="elocal">i</SPAN> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="elocal">nb</SPAN>
+			<SPAN CLASS="ekeyword">loop</SPAN>
+				<SPAN CLASS="elocal">l_dtype</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">l_int</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/internal.html#f_dynamic_type">dynamic_type</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">l_area</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/special.html#f_item">item</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">i</SPAN><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">)</SPAN>
+				<SPAN CLASS="ekeyword">Result</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/hash_table.html#f_put">put</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">l_dtype</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">l_dtype</SPAN><SPAN CLASS="esymbol">)</SPAN>
+				<SPAN CLASS="elocal">i</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">i</SPAN> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_plus">+</A> <SPAN CLASS="enumber">1</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">ensure</SPAN>
+			<SPAN CLASS="etag">type_table_not_void</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">/=</SPAN> <SPAN CLASS="ekeyword">Void</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+	
+<SPAN CLASS="ekeyword">note</SPAN>
+	<SPAN CLASS="eitag">library</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;EiffelBase: Library of reusable components for Eiffel.&quot;</SPAN>
+	<SPAN CLASS="eitag">copyright</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;Copyright (c) 1984-2008, Eiffel Software and others&quot;</SPAN>
+	<SPAN CLASS="eitag">license</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;Eiffel Forum License v2 (see </SPAN><A CLASS="estring" HREF="http://www.eiffel.com/licensing/forum.txt">http://www.eiffel.com/licensing/forum.txt</A><SPAN CLASS="estring">)&quot;</SPAN>
+	<SPAN CLASS="eitag">source</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;</SPAN><SPAN CLASS="estring">[</SPAN>
+		<SPAN CLASS="estring">Eiffel Software</SPAN>
+		<SPAN CLASS="estring">356 Storke Road, Goleta, CA 93117 USA</SPAN>
+		<SPAN CLASS="estring">Telephone 805-685-1006, Fax 805-685-6869</SPAN>
+		<SPAN CLASS="estring">Website </SPAN><A CLASS="estring" HREF="http://www.eiffel.com">http://www.eiffel.com</A>
+		<SPAN CLASS="estring">Customer support </SPAN><A CLASS="estring" HREF="http://support.eiffel.com">http://support.eiffel.com</A>
+	<SPAN CLASS="estring">]</SPAN><SPAN CLASS="estring">&quot;</SPAN>
+
+<SPAN CLASS="ekeyword">end</SPAN> <SPAN CLASS="ecomment">--</SPAN> <SPAN CLASS="ecomment">class </SPAN><A CLASS="eclass" HREF="../ise/sed_basic_serializer.html">SED_BASIC_SERIALIZER</A><FORM ONSUBMIT="go_to('../',this.c.value);return false;">
+<TABLE CELLSPACING="5" CELLPADDING="4"><TR>
+<TD CLASS="link1"><A CLASS="link1" HREF="../class_list.html">Classes</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_list.html">Clusters</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_hierarchy.html">Cluster hierarchy</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="sed_basic_serializer_chart.html">Chart</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="sed_basic_serializer_links.html">Relations</A></TD>
+<TD CLASS="nolink2">Text</TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="sed_basic_serializer_flat.html">Flat</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="sed_basic_serializer_short.html">Contracts</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="sed_basic_serializer_flatshort.html">Flat contracts</A></TD>
+<TD CLASS="link2">Go to: <INPUT NAME="c" VALUE="sed_basic_serializer"></TD>
+</TR></TABLE></FORM></pre>
+</section>
+<footer>
+<p>Project maintained by <a href="https://github.com/Hetrick">Hetrick</a></p>
+<p><small>Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></small></p>
+</footer>
+</div>
+<BR>For more details: <A HREF="http://www.eiffel.com">www.eiffel.com</A></P>
+</BODY>
+</HTML>
+

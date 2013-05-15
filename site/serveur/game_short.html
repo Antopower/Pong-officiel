@@ -1,0 +1,116 @@
+<HTML>
+<HEAD>
+<META NAME="generator" CONTENT="ISE EiffelStudio version 7.1.8.8986 GPL Edition - windows">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="description" content="code principal de l'application (menu et dÃ©roulement du jeu)"/>
+<meta name="author" content="Anthony Martel et Ã/137/tienne Boisjoli"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="copyright" content="Copyright (c) 2012-2013, Ã/137/tienne Boisjoli et Anthony Martel"/>
+<meta name="license" content="AGPL 3.0 (see http://www.gnu.org/licenses/agpl.txt)"/>
+<meta name="source" content="Ã/137/tienne Boisjoli et Anthony Martel Ã/137/tudiants CÃ©gep de Drummondville 960, rue Saint-Georges Drummondville, (QuÃ©bec) J2C-6A2 Telephone 819 478-4671, Fax 819 474-6859 Site Web http://www.cdrummond.qc.ca"/>
+<meta name="keywords" content="Eiffel class"/>
+<TITLE>game Contracts</TITLE>
+<LINK REL="stylesheet" HREF="../../stylesheets/styles.css" TYPE="text/css">
+<SCRIPT TYPE="text/javascript" SRC="../goto.html"></SCRIPT>
+</HEAD>
+<BODY>
+<P ALIGN="CENTER">Automatic generation produced by ISE Eiffel</P>
+<header>
+<h1>Pong-officiel</h1>
+<p>Pong - Officiel</p>
+</header>
+<div id="banner">
+<span id="logo"></span>
+<a href="https://github.com/Hetrick/Pong-officiel" class="button fork"><strong>View On GitHub</strong></a>
+<div class="downloads">
+<span>Downloads:</span>
+<ul>
+<li><a href="https://github.com/Hetrick/Pong-officiel/zipball/master" class="button">ZIP</a></li>
+<li><a href="https://github.com/Hetrick/Pong-officiel/tarball/master" class="button">TAR</a></li>
+</ul>
+</div>
+</div>
+<div class="wrapper">
+<nav>
+<ul></ul>
+</nav>
+<section>
+<pre><FORM ONSUBMIT="go_to('../',this.c.value);return false;">
+<TABLE CELLSPACING="5" CELLPADDING="4"><TR>
+<TD CLASS="link1"><A CLASS="link1" HREF="../class_list.html">Classes</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_list.html">Clusters</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_hierarchy.html">Cluster hierarchy</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="game_chart.html">Chart</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="game_links.html">Relations</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="game.html">Text</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="game_flat.html">Flat</A></TD>
+<TD CLASS="nolink2">Contracts</TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="game_flatshort.html">Flat contracts</A></TD>
+<TD CLASS="link2">Go to: <INPUT NAME="c" VALUE="game"></TD>
+</TR></TABLE></FORM><SPAN CLASS="ekeyword">note</SPAN>
+	<SPAN CLASS="eitag">description</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;code principal de l'application (menu et déroulement du jeu)&quot;</SPAN>
+	<SPAN CLASS="eitag">author</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;Anthony Martel et Étienne Boisjoli&quot;</SPAN>
+	<SPAN CLASS="eitag">date</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;11 mai 2013&quot;</SPAN>
+	<SPAN CLASS="eitag">revision</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;Beta 1.4&quot;</SPAN>
+
+<SPAN CLASS="ekeyword">class</SPAN> <SPAN CLASS="ekeyword">interface</SPAN>
+	<A CLASS="eclass" HREF="../serveur/game_short.html">GAME</A>
+
+<SPAN CLASS="ekeyword">create</SPAN> 
+	<A CLASS="efeature" HREF="../serveur/game_short.html#f_make">make</A>
+
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Access</SPAN>
+
+	<A NAME="f_make"></A><A CLASS="efeature" HREF="../serveur/game_short.html#f_make">make</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment">afichage du menu pour une redirection vers le bon mode de jeu</SPAN>
+
+	<A NAME="f_make_menu_multi"></A><A CLASS="efeature" HREF="../serveur/game_short.html#f_make_menu_multi">make_menu_multi</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> seconde page du menu pour selectionner client ou serveur</SPAN>
+
+	<A NAME="f_make_client"></A><A CLASS="efeature" HREF="../serveur/game_short.html#f_make_client">make_client</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> jeu en tant que client</SPAN>
+
+	<A NAME="f_make_serveur"></A><A CLASS="efeature" HREF="../serveur/game_short.html#f_make_serveur">make_serveur</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> jeu en tant que serveur</SPAN>
+
+	<A NAME="f_make_solo"></A><A CLASS="efeature" HREF="../serveur/game_short.html#f_make_solo">make_solo</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> jeu solo avec un IA de base</SPAN>
+	
+<SPAN CLASS="ekeyword">note</SPAN>
+	<SPAN CLASS="eitag">copyright</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;Copyright (c) 2012-2013, Étienne Boisjoli et Anthony Martel&quot;</SPAN>
+	<SPAN CLASS="eitag">license</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;AGPL 3.0 (see </SPAN><A CLASS="estring" HREF="http://www.gnu.org/licenses/agpl.txt">http://www.gnu.org/licenses/agpl.txt</A><SPAN CLASS="estring">)&quot;</SPAN>
+	<SPAN CLASS="eitag">source</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;</SPAN><SPAN CLASS="estring">[</SPAN>
+		<SPAN CLASS="estring">Étienne Boisjoli et Anthony Martel</SPAN>
+		<SPAN CLASS="estring">Étudiants</SPAN>
+		<SPAN CLASS="estring">Cégep de Drummondville</SPAN>
+		<SPAN CLASS="estring">960, rue Saint-Georges</SPAN>
+		<SPAN CLASS="estring">Drummondville, (Québec)</SPAN>
+		<SPAN CLASS="estring">J2C-6A2</SPAN>
+		<SPAN CLASS="estring">Telephone 819 478-4671, Fax 819 474-6859</SPAN>
+		<SPAN CLASS="estring">Site Web </SPAN><A CLASS="estring" HREF="http://www.cdrummond.qc.ca">http://www.cdrummond.qc.ca</A>
+	<SPAN CLASS="estring">]</SPAN><SPAN CLASS="estring">&quot;</SPAN>
+
+<SPAN CLASS="ekeyword">end</SPAN> <SPAN CLASS="ecomment">--</SPAN> <SPAN CLASS="ecomment">class </SPAN><A CLASS="eclass" HREF="../serveur/game_short.html">GAME</A><FORM ONSUBMIT="go_to('../',this.c.value);return false;">
+<TABLE CELLSPACING="5" CELLPADDING="4"><TR>
+<TD CLASS="link1"><A CLASS="link1" HREF="../class_list.html">Classes</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_list.html">Clusters</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_hierarchy.html">Cluster hierarchy</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="game_chart.html">Chart</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="game_links.html">Relations</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="game.html">Text</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="game_flat.html">Flat</A></TD>
+<TD CLASS="nolink2">Contracts</TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="game_flatshort.html">Flat contracts</A></TD>
+<TD CLASS="link2">Go to: <INPUT NAME="c" VALUE="game"></TD>
+</TR></TABLE></FORM></pre>
+</section>
+<footer>
+<p>Project maintained by <a href="https://github.com/Hetrick">Hetrick</a></p>
+<p><small>Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></small></p>
+</footer>
+</div>
+<BR>For more details: <A HREF="http://www.eiffel.com">www.eiffel.com</A></P>
+</BODY>
+</HTML>
+

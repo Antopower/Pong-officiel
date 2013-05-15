@@ -1,0 +1,114 @@
+<HTML>
+<HEAD>
+<META NAME="generator" CONTENT="ISE EiffelStudio version 7.1.8.8986 GPL Edition - windows">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="description" content="Objects that ..."/>
+<meta name="author" content=""/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<TITLE>addrinfo_1 Contracts</TITLE>
+<LINK REL="stylesheet" HREF="../../stylesheets/styles.css" TYPE="text/css">
+<SCRIPT TYPE="text/javascript" SRC="../goto.html"></SCRIPT>
+</HEAD>
+<BODY>
+<P ALIGN="CENTER">Automatic generation produced by ISE Eiffel</P>
+<header>
+<h1>Pong-officiel</h1>
+<p>Pong - Officiel</p>
+</header>
+<div id="banner">
+<span id="logo"></span>
+<a href="https://github.com/Hetrick/Pong-officiel" class="button fork"><strong>View On GitHub</strong></a>
+<div class="downloads">
+<span>Downloads:</span>
+<ul>
+<li><a href="https://github.com/Hetrick/Pong-officiel/zipball/master" class="button">ZIP</a></li>
+<li><a href="https://github.com/Hetrick/Pong-officiel/tarball/master" class="button">TAR</a></li>
+</ul>
+</div>
+</div>
+<div class="wrapper">
+<nav>
+<ul></ul>
+</nav>
+<section>
+<pre><FORM ONSUBMIT="go_to('../',this.c.value);return false;">
+<TABLE CELLSPACING="5" CELLPADDING="4"><TR>
+<TD CLASS="link1"><A CLASS="link1" HREF="../class_list.html">Classes</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_list.html">Clusters</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_hierarchy.html">Cluster hierarchy</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="addrinfo_1_chart.html">Chart</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="addrinfo_1_links.html">Relations</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="addrinfo_1.html">Text</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="addrinfo_1_flat.html">Flat</A></TD>
+<TD CLASS="nolink2">Contracts</TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="addrinfo_1_flatshort.html">Flat contracts</A></TD>
+<TD CLASS="link2">Go to: <INPUT NAME="c" VALUE="addrinfo_1"></TD>
+</TR></TABLE></FORM><SPAN CLASS="ekeyword">note</SPAN>
+	<SPAN CLASS="eitag">description</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;Objects that ...&quot;</SPAN>
+	<SPAN CLASS="eitag">author</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;&quot;</SPAN>
+	<SPAN CLASS="eitag">date</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;$Date: 2009-02-24 15:44:31 -0800 (Tue, 24 Feb 2009) $&quot;</SPAN>
+	<SPAN CLASS="eitag">revision</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;$Revision: 77298 $&quot;</SPAN>
+
+<SPAN CLASS="ekeyword">class</SPAN> <SPAN CLASS="ekeyword">interface</SPAN>
+	<A CLASS="eclass" HREF="../network/addrinfo_1_short.html">ADDRINFO_1</A>
+
+<SPAN CLASS="ekeyword">create</SPAN> 
+	<A CLASS="efeature" HREF="../network/external_object_short.html#f_make_from_external">make_from_external</A>
+
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Access</SPAN>
+
+	<A NAME="f_flags"></A><A CLASS="efeature" HREF="../network/addrinfo_1_short.html#f_flags">flags</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32_short.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Flags that indicate options used in the getaddrinfo function.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> See AI_PASSIVE, AI_CANONNAME, and AI_NUMERICHOST etc</SPAN>
+
+	<A NAME="f_family"></A><A CLASS="efeature" HREF="../network/addrinfo_1_short.html#f_family">family</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32_short.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Protocol family, such as PF_INET.</SPAN>
+
+	<A NAME="f_socktype"></A><A CLASS="efeature" HREF="../network/addrinfo_1_short.html#f_socktype">socktype</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32_short.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Denotes the type of socket that is wanted: SOCK_STREAM,</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> SOCK_DGRAM, or SOCK_RAW. &nbsp;When ai_socktype is zero the</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> caller will accept any socket type</SPAN>
+
+	<A NAME="f_protocol"></A><A CLASS="efeature" HREF="../network/addrinfo_1_short.html#f_protocol">protocol</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32_short.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Indicates which transport protocol is desired, IPPROTO_UDP</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> or IPPROTO_TCP. &nbsp;If ai_protocol is zero the caller will</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> accept any protocol.</SPAN>
+
+	<A NAME="f_addrlen"></A><A CLASS="efeature" HREF="../network/addrinfo_1_short.html#f_addrlen">addrlen</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32_short.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Length of the ai_addr member, in bytes.</SPAN>
+
+	<A NAME="f_canonname"></A><A CLASS="efeature" HREF="../network/addrinfo_1_short.html#f_canonname">canonname</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/string_8_short.html">STRING_8</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Canonical name for the host.</SPAN>
+
+	<A NAME="f_addr"></A><A CLASS="efeature" HREF="../network/addrinfo_1_short.html#f_addr">addr</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer_short.html">POINTER</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Pointer to a sockaddr structure.</SPAN>
+
+	<A NAME="f_next"></A><A CLASS="efeature" HREF="../network/addrinfo_1_short.html#f_next">next</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../network/addrinfo_short.html">ADDRINFO</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Pointer to the next structure in a linked list.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> This is Void in the last addrinfo structure of a linked list</SPAN>
+	
+<SPAN CLASS="ekeyword">end</SPAN> <SPAN CLASS="ecomment">--</SPAN> <SPAN CLASS="ecomment">class </SPAN><A CLASS="eclass" HREF="../network/addrinfo_1_short.html">ADDRINFO_1</A><FORM ONSUBMIT="go_to('../',this.c.value);return false;">
+<TABLE CELLSPACING="5" CELLPADDING="4"><TR>
+<TD CLASS="link1"><A CLASS="link1" HREF="../class_list.html">Classes</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_list.html">Clusters</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_hierarchy.html">Cluster hierarchy</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="addrinfo_1_chart.html">Chart</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="addrinfo_1_links.html">Relations</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="addrinfo_1.html">Text</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="addrinfo_1_flat.html">Flat</A></TD>
+<TD CLASS="nolink2">Contracts</TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="addrinfo_1_flatshort.html">Flat contracts</A></TD>
+<TD CLASS="link2">Go to: <INPUT NAME="c" VALUE="addrinfo_1"></TD>
+</TR></TABLE></FORM></pre>
+</section>
+<footer>
+<p>Project maintained by <a href="https://github.com/Hetrick">Hetrick</a></p>
+<p><small>Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></small></p>
+</footer>
+</div>
+<BR>For more details: <A HREF="http://www.eiffel.com">www.eiffel.com</A></P>
+</BODY>
+</HTML>
+
