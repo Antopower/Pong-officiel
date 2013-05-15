@@ -1,0 +1,2 @@
+mkdir "C:\Program Files\Eiffel Software\EiffelStudio 7.1 GPL\unstable\library\persistency\database\sqlite3\spec\mingw"
+xcopy mingw "C:\Program Files\Eiffel Software\EiffelStudio 7.1 GPL\unstable\library\persistency\database\sqlite3\spec\mingw\" /E
