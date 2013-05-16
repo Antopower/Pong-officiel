@@ -1,0 +1,236 @@
+<HTML>
+<HEAD>
+<META NAME="generator" CONTENT="ISE EiffelStudio version 7.1.8.8986 GPL Edition - windows">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="description" content="wrapper vers les fonction SDL"/>
+<meta name="author" content="Anthony Martel et Ã/137/tienne Boisjoli"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="copyright" content="Copyright (c) 2012-2013, Ã/137/tienne Boisjoli et Anthony Martel"/>
+<meta name="license" content="AGPL 3.0 (see http://www.gnu.org/licenses/agpl.txt)"/>
+<meta name="source" content="Ã/137/tienne Boisjoli et Anthony Martel Ã/137/tudiants CÃ©gep de Drummondville 960, rue Saint-Georges Drummondville, (QuÃ©bec) J2C-6A2 Telephone 819 478-4671, Fax 819 474-6859 Site Web http://www.cdrummond.qc.ca"/>
+<meta name="keywords" content="Eiffel class"/>
+<TITLE>sdl_wrapper Contracts</TITLE>
+<LINK REL="stylesheet" HREF="../stylesheets/styles.css" TYPE="text/css">
+<SCRIPT TYPE="text/javascript" SRC="../goto.html"></SCRIPT>
+</HEAD>
+<BODY>
+<P ALIGN="CENTER">Automatic generation produced by ISE Eiffel</P>
+<header>
+<h1>Pong-officiel</h1>
+<p>Pong - Officiel</p>
+</header>
+<div id="banner">
+<span id="logo"></span>
+<a href="https://github.com/Hetrick/Pong-officiel" class="button fork"><strong>View On GitHub</strong></a>
+<div class="downloads">
+<span>Downloads:</span>
+<ul>
+<li><a href="https://github.com/Hetrick/Pong-officiel/zipball/master" class="button">ZIP</a></li>
+<li><a href="https://github.com/Hetrick/Pong-officiel/tarball/master" class="button">TAR</a></li>
+</ul>
+</div>
+</div>
+<div class="wrapper">
+<nav>
+<ul></ul>
+</nav>
+<section>
+<pre><FORM ONSUBMIT="go_to('../',this.c.value);return false;">
+<TABLE CELLSPACING="5" CELLPADDING="4"><TR>
+<TD CLASS="link1"><A CLASS="link1" HREF="../class_list.html">Classes</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_list.html">Clusters</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_hierarchy.html">Cluster hierarchy</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="sdl_wrapper_chart.html">Chart</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="sdl_wrapper_links.html">Relations</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="sdl_wrapper.html">Text</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="sdl_wrapper_flat.html">Flat</A></TD>
+<TD CLASS="nolink2">Contracts</TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="sdl_wrapper_flatshort.html">Flat contracts</A></TD>
+<TD CLASS="link2">Go to: <INPUT NAME="c" VALUE="sdl_wrapper"></TD>
+</TR></TABLE></FORM><SPAN CLASS="ekeyword">note</SPAN>
+	<SPAN CLASS="eitag">description</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;wrapper vers les fonction SDL&quot;</SPAN>
+	<SPAN CLASS="eitag">author</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;Anthony Martel et Étienne Boisjoli&quot;</SPAN>
+	<SPAN CLASS="eitag">date</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;11 mai 2013&quot;</SPAN>
+	<SPAN CLASS="eitag">revision</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;Beta 1.4&quot;</SPAN>
+
+<SPAN CLASS="ekeyword">class</SPAN> <SPAN CLASS="ekeyword">interface</SPAN>
+	<A CLASS="eclass" HREF="../serveur/sdl_wrapper_short.html">SDL_WRAPPER</A>
+
+<SPAN CLASS="ekeyword">create</SPAN> 
+	<A CLASS="efeature" HREF="../elks/any_short.html#f_default_create">default_create</A>
+
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Functions -</SPAN>
+
+	<A NAME="f_sdl_init"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_sdl_init">sdl_init</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">flags</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/natural_32_short.html">NATURAL_32</A><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32_short.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment">int SDL_Init(Uint32 flags);</SPAN>
+
+	<A NAME="f_sdl_loadbmp"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_sdl_loadbmp">sdl_loadbmp</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">file</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer_short.html">POINTER</A><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer_short.html">POINTER</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment">SDL_Surface *SDL_LoadBMP(const char *file);</SPAN>
+
+	<A NAME="f_sdl_setvideomode"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_sdl_setvideomode">sdl_setvideomode</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">width</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">height</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">bitsperpixel</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32_short.html">INTEGER_32</A><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">flags</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/natural_32_short.html">NATURAL_32</A><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer_short.html">POINTER</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment">SDL_Surface* SDL_SetVideoMode(int width, int height, int bitsperpixel, Uint32 flags);</SPAN>
+
+	<A NAME="f_sdl_blitsurface"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_sdl_blitsurface">sdl_blitsurface</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">src</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">srcrect</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">dst</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">dstrect</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer_short.html">POINTER</A><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32_short.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment">int SDL_BlitSurface(SDL_Surface *src, SDL_Rect *srcrect, SDL_Surface *dst, SDL_Rect *dstrect);</SPAN>
+
+	<A NAME="f_sdl_flip"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_sdl_flip">sdl_flip</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">screen</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer_short.html">POINTER</A><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32_short.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment">int SDL_Flip(SDL_Surface* screen);</SPAN>
+
+	<A NAME="f_sdl_delay"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_sdl_delay">sdl_delay</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">ms</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/natural_32_short.html">NATURAL_32</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment">void SDL_Delay(Uint32 ms);</SPAN>
+
+	<A NAME="f_sdl_pollevent"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_sdl_pollevent">sdl_pollevent</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">event</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer_short.html">POINTER</A><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32_short.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment">int SDL_PollEvent(SDL_Event *event);</SPAN>
+
+	<A NAME="f_sdl_quitevent"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_sdl_quitevent">sdl_quitevent</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">event</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer_short.html">POINTER</A><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32_short.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment">typedef struct{ Uint8 type } SDL_QuitEvent;</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Structure Setter</SPAN>
+
+	<A NAME="f_set_sdl_target_area_h"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_set_sdl_target_area_h">set_sdl_target_area_h</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">sdl_rect</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer_short.html">POINTER</A><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">value</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32_short.html">INTEGER_32</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Modifie le champ h de la structure </SPAN>`SDL_Surface'<SPAN CLASS="ecomment"> par la valeur </SPAN>`h'<SPAN CLASS="ecomment">.</SPAN>
+
+	<A NAME="f_set_sdl_target_area_w"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_set_sdl_target_area_w">set_sdl_target_area_w</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">sdl_rect</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer_short.html">POINTER</A><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">value</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32_short.html">INTEGER_32</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Modifie le champ w de la structure </SPAN>`SDL_Surface'<SPAN CLASS="ecomment"> par la valeur </SPAN>`w'<SPAN CLASS="ecomment">.</SPAN>
+
+	<A NAME="f_set_sdl_target_area_x"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_set_sdl_target_area_x">set_sdl_target_area_x</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">sdl_rect</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer_short.html">POINTER</A><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">value</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_16_short.html">INTEGER_16</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Modifie le champ h de la structure </SPAN>`SDL_Surface'<SPAN CLASS="ecomment"> par la valeur </SPAN>`x'<SPAN CLASS="ecomment">.</SPAN>
+
+	<A NAME="f_set_sdl_target_area_y"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_set_sdl_target_area_y">set_sdl_target_area_y</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">sdl_rect</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer_short.html">POINTER</A><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">value</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_16_short.html">INTEGER_16</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Modifie le champ w de la structure </SPAN>`SDL_Surface'<SPAN CLASS="ecomment"> par la valeur </SPAN>`y'<SPAN CLASS="ecomment">.</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Structure Getter</SPAN>
+
+	<A NAME="f_get_bmp_h"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_get_bmp_h">get_bmp_h</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">sdl_surface</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer_short.html">POINTER</A><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32_short.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Le champ h de la structure </SPAN>`SDL_Surface'
+
+	<A NAME="f_get_bmp_w"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_get_bmp_w">get_bmp_w</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">sdl_surface</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer_short.html">POINTER</A><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32_short.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Le champ w de la structure </SPAN>`SDL_Surface'
+
+	<A NAME="f_get_sdl_eventtype"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_get_sdl_eventtype">get_sdl_eventtype</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">sdl_event</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer_short.html">POINTER</A><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/natural_8_short.html">NATURAL_8</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> le type d'evènement du 'SDL_Event'</SPAN>
+
+	<A NAME="f_get_sdl_eventkey"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_get_sdl_eventkey">get_sdl_eventkey</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">event</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer_short.html">POINTER</A><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer_short.html">POINTER</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> la key de l'event</SPAN>
+
+	<A NAME="f_get_sdl_keysym"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_get_sdl_keysym">get_sdl_keysym</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">event</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer_short.html">POINTER</A><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer_short.html">POINTER</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> le keysym de l'event</SPAN>
+
+	<A NAME="f_get_sdl_sym"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_get_sdl_sym">get_sdl_sym</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">sdl_keysym</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer_short.html">POINTER</A><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/natural_8_short.html">NATURAL_8</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> le sym du keysym</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment">constantes</SPAN>
+
+	<A NAME="f_sdl_init_video"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_sdl_init_video">sdl_init_video</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/natural_32_short.html">NATURAL_32</A>
+
+	<A NAME="f_sdl_swsurface"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_sdl_swsurface">sdl_swsurface</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/natural_32_short.html">NATURAL_32</A>
+
+	<A NAME="f_sdl_quit"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_sdl_quit">sdl_quit</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/natural_8_short.html">NATURAL_8</A>
+
+	<A NAME="f_sdl_keydown"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_sdl_keydown">sdl_keydown</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/natural_8_short.html">NATURAL_8</A>
+
+	<A NAME="f_sdl_keyup"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_sdl_keyup">sdl_keyup</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/natural_8_short.html">NATURAL_8</A>
+
+	<A NAME="f_sdlk_up"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_sdlk_up">sdlk_up</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/natural_8_short.html">NATURAL_8</A>
+
+	<A NAME="f_sdlk_down"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_sdlk_down">sdlk_down</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/natural_8_short.html">NATURAL_8</A>
+
+	<A NAME="f_sdlk_p"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_sdlk_p">sdlk_p</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/natural_8_short.html">NATURAL_8</A>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment">TTF WRAPPER</SPAN>
+
+	<A NAME="f_ttf_quit"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_ttf_quit">ttf_quit</A>
+
+	<A NAME="f_ttf_closefont"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_ttf_closefont">ttf_closefont</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">font</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer_short.html">POINTER</A><SPAN CLASS="esymbol">)</SPAN>
+
+	<A NAME="f_ttf_init"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_ttf_init">ttf_init</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32_short.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment">int TTF_Init()</SPAN>
+
+	<A NAME="f_ttf_openfont"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_ttf_openfont">ttf_openfont</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">file</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer_short.html">POINTER</A><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">ptsize</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32_short.html">INTEGER_32</A><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer_short.html">POINTER</A>
+
+	<A NAME="f_set_sdl_color_r"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_set_sdl_color_r">set_sdl_color_r</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">sdl_color</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer_short.html">POINTER</A><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">value</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/natural_8_short.html">NATURAL_8</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Set la valeur de rouge pour le SDL_Color utilisé avec RenderText_Font.</SPAN>
+
+	<A NAME="f_set_sdl_color_g"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_set_sdl_color_g">set_sdl_color_g</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">sdl_color</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer_short.html">POINTER</A><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">value</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/natural_8_short.html">NATURAL_8</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Set la valeur de vert pour le SDL_Color utilisé avec RenderText_Font.</SPAN>
+
+	<A NAME="f_set_sdl_color_b"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_set_sdl_color_b">set_sdl_color_b</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">sdl_color</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer_short.html">POINTER</A><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">value</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/natural_8_short.html">NATURAL_8</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Set la valeur de bleu pour le SDL_Color utilisé avec RenderText_Font.</SPAN>
+
+	<A NAME="f_ttf_rendertext_solid"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_ttf_rendertext_solid">ttf_rendertext_solid</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">font</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">text</SPAN><SPAN CLASS="esymbol">,</SPAN> <SPAN CLASS="elocal">color</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer_short.html">POINTER</A><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer_short.html">POINTER</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment">SDL_Surface *TTF_RenderUNICODE_Solid(TTF_Font *font, const Uint16 *text, SDL_Color fg);</SPAN>
+
+	<A NAME="f_sizeof_sdl_color"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_sizeof_sdl_color">sizeof_sdl_color</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32_short.html">INTEGER_32</A>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment">mixer</SPAN>
+
+	<A NAME="f_mix_init"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_mix_init">mix_init</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">flags</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32_short.html">INTEGER_32</A><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32_short.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> initialise le mixer</SPAN>
+
+	<A NAME="f_mix_openaudio"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_mix_openaudio">mix_openaudio</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">frequency</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32_short.html">INTEGER_32</A><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">format</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/natural_16_short.html">NATURAL_16</A><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">channels</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32_short.html">INTEGER_32</A><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">chunksize</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32_short.html">INTEGER_32</A><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32_short.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> ouvre l'audio</SPAN>
+
+	<A NAME="f_mix_loadmus"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_mix_loadmus">mix_loadmus</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">file</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer_short.html">POINTER</A><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer_short.html">POINTER</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> ouvre le fichier de musique</SPAN>
+
+	<A NAME="f_mix_playmusic"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_mix_playmusic">mix_playmusic</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">music</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer_short.html">POINTER</A><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">loops</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32_short.html">INTEGER_32</A><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32_short.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> fait jouer la musique et set le nombre de fois</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment">Wrapper de la souris</SPAN>
+
+	<A NAME="f_get_mouse_button"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_get_mouse_button">get_mouse_button</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">sdl_mousebuttonevent</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer_short.html">POINTER</A><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/natural_8_short.html">NATURAL_8</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> bouton de la souris selon l'event</SPAN>
+
+	<A NAME="f_get_mouse_y"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_get_mouse_y">get_mouse_y</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">sdl_mousebuttonevent</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer_short.html">POINTER</A><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/natural_16_short.html">NATURAL_16</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> y de la souris</SPAN>
+
+	<A NAME="f_get_mouse_x"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_get_mouse_x">get_mouse_x</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">sdl_mousebuttonevent</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/pointer_short.html">POINTER</A><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/natural_16_short.html">NATURAL_16</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> x de la souris</SPAN>
+
+	<A NAME="f_sdl_mousebuttondown"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_sdl_mousebuttondown">sdl_mousebuttondown</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/natural_8_short.html">NATURAL_8</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment">constante</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Sizeof</SPAN>
+
+	<A NAME="f_sizeof_sdl_rect"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_sizeof_sdl_rect">sizeof_sdl_rect</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32_short.html">INTEGER_32</A>
+
+	<A NAME="f_sizeof_sdl_event"></A><SPAN CLASS="ekeyword">frozen</SPAN> <A CLASS="efeature" HREF="../serveur/sdl_wrapper_short.html#f_sizeof_sdl_event">sizeof_sdl_event</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32_short.html">INTEGER_32</A>
+	
+<SPAN CLASS="ekeyword">note</SPAN>
+	<SPAN CLASS="eitag">copyright</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;Copyright (c) 2012-2013, Étienne Boisjoli et Anthony Martel&quot;</SPAN>
+	<SPAN CLASS="eitag">license</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;AGPL 3.0 (see </SPAN><A CLASS="estring" HREF="http://www.gnu.org/licenses/agpl.txt">http://www.gnu.org/licenses/agpl.txt</A><SPAN CLASS="estring">)&quot;</SPAN>
+	<SPAN CLASS="eitag">source</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;</SPAN><SPAN CLASS="estring">[</SPAN>
+		<SPAN CLASS="estring">Étienne Boisjoli et Anthony Martel</SPAN>
+		<SPAN CLASS="estring">Étudiants</SPAN>
+		<SPAN CLASS="estring">Cégep de Drummondville</SPAN>
+		<SPAN CLASS="estring">960, rue Saint-Georges</SPAN>
+		<SPAN CLASS="estring">Drummondville, (Québec)</SPAN>
+		<SPAN CLASS="estring">J2C-6A2</SPAN>
+		<SPAN CLASS="estring">Telephone 819 478-4671, Fax 819 474-6859</SPAN>
+		<SPAN CLASS="estring">Site Web </SPAN><A CLASS="estring" HREF="http://www.cdrummond.qc.ca">http://www.cdrummond.qc.ca</A>
+	<SPAN CLASS="estring">]</SPAN><SPAN CLASS="estring">&quot;</SPAN>
+
+<SPAN CLASS="ekeyword">end</SPAN> <SPAN CLASS="ecomment">--</SPAN> <SPAN CLASS="ecomment">class </SPAN><A CLASS="eclass" HREF="../serveur/sdl_wrapper_short.html">SDL_WRAPPER</A><FORM ONSUBMIT="go_to('../',this.c.value);return false;">
+<TABLE CELLSPACING="5" CELLPADDING="4"><TR>
+<TD CLASS="link1"><A CLASS="link1" HREF="../class_list.html">Classes</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_list.html">Clusters</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_hierarchy.html">Cluster hierarchy</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="sdl_wrapper_chart.html">Chart</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="sdl_wrapper_links.html">Relations</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="sdl_wrapper.html">Text</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="sdl_wrapper_flat.html">Flat</A></TD>
+<TD CLASS="nolink2">Contracts</TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="sdl_wrapper_flatshort.html">Flat contracts</A></TD>
+<TD CLASS="link2">Go to: <INPUT NAME="c" VALUE="sdl_wrapper"></TD>
+</TR></TABLE></FORM></pre>
+</section>
+<footer>
+<p>Project maintained by <a href="https://github.com/Hetrick">Hetrick</a></p>
+<p><small>Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></small></p>
+</footer>
+</div>
+<BR>For more details: <A HREF="http://www.eiffel.com">www.eiffel.com</A></P>
+</BODY>
+</HTML>
+

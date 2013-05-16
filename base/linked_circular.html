@@ -1,0 +1,484 @@
+<HTML>
+<HEAD>
+<META NAME="generator" CONTENT="ISE EiffelStudio version 7.1.8.8986 GPL Edition - windows">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="description" content="Circular chains implemented as linked lists"/>
+<meta name="library" content="Free implementation of ELKS library"/>
+<meta name="legal" content="See notice at end of class."/>
+<meta name="names" content="linked_circular, ring, sequence"/>
+<meta name="representation" content="linked"/>
+<meta name="access" content="index, cursor, membership"/>
+<meta name="contents" content="generic"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="copyright" content="Copyright (c) 1984-2012, Eiffel Software and others"/>
+<meta name="license" content="Eiffel Forum License v2 (see http://www.eiffel.com/licensing/forum.txt)"/>
+<meta name="source" content="Eiffel Software 5949 Hollister Ave., Goleta, CA 93117 USA Telephone 805-685-1006, Fax 805-685-6869 Website http://www.eiffel.com Customer support http://support.eiffel.com"/>
+<meta name="keywords" content="Eiffel class"/>
+<TITLE>linked_circular Text</TITLE>
+<LINK REL="stylesheet" HREF="../stylesheets/styles.css" TYPE="text/css">
+<SCRIPT TYPE="text/javascript" SRC="../goto.html"></SCRIPT>
+</HEAD>
+<BODY>
+<P ALIGN="CENTER">Automatic generation produced by ISE Eiffel</P>
+<header>
+<h1>Pong-officiel</h1>
+<p>Pong - Officiel</p>
+</header>
+<div id="banner">
+<span id="logo"></span>
+<a href="https://github.com/Hetrick/Pong-officiel" class="button fork"><strong>View On GitHub</strong></a>
+<div class="downloads">
+<span>Downloads:</span>
+<ul>
+<li><a href="https://github.com/Hetrick/Pong-officiel/zipball/master" class="button">ZIP</a></li>
+<li><a href="https://github.com/Hetrick/Pong-officiel/tarball/master" class="button">TAR</a></li>
+</ul>
+</div>
+</div>
+<div class="wrapper">
+<nav>
+<ul></ul>
+</nav>
+<section>
+<pre><FORM ONSUBMIT="go_to('../',this.c.value);return false;">
+<TABLE CELLSPACING="5" CELLPADDING="4"><TR>
+<TD CLASS="link1"><A CLASS="link1" HREF="../class_list.html">Classes</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_list.html">Clusters</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_hierarchy.html">Cluster hierarchy</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="linked_circular_chart.html">Chart</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="linked_circular_links.html">Relations</A></TD>
+<TD CLASS="nolink2">Text</TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="linked_circular_flat.html">Flat</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="linked_circular_short.html">Contracts</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="linked_circular_flatshort.html">Flat contracts</A></TD>
+<TD CLASS="link2">Go to: <INPUT NAME="c" VALUE="linked_circular"></TD>
+</TR></TABLE></FORM><SPAN CLASS="ekeyword">note</SPAN>
+	<SPAN CLASS="eitag">description</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;Circular chains implemented as linked lists&quot;</SPAN>
+	<SPAN CLASS="eitag">library</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;Free implementation of ELKS library&quot;</SPAN>
+	<SPAN CLASS="eitag">legal</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;See notice at end of class.&quot;</SPAN>
+	<SPAN CLASS="eitag">status</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;See notice at end of class.&quot;</SPAN>
+	<SPAN CLASS="eitag">names</SPAN><SPAN CLASS="esymbol">:</SPAN> linked_circular<SPAN CLASS="esymbol">,</SPAN> ring<SPAN CLASS="esymbol">,</SPAN> sequence
+	<SPAN CLASS="eitag">representation</SPAN><SPAN CLASS="esymbol">:</SPAN> linked
+	<SPAN CLASS="eitag">access</SPAN><SPAN CLASS="esymbol">:</SPAN> index<SPAN CLASS="esymbol">,</SPAN> cursor<SPAN CLASS="esymbol">,</SPAN> membership
+	<SPAN CLASS="eitag">contents</SPAN><SPAN CLASS="esymbol">:</SPAN> generic
+	<SPAN CLASS="eitag">date</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;$Date: 2012-05-23 21:13:10 -0700 (Wed, 23 May 2012) $&quot;</SPAN>
+	<SPAN CLASS="eitag">revision</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;$Revision: 559 $&quot;</SPAN>
+
+<SPAN CLASS="ekeyword">class</SPAN> 
+	<A CLASS="eclass" HREF="../elks/linked_circular.html">LINKED_CIRCULAR</A> <SPAN CLASS="esymbol">[</SPAN><SPAN CLASS="egeneric">G</SPAN><SPAN CLASS="esymbol">]</SPAN>
+
+<SPAN CLASS="ekeyword">inherit</SPAN>
+	<A CLASS="eclass" HREF="../elks/dynamic_circular.html">DYNAMIC_CIRCULAR</A> <SPAN CLASS="esymbol">[</SPAN><SPAN CLASS="egeneric">G</SPAN><SPAN CLASS="esymbol">]</SPAN>
+		<SPAN CLASS="ekeyword">undefine</SPAN>
+			<A CLASS="efeature" HREF="../elks/linked_circular.html#f_readable">readable</A><SPAN CLASS="esymbol">,</SPAN>
+			<A CLASS="efeature" HREF="../elks/linked_circular.html#f_isfirst">isfirst</A><SPAN CLASS="esymbol">,</SPAN>
+			<A CLASS="efeature" HREF="../elks/linked_circular.html#f_writable">writable</A><SPAN CLASS="esymbol">,</SPAN>
+			<A CLASS="efeature" HREF="../elks/list.html#f_is_equal">is_equal</A>
+		<SPAN CLASS="ekeyword">redefine</SPAN>
+			<A CLASS="efeature" HREF="../elks/linked_circular.html#f_start">start</A><SPAN CLASS="esymbol">,</SPAN>
+			<A CLASS="efeature" HREF="../elks/linked_circular.html#f_islast">islast</A>
+		<SPAN CLASS="ekeyword">select</SPAN>
+			<A CLASS="efeature" HREF="../elks/circular.html#f_remove">remove</A><SPAN CLASS="esymbol">,</SPAN>
+			<A CLASS="efeature" HREF="../elks/circular.html#f_go_i_th">go_i_th</A><SPAN CLASS="esymbol">,</SPAN>
+			<A CLASS="efeature" HREF="../elks/circular.html#f_after">after</A><SPAN CLASS="esymbol">,</SPAN>
+			<A CLASS="efeature" HREF="../elks/circular.html#f_before">before</A><SPAN CLASS="esymbol">,</SPAN>
+			<A CLASS="efeature" HREF="../elks/circular.html#f_off">off</A><SPAN CLASS="esymbol">,</SPAN>
+			<A CLASS="efeature" HREF="../elks/dynamic_chain.html#f_prune_all">prune_all</A><SPAN CLASS="esymbol">,</SPAN>
+			<A CLASS="efeature" HREF="../elks/dynamic_chain.html#f_prune">prune</A><SPAN CLASS="esymbol">,</SPAN>
+			<A CLASS="efeature" HREF="../elks/circular.html#f_first">first</A><SPAN CLASS="esymbol">,</SPAN>
+			<A CLASS="efeature" HREF="../elks/circular.html#f_forth">forth</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A CLASS="eclass" HREF="../elks/list.html">LIST</A> <SPAN CLASS="esymbol">[</SPAN><SPAN CLASS="egeneric">G</SPAN><SPAN CLASS="esymbol">]</SPAN>
+		<SPAN CLASS="ekeyword">rename</SPAN>
+			<A CLASS="efeature" HREF="../elks/list.html#f_after">after</A> <SPAN CLASS="ekeyword">as</SPAN> <A CLASS="efeature" HREF="../elks/list.html#f_after">l_after</A><SPAN CLASS="esymbol">,</SPAN>
+			<A CLASS="efeature" HREF="../elks/list.html#f_before">before</A> <SPAN CLASS="ekeyword">as</SPAN> <A CLASS="efeature" HREF="../elks/list.html#f_before">l_before</A><SPAN CLASS="esymbol">,</SPAN>
+			<A CLASS="efeature" HREF="../elks/chain.html#f_remove">remove</A> <SPAN CLASS="ekeyword">as</SPAN> <A CLASS="efeature" HREF="../elks/chain.html#f_remove">l_remove</A><SPAN CLASS="esymbol">,</SPAN>
+			<A CLASS="efeature" HREF="../elks/chain.html#f_first">first</A> <SPAN CLASS="ekeyword">as</SPAN> <A CLASS="efeature" HREF="../elks/chain.html#f_first">l_first</A><SPAN CLASS="esymbol">,</SPAN>
+			<A CLASS="efeature" HREF="../elks/chain.html#f_off">off</A> <SPAN CLASS="ekeyword">as</SPAN> <A CLASS="efeature" HREF="../elks/chain.html#f_off">l_off</A><SPAN CLASS="esymbol">,</SPAN>
+			<A CLASS="efeature" HREF="../elks/sequence.html#f_prune">prune</A> <SPAN CLASS="ekeyword">as</SPAN> <A CLASS="efeature" HREF="../elks/sequence.html#f_prune">l_prune</A><SPAN CLASS="esymbol">,</SPAN>
+			<A CLASS="efeature" HREF="../elks/sequence.html#f_prune_all">prune_all</A> <SPAN CLASS="ekeyword">as</SPAN> <A CLASS="efeature" HREF="../elks/sequence.html#f_prune_all">l_prune_all</A><SPAN CLASS="esymbol">,</SPAN>
+			<A CLASS="efeature" HREF="../elks/chain.html#f_go_i_th">go_i_th</A> <SPAN CLASS="ekeyword">as</SPAN> <A CLASS="efeature" HREF="../elks/chain.html#f_go_i_th">l_go_i_th</A><SPAN CLASS="esymbol">,</SPAN>
+			<A CLASS="efeature" HREF="../elks/list.html#f_forth">forth</A> <SPAN CLASS="ekeyword">as</SPAN> <A CLASS="efeature" HREF="../elks/linked_circular.html#f_l_forth">l_forth</A>
+		<SPAN CLASS="ekeyword">export</SPAN>
+			<SPAN CLASS="esymbol">{</SPAN>NONE<SPAN CLASS="esymbol">}</SPAN> <A CLASS="efeature" HREF="../elks/list.html#f_after">l_after</A><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/list.html#f_before">l_before</A><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/chain.html#f_remove">l_remove</A><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/chain.html#f_first">l_first</A><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/chain.html#f_off">l_off</A><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/sequence.html#f_prune">l_prune</A><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/sequence.html#f_prune_all">l_prune_all</A><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/chain.html#f_go_i_th">l_go_i_th</A><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/linked_circular.html#f_l_forth">l_forth</A>
+		<SPAN CLASS="ekeyword">undefine</SPAN>
+			<A CLASS="efeature" HREF="../elks/circular.html#f_last">last</A><SPAN CLASS="esymbol">,</SPAN>
+			<A CLASS="efeature" HREF="../elks/circular.html#f_exhausted">exhausted</A><SPAN CLASS="esymbol">,</SPAN>
+			<A CLASS="efeature" HREF="../elks/circular.html#f_move">move</A><SPAN CLASS="esymbol">,</SPAN>
+			<A CLASS="efeature" HREF="../elks/circular.html#f_valid_cursor_index">valid_cursor_index</A><SPAN CLASS="esymbol">,</SPAN>
+			<A CLASS="efeature" HREF="../elks/linked_circular.html#f_isfirst">isfirst</A><SPAN CLASS="esymbol">,</SPAN>
+			<A CLASS="efeature" HREF="../elks/linked_circular.html#f_readable">readable</A><SPAN CLASS="esymbol">,</SPAN>
+			<A CLASS="efeature" HREF="../elks/linked_circular.html#f_islast">islast</A><SPAN CLASS="esymbol">,</SPAN>
+			<A CLASS="efeature" HREF="../elks/linked_circular.html#f_start">start</A><SPAN CLASS="esymbol">,</SPAN>
+			<A CLASS="efeature" HREF="../elks/linked_circular.html#f_writable">writable</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+<SPAN CLASS="ekeyword">create</SPAN> 
+	<A CLASS="efeature" HREF="../elks/linked_circular.html#f_make">make</A>
+
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Initialization</SPAN>
+
+	<A NAME="f_make"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_make">make</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Create an empty list</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">create</SPAN> <A CLASS="efeature" HREF="../elks/linked_circular.html#f_list">list</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_make">make</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Measurement</SPAN>
+
+	<A NAME="f_count"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_count">count</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Number of items</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../elks/linked_circular.html#f_list">list</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_count">count</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Element change</SPAN>
+
+	<A NAME="f_replace"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_replace">replace</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">v</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="egeneric">G</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Replace current item by </SPAN>`v'<SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../elks/linked_circular.html#f_list">list</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_replace">replace</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">v</SPAN><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_merge_right"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_merge_right">merge_right</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">other</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="ekeyword">like</SPAN> <SPAN CLASS="ekeyword">Current</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Merge </SPAN>`other'<SPAN CLASS="ecomment"> into current structure after cursor</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> position. Do not move cursor. Empty </SPAN>`other'<SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../elks/linked_circular.html#f_list">list</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_merge_right">merge_right</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">other</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_circular.html#f_list">list</A><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_put_right"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_put_right">put_right</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">v</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="ekeyword">like</SPAN> <A CLASS="efeature" HREF="../elks/linked_circular.html#f_item">item</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Add </SPAN>`v'<SPAN CLASS="ecomment"> to the right of cursor position.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Do not move cursor.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../elks/linked_circular.html#f_list">list</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_put_right">put_right</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">v</SPAN><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_put_front"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_put_front">put_front</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">v</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="ekeyword">like</SPAN> <A CLASS="efeature" HREF="../elks/linked_circular.html#f_item">item</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Add </SPAN>`v'<SPAN CLASS="ecomment"> to beginning.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Do not move cursor.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../elks/linked_circular.html#f_list">list</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_put_front">put_front</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">v</SPAN><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_extend"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_extend">extend</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">v</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="ekeyword">like</SPAN> <A CLASS="efeature" HREF="../elks/linked_circular.html#f_item">item</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Add </SPAN>`v'<SPAN CLASS="ecomment"> to end.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Do not move cursor.</SPAN>
+		<SPAN CLASS="ekeyword">local</SPAN>
+			<SPAN CLASS="elocal">e</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="elocal">e</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../elks/finite.html#f_is_empty">is_empty</A>
+			<A CLASS="efeature" HREF="../elks/linked_circular.html#f_list">list</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_extend">extend</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">v</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <SPAN CLASS="elocal">e</SPAN> <SPAN CLASS="ekeyword">then</SPAN>
+				<A CLASS="efeature" HREF="../elks/linked_circular.html#f_start">start</A>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_merge_left"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_merge_left">merge_left</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">other</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="ekeyword">like</SPAN> <SPAN CLASS="ekeyword">Current</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Merge </SPAN>`other'<SPAN CLASS="ecomment"> into current structure before cursor</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> position. Do not move cursor. Empty </SPAN>`other'<SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../elks/linked_circular.html#f_list">list</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_merge_left">merge_left</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">other</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_circular.html#f_list">list</A><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_put_left"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_put_left">put_left</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">v</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="ekeyword">like</SPAN> <A CLASS="efeature" HREF="../elks/linked_circular.html#f_item">item</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Add </SPAN>`v'<SPAN CLASS="ecomment"> to the left of cursor position.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Do not move cursor.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../elks/linked_circular.html#f_list">list</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_put_left">put_left</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">v</SPAN><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Access</SPAN>
+
+	<A NAME="f_item"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_item">item</A><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="egeneric">G</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Current item</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../elks/linked_circular.html#f_list">list</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_item">item</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_cursor"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_cursor">cursor</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/circular_cursor.html">CIRCULAR_CURSOR</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Current cursor position</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">create</SPAN> <SPAN CLASS="ekeyword">Result</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/circular_cursor.html#f_make">make</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/linked_circular.html#f_list">list</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_cursor">cursor</A><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/circular.html#f_internal_exhausted">internal_exhausted</A><SPAN CLASS="esymbol">,</SPAN> <A CLASS="efeature" HREF="../elks/linked_circular.html#f_starter">starter</A><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Status report</SPAN>
+
+	<A NAME="f_full"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_full">Full</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="ekeyword">False</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Is structured filled to capacity? (Answer: no.)</SPAN>
+
+	<A NAME="f_readable"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_readable">readable</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Is there a current item that may be read?</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../elks/linked_circular.html#f_list">list</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_readable">readable</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_valid_cursor"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_valid_cursor">valid_cursor</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">p</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/cursor.html">CURSOR</A><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Can the cursor be moved to position </SPAN>`p'<SPAN CLASS="ecomment">?</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <SPAN CLASS="ekeyword">attached</SPAN> <SPAN CLASS="esymbol">{</SPAN><A CLASS="eclass" HREF="../elks/circular_cursor.html">CIRCULAR_CURSOR</A><SPAN CLASS="esymbol">}</SPAN> <SPAN CLASS="elocal">p</SPAN> <SPAN CLASS="ekeyword">as</SPAN> c_c <SPAN CLASS="ekeyword">then</SPAN>
+				<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../elks/linked_circular.html#f_list">list</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_valid_cursor">valid_cursor</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">c_c</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/circular_cursor.html#f_cursor">cursor</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_writable"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_writable">writable</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Is there a current item that may be written?</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../elks/linked_circular.html#f_list">list</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/sequence.html#f_writable">writable</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_isfirst"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_isfirst">isfirst</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Is cursor on first item?</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="ekeyword" HREF="../elks/boolean.html#f_negated">not</A> <A CLASS="efeature" HREF="../elks/finite.html#f_is_empty">is_empty</A> <SPAN CLASS="ekeyword">then</SPAN>
+				<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="efeature" HREF="../elks/linked_circular.html#f_starter">starter</A> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="enumber">0</SPAN> <SPAN CLASS="ekeyword">then</SPAN>
+					<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../elks/linked_circular.html#f_list">list</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_isfirst">isfirst</A>
+				<SPAN CLASS="ekeyword">else</SPAN>
+					<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/linked_circular.html#f_standard_index">standard_index</A> <SPAN CLASS="esymbol">=</SPAN> <A CLASS="efeature" HREF="../elks/linked_circular.html#f_starter">starter</A><SPAN CLASS="esymbol">)</SPAN>
+				<SPAN CLASS="ekeyword">end</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_islast"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_islast">islast</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Is cursor on last item?</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="ekeyword" HREF="../elks/boolean.html#f_negated">not</A> <A CLASS="efeature" HREF="../elks/finite.html#f_is_empty">is_empty</A> <SPAN CLASS="ekeyword">then</SPAN>
+				<SPAN CLASS="ekeyword">if</SPAN> <SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/linked_circular.html#f_starter">starter</A> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="enumber">0</SPAN><SPAN CLASS="esymbol">)</SPAN> <A CLASS="ekeyword" HREF="../elks/boolean.html#f_disjuncted">or</A> <SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/linked_circular.html#f_starter">starter</A> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="enumber">1</SPAN><SPAN CLASS="esymbol">)</SPAN> <SPAN CLASS="ekeyword">then</SPAN>
+					<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../elks/linked_circular.html#f_standard_islast">standard_islast</A>
+				<SPAN CLASS="ekeyword">else</SPAN>
+					<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/linked_circular.html#f_standard_index">standard_index</A> <SPAN CLASS="esymbol">=</SPAN> <A CLASS="efeature" HREF="../elks/linked_circular.html#f_starter">starter</A> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_minus">-</A> <SPAN CLASS="enumber">1</SPAN><SPAN CLASS="esymbol">)</SPAN>
+				<SPAN CLASS="ekeyword">end</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Cursor movement</SPAN>
+
+	<A NAME="f_go_to"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_go_to">go_to</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">p</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/cursor.html">CURSOR</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Move cursor to position </SPAN>`p'<SPAN CLASS="ecomment">.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <SPAN CLASS="ekeyword">attached</SPAN> <SPAN CLASS="esymbol">{</SPAN><A CLASS="eclass" HREF="../elks/circular_cursor.html">CIRCULAR_CURSOR</A><SPAN CLASS="esymbol">}</SPAN> <SPAN CLASS="elocal">p</SPAN> <SPAN CLASS="ekeyword">as</SPAN> c_c <SPAN CLASS="ekeyword">then</SPAN>
+				<A CLASS="efeature" HREF="../elks/linked_circular.html#f_list">list</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_go_to">go_to</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">c_c</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/circular_cursor.html#f_cursor">cursor</A><SPAN CLASS="esymbol">)</SPAN>
+				<A CLASS="efeature" HREF="../elks/circular.html#f_internal_exhausted">internal_exhausted</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">c_c</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/circular_cursor.html#f_internal_exhausted">internal_exhausted</A>
+				<A CLASS="efeature" HREF="../elks/linked_circular.html#f_starter">starter</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="elocal">c_c</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/circular_cursor.html#f_starter">starter</A>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_set_start"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_set_start">set_start</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Select current item as the first.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../elks/linked_circular.html#f_starter">starter</A> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../elks/linked_circular.html#f_standard_index">standard_index</A>
+			<A CLASS="efeature" HREF="../elks/circular.html#f_internal_exhausted">internal_exhausted</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">False</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_start"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_start">start</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Move to position currently selected as first.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../elks/circular.html#f_internal_exhausted">internal_exhausted</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="ekeyword">False</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="efeature" HREF="../elks/linked_circular.html#f_starter">starter</A> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="enumber">0</SPAN> <SPAN CLASS="ekeyword">then</SPAN>
+				<A CLASS="efeature" HREF="../elks/linked_circular.html#f_standard_start">standard_start</A>
+				<A CLASS="efeature" HREF="../elks/linked_circular.html#f_starter">starter</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="enumber">1</SPAN>
+			<SPAN CLASS="ekeyword">else</SPAN>
+				<A CLASS="efeature" HREF="../elks/linked_circular.html#f_standard_go_i_th">standard_go_i_th</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><A CLASS="efeature" HREF="../elks/linked_circular.html#f_starter">starter</A><SPAN CLASS="esymbol">)</SPAN>
+				<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="efeature" HREF="../elks/linked_circular.html#f_standard_off">standard_off</A> <SPAN CLASS="ekeyword">then</SPAN>
+					<A CLASS="efeature" HREF="../elks/linked_circular.html#f_standard_start">standard_start</A>
+				<SPAN CLASS="ekeyword">end</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="esymbol">{</SPAN>NONE<SPAN CLASS="esymbol">}</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Cursor movement</SPAN>
+
+	<A NAME="f_l_forth"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_l_forth">l_forth</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Removal</SPAN>
+
+	<A NAME="f_remove_left"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_remove_left">remove_left</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Remove item to the left of cursor position.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Do not move cursor.</SPAN>
+		<SPAN CLASS="ekeyword">require else</SPAN>
+			<A CLASS="efeature" HREF="../elks/linked_circular.html#f_count">count</A> <A CLASS="esymbol" HREF="../elks/comparable.html#f_is_greater">&gt;</A> <SPAN CLASS="enumber">1</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="efeature" HREF="../elks/linked_circular.html#f_standard_isfirst">standard_isfirst</A> <SPAN CLASS="ekeyword">then</SPAN>
+				<A CLASS="efeature" HREF="../elks/linked_circular.html#f_standard_finish">standard_finish</A>
+				<A CLASS="efeature" HREF="../elks/circular.html#f_remove">remove</A>
+			<SPAN CLASS="ekeyword">else</SPAN>
+				<A CLASS="efeature" HREF="../elks/linked_circular.html#f_standard_remove_left">standard_remove_left</A>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_remove_right"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_remove_right">remove_right</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Remove item to the right of cursor position.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Do not move cursor.</SPAN>
+		<SPAN CLASS="ekeyword">require else</SPAN>
+			<A CLASS="efeature" HREF="../elks/linked_circular.html#f_count">count</A> <A CLASS="esymbol" HREF="../elks/comparable.html#f_is_greater">&gt;</A> <SPAN CLASS="enumber">1</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="efeature" HREF="../elks/linked_circular.html#f_standard_islast">standard_islast</A> <SPAN CLASS="ekeyword">then</SPAN>
+				<A CLASS="efeature" HREF="../elks/linked_circular.html#f_standard_start">standard_start</A>
+				<A CLASS="efeature" HREF="../elks/circular.html#f_remove">remove</A>
+				<A CLASS="efeature" HREF="../elks/chain.html#f_finish">finish</A>
+			<SPAN CLASS="ekeyword">else</SPAN>
+				<A CLASS="efeature" HREF="../elks/linked_circular.html#f_standard_remove_right">standard_remove_right</A>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="esymbol">{</SPAN><A CLASS="eclass" HREF="../elks/linked_circular.html">LINKED_CIRCULAR</A><SPAN CLASS="esymbol">}</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Implementation</SPAN>
+
+	<A NAME="f_fix_start_for_remove"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_fix_start_for_remove">fix_start_for_remove</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Before deletion, update starting position if necessary.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="efeature" HREF="../elks/linked_circular.html#f_count">count</A> <SPAN CLASS="esymbol">=</SPAN> <SPAN CLASS="enumber">1</SPAN> <SPAN CLASS="ekeyword">then</SPAN>
+				<A CLASS="efeature" HREF="../elks/linked_circular.html#f_starter">starter</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="enumber">0</SPAN>
+			<SPAN CLASS="ekeyword">elseif</SPAN> <A CLASS="efeature" HREF="../elks/linked_circular.html#f_starter">starter</A> <SPAN CLASS="esymbol">=</SPAN> <A CLASS="efeature" HREF="../elks/linked_circular.html#f_standard_index">standard_index</A> <SPAN CLASS="ekeyword">then</SPAN>
+				<SPAN CLASS="ekeyword">if</SPAN> <A CLASS="efeature" HREF="../elks/linked_circular.html#f_standard_islast">standard_islast</A> <SPAN CLASS="ekeyword">then</SPAN>
+					<A CLASS="efeature" HREF="../elks/linked_circular.html#f_starter">starter</A> <SPAN CLASS="esymbol">:=</SPAN> <SPAN CLASS="enumber">1</SPAN>
+				<SPAN CLASS="ekeyword">else</SPAN>
+					<A CLASS="efeature" HREF="../elks/linked_circular.html#f_starter">starter</A> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../elks/linked_circular.html#f_starter">starter</A> <A CLASS="esymbol" HREF="../elks/integer_32.html#f_plus">+</A> <SPAN CLASS="enumber">1</SPAN>
+				<SPAN CLASS="ekeyword">end</SPAN>
+			<SPAN CLASS="ekeyword">end</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_starter"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_starter">starter</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> The position currently selected as first</SPAN>
+
+	<A NAME="f_new_chain"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_new_chain">new_chain</A><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="ekeyword">like</SPAN> <SPAN CLASS="ekeyword">Current</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> A newly created instance of the same type.</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> This feature may be redefined in descendants so as to</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> produce an adequately allocated and initialized object.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">create</SPAN> <SPAN CLASS="ekeyword">Result</SPAN><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_circular.html#f_make">make</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_list"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_list">list</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/linked_list.html">LINKED_LIST</A> <SPAN CLASS="esymbol">[</SPAN><SPAN CLASS="egeneric">G</SPAN><SPAN CLASS="esymbol">]</SPAN>
+
+	<A NAME="f_standard_after"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_standard_after">standard_after</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Is there no valid cursor position to the right of cursor?</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> (Non-cyclically)</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../elks/linked_circular.html#f_list">list</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_after">after</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_standard_back"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_standard_back">standard_back</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Move cursor to previous element, non-cyclically.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../elks/linked_circular.html#f_list">list</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_back">back</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_standard_before"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_standard_before">standard_before</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Is there no valid cursor position to the left of cursor?</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> (Non-cyclically)</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../elks/linked_circular.html#f_list">list</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_before">before</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_standard_finish"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_standard_finish">standard_finish</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Move cursor to last element.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../elks/linked_circular.html#f_list">list</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_finish">finish</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_standard_forth"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_standard_forth">standard_forth</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Move cursor to next element, non-cyclically.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../elks/linked_circular.html#f_list">list</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_forth">forth</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_standard_go_i_th"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_standard_go_i_th">standard_go_i_th</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">i</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Move cursor to </SPAN>`i'<SPAN CLASS="ecomment">-th element, non-cyclically.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../elks/linked_circular.html#f_list">list</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_go_i_th">go_i_th</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">i</SPAN><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_standard_index"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_standard_index">standard_index</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Current cursor index, non-cyclically</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../elks/linked_circular.html#f_list">list</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_index">index</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_standard_isfirst"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_standard_isfirst">standard_isfirst</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Is cursor at first position, non-cyclically?</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../elks/linked_circular.html#f_list">list</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_isfirst">isfirst</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_standard_islast"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_standard_islast">standard_islast</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Is cursor at last position, non-cyclically?</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../elks/linked_circular.html#f_list">list</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_islast">islast</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_standard_move"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_standard_move">standard_move</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">i</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/integer_32.html">INTEGER_32</A><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Move cursor to </SPAN>`i'<SPAN CLASS="ecomment">-th element, non-cyclically.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../elks/linked_circular.html#f_list">list</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_move">move</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">i</SPAN><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_standard_off"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_standard_off">standard_off</A><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../elks/boolean.html">BOOLEAN</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<SPAN CLASS="ekeyword">Result</SPAN> <SPAN CLASS="esymbol">:=</SPAN> <A CLASS="efeature" HREF="../elks/linked_circular.html#f_list">list</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_off">off</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_standard_remove"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_standard_remove">standard_remove</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Remove, non-cyclically.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../elks/linked_circular.html#f_list">list</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_remove">remove</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_standard_remove_left"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_standard_remove_left">standard_remove_left</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../elks/linked_circular.html#f_list">list</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_remove_left">remove_left</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_standard_remove_right"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_standard_remove_right">standard_remove_right</A>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../elks/linked_circular.html#f_list">list</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_remove_right">remove_right</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_standard_search"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_standard_search">standard_search</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">v</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="egeneric">G</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Search non-cyclically.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../elks/linked_circular.html#f_list">list</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/bilinear.html#f_search">search</A><SPAN CLASS="esymbol"> </SPAN><SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">v</SPAN><SPAN CLASS="esymbol">)</SPAN>
+		<SPAN CLASS="ekeyword">end</SPAN>
+
+	<A NAME="f_standard_start"></A><A CLASS="efeature" HREF="../elks/linked_circular.html#f_standard_start">standard_start</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Move cursor to first element.</SPAN>
+		<SPAN CLASS="ekeyword">do</SPAN>
+			<A CLASS="efeature" HREF="../elks/linked_circular.html#f_list">list</A><SPAN CLASS="edot">.</SPAN><A CLASS="efeature" HREF="../elks/linked_list.html#f_start">start</A>
+		<SPAN CLASS="ekeyword">end</SPAN>
+	
+<SPAN CLASS="ekeyword">note</SPAN>
+	<SPAN CLASS="eitag">copyright</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;Copyright (c) 1984-2012, Eiffel Software and others&quot;</SPAN>
+	<SPAN CLASS="eitag">license</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;Eiffel Forum License v2 (see </SPAN><A CLASS="estring" HREF="http://www.eiffel.com/licensing/forum.txt">http://www.eiffel.com/licensing/forum.txt</A><SPAN CLASS="estring">)&quot;</SPAN>
+	<SPAN CLASS="eitag">source</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;</SPAN><SPAN CLASS="estring">[</SPAN>
+		<SPAN CLASS="estring">Eiffel Software</SPAN>
+		<SPAN CLASS="estring">5949 Hollister Ave., Goleta, CA 93117 USA</SPAN>
+		<SPAN CLASS="estring">Telephone 805-685-1006, Fax 805-685-6869</SPAN>
+		<SPAN CLASS="estring">Website </SPAN><A CLASS="estring" HREF="http://www.eiffel.com">http://www.eiffel.com</A>
+		<SPAN CLASS="estring">Customer support </SPAN><A CLASS="estring" HREF="http://support.eiffel.com">http://support.eiffel.com</A>
+	<SPAN CLASS="estring">]</SPAN><SPAN CLASS="estring">&quot;</SPAN>
+
+<SPAN CLASS="ekeyword">end</SPAN> <SPAN CLASS="ecomment">--</SPAN> <SPAN CLASS="ecomment">class </SPAN><A CLASS="eclass" HREF="../elks/linked_circular.html">LINKED_CIRCULAR</A><FORM ONSUBMIT="go_to('../',this.c.value);return false;">
+<TABLE CELLSPACING="5" CELLPADDING="4"><TR>
+<TD CLASS="link1"><A CLASS="link1" HREF="../class_list.html">Classes</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_list.html">Clusters</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_hierarchy.html">Cluster hierarchy</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="linked_circular_chart.html">Chart</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="linked_circular_links.html">Relations</A></TD>
+<TD CLASS="nolink2">Text</TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="linked_circular_flat.html">Flat</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="linked_circular_short.html">Contracts</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="linked_circular_flatshort.html">Flat contracts</A></TD>
+<TD CLASS="link2">Go to: <INPUT NAME="c" VALUE="linked_circular"></TD>
+</TR></TABLE></FORM></pre>
+</section>
+<footer>
+<p>Project maintained by <a href="https://github.com/Hetrick">Hetrick</a></p>
+<p><small>Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></small></p>
+</footer>
+</div>
+<BR>For more details: <A HREF="http://www.eiffel.com">www.eiffel.com</A></P>
+</BODY>
+</HTML>
+
